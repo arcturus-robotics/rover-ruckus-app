@@ -122,11 +122,9 @@ public class MecanumTeleop_Tank extends OpMode {
                 robot.frontleftDrive.setPower(1);
                 robot.frontrightDrive.setPower(-1);
                 robot.frontrightDrive.setPower(-1);
-
         */
 
-
-/*
+        /*
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
@@ -135,8 +133,8 @@ public class MecanumTeleop_Tank extends OpMode {
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-       // robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
-       // robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+        // robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+        // robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y)
@@ -150,7 +148,8 @@ public class MecanumTeleop_Tank extends OpMode {
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
-   */ }
+        */
+    }
 
     /*
      * Code to run ONCE after the driver hits STOP

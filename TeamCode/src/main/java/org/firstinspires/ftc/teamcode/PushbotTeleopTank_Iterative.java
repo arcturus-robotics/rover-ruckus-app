@@ -39,7 +39,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 /**
  * The Mecanum tank opmode
  */
-@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop Tank (Iterative)", group="Pushbot")
 @Disabled
 public class PushbotTeleopTank_Iterative extends OpMode {
     HardwarePushbot robot       = new HardwarePushbot(); // The robot, containing each motor, servo, etc.

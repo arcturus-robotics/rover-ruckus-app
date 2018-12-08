@@ -50,13 +50,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-@TeleOp(name="Pushbot: Teleop Tankz", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop Tank (Iterativez)", group="Pushbot")
 @Disabled
 public class PushbotTeleopTank_Iterativez extends OpMode {
     HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;
-    // sets rate to move servo
+    double          clawOffset  = 0.0; // Claw offset
+    final double    CLAW_SPEED  = 0.02; // Claw movement rate from 0 to 1
 
     /*
      * Code to run ONCE when the driver hits INIT

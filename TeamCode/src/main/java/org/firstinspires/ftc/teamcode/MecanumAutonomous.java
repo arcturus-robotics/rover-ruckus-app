@@ -12,8 +12,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * The Mecanum autonomous opmode
  */
-@TeleOp(name="Pushbot: Mecanum Autonomous", group="Pushbot")
-@Disabled
+@TeleOp(name="Pushbot: Teleop Mecanum (Autonomous)", group="Pushbot")
+//@Disabled
 public class MecanumAutonomous extends LinearOpMode {
     public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous
 

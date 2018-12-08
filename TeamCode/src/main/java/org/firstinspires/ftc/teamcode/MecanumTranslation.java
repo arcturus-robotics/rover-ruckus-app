@@ -43,8 +43,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 //@Disabled
 public class MecanumTranslation extends OpMode {
     HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    final double CLAW_SPEED = 0.3; // Claw movement rate
-    final double ARM_SPEED  = 0.3; // Arm movement rate
+    final double CLAW_SPEED = 0.5; // Claw movement rate from 0 to 1
+    final double ARM_SPEED  = 0.5; // Arm movement rate from 0 to 1
 
     @Override
     public void init() {
@@ -64,20 +64,20 @@ public class MecanumTranslation extends OpMode {
 
     @Override
     public void loop() {
-        float fl = gamepad1.left_stick_y - gamepad1.left_stick_x; // Front left drive
-        float bl = gamepad1.left_stick_y + gamepad1.right_stick_x; // Back left drive
-        float fr = gamepad1.right_stick_y + gamepad1.right_stick_x; // Front right drive
-        float br = gamepad1.right_stick_y - gamepad1.left_stick_x; // Back right drive
+        float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x; // Front left drive
+        float frontRight = gamepad1.right_stick_y + gamepad1.right_stick_x; // Front right drive
+        float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x; // Back left drive
+        float backRight = gamepad1.right_stick_y - gamepad1.left_stick_x; // Back right drive
 
-        fl = -Range.clip(fl, -1,1);
-        bl = -Range.clip(bl, -1,1);
-        fr = -Range.clip(fr, -1,1);
-        br = -Range.clip(br, -1,1);
+        frontLeft = -Range.clip(frontLeft, -1,1);
+        frontRight = -Range.clip(frontRight, -1,1);
+        backLeft = -Range.clip(backLeft, -1,1);
+        backRight = -Range.clip(backRight, -1,1);
 
-        robot.frontLeftDrive.setPower(fl);
-        robot.frontRightDrive.setPower(fr);
-        robot.backLeftDrive.setPower(bl);
-        robot.backRightDrive.setPower(br);
+        robot.frontLeftDrive.setPower(frontLeft);
+        robot.frontRightDrive.setPower(frontRight);
+        robot.backLeftDrive.setPower(backLeft);
+        robot.backRightDrive.setPower(backRight);
 
         // Claw
         if (gamepad2.left_trigger == 1)
