@@ -27,39 +27,23 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.mecanum;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
- * This file provides basic Telop driving for a Pushbot robot.
- * The code is structured as an Iterative OpMode
- *
- * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
- * All device access is managed through the HardwarePushbot class.
- *
- * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
- * It raises and lowers the claw using the Gampad Y and A buttons respectively.
- * It also opens and closes the claws slowly using the left and right Bumper buttons.
- *
- * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
+ * An opmode for testing motors
  */
-
-/**
- * The Mecanum tank opmode
- */
-@TeleOp(name="Pushbot: Teleop Mecanum (Tank)", group="Pushbot")
-@Disabled
-public class MecanumTeleop_Tank extends OpMode {
-    HardwareMecanum robot       = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    double          clawOffset  = 0.0; // Claw offset
-    final double    CLAW_SPEED  = 0.02; // Claw movement rate
+@TeleOp(name="Mecanum: Teleop Motor Test", group="Mecanum")
+//@Disabled
+public class Motor_Test extends OpMode {
+    protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    double          clawOffset      = 0.0; // Claw offset
+    final double    CLAW_SPEED      = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -91,38 +75,58 @@ public class MecanumTeleop_Tank extends OpMode {
      */
     @Override
     public void loop() {
-        double leftDrive;
-        double rightDrive;
-        double move1;
-        double move2;
+        // y
+        if (gamepad1.y)
+            robot.frontLeftDrive.setPower(1);
+        else
+            robot.frontLeftDrive.setPower(0);
 
-        // Run wheels in tank mode
-        // NOTE: The joystick goes negative when pushed forwards, so negate it
-        leftDrive = -gamepad1.left_stick_y;
-        rightDrive = -gamepad1.right_stick_y;
-        move1 = gamepad1.right_stick_x;
-        move2 = gamepad1.left_stick_x;
+        // b
+        if (gamepad1.b)
+            robot.frontRightDrive.setPower(1);
+        else
+            robot.frontRightDrive.setPower(0);
 
-        robot.frontLeftDrive.setPower(leftDrive);
-        robot.frontRightDrive.setPower(rightDrive);
-        robot.backLeftDrive.setPower(leftDrive);
-        robot.backRightDrive.setPower(rightDrive);
+        // a
+        if (gamepad1.a)
+            robot.backRightDrive.setPower(1);
+        else
+            robot.backRightDrive.setPower(0);
 
+        // x
+        if (gamepad1.x)
+            robot.backLeftDrive.setPower(1);
+        else
+            robot.backLeftDrive.setPower(0);
+
+        // Launcher
+        if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper)))
+            robot.launcherTilt.setPosition(0.5);
+        else {
+            if (gamepad1.left_bumper && gamepad1.right_bumper)
+                robot.launcherTilt.setPosition(0.5);
+            else if (gamepad1.left_bumper)
+                robot.launcherTilt.setPosition(-1.0);
+            else if (gamepad1.right_bumper)
+                robot.launcherTilt.setPosition(1.0);
+        }
 
         /*
         if (move1 > 0.8 ) ;
                (move2 > 0.8);
-                robot.frontleftDrive.setPower(-1);
-                robot.frontleftDrive.setPower(-1);
-                robot.frontrightDrive.setPower(1);
-                robot.frontrightDrive.setPower(1);
+                robot.frontLeftDrive.setPower(-1);
+                robot.frontLeftDrive.setPower(-1);
+                robot.frontRightDrive.setPower(1);
+                robot.frontRightDrive.setPower(1);
         if (move1 < -0.8)        ;
             if (move2 < -0.8) ;
                 robot.frontleftDrive.setPower(1);
                 robot.frontleftDrive.setPower(1);
                 robot.frontrightDrive.setPower(-1);
                 robot.frontrightDrive.setPower(-1);
+
         */
+
 
         /*
         // Use gamepad left & right Bumpers to open and close the claw

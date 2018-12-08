@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.mecanum.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -12,14 +12,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * The Mecanum autonomous opmode
  */
-@TeleOp(name="Pushbot: Teleop Mecanum (None)", group="Pushbot")
+@TeleOp(name="Mecanum: Autonomous", group="Mecanum")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
     public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous
+    public static final long MOVEMENT_PADDING    = 30; // A divider between each movement
 
-    HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     protected ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
-    protected long movementPadding = 30; // A divider between each movement
 
     public MecanumAutonomous() {}
 
@@ -55,9 +55,7 @@ public class MecanumAutonomous extends LinearOpMode {
      * NOTE: If more time has elapsed than the duration of autonomous, nothing will happen
      */
     protected void endOpMode() {
-        long duration = AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds();
-        if (duration < 0) return;
-        sleep(duration);
+        sleep(AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds());
     }
 
     /**
@@ -78,7 +76,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive.setPower(0);
         robot.backRightDrive.setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -99,7 +97,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(0);
         robot.backRightDrive .setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -120,7 +118,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(0);
         robot.backRightDrive .setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -141,7 +139,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(0);
         robot.backRightDrive .setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -162,7 +160,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(0);
         robot.backRightDrive .setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -183,7 +181,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(0);
         robot.backRightDrive .setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -198,7 +196,7 @@ public class MecanumAutonomous extends LinearOpMode {
 
         robot.armTilt.setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -213,7 +211,7 @@ public class MecanumAutonomous extends LinearOpMode {
 
         robot.clawTilt.setPower(0);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
@@ -225,7 +223,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.launcherTilt.setDirection(direction);
         robot.launcherTilt.setPosition(position);
 
-        sleep(movementPadding);
+        sleep(MOVEMENT_PADDING);
     }
 
     /**
