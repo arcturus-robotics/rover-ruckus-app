@@ -12,17 +12,29 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * The Mecanum autonomous opmode
  */
-@TeleOp(name="Pushbot: Teleop Mecanum (Autonomous)", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop Mecanum (None)", group="Pushbot")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
     public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous
 
     HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    private ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
-    private long movementPadding = 30; // A divider between each movement
+    protected ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
+    protected long movementPadding = 30; // A divider between each movement
 
     public MecanumAutonomous() {}
 
+    /**
+     * Call this function before your main loop
+     *
+     * Example:
+     *
+     * super.runOpMode();
+     *
+     * while (opModeIsActive()) {
+     *     doStuff();
+     *     if (endOpMode()) break;
+     * }
+     */
     @Override
     public void runOpMode() {
         // Initialize the robot using the hardware map
@@ -35,60 +47,22 @@ public class MecanumAutonomous extends LinearOpMode {
         elapsedTime.reset();
 
         // Run until the end of the match (when driver presses STOP)
-        while(opModeIsActive()) {
-            moveForward(2500);
-
-            // If more than the maximum time has elapsed, break out of the loop
-            if (elapsedTime.milliseconds() > AUTONOMOUS_DURATION) { break; }
-
-            // Wait until the end of autonomous
-            sleep(AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds());
-        }
+        /* (loop goes here) */
     }
 
-    /**
-     * Utility function to easily move a motor in one line
-     * @param motor The motor to turn
-     * @param direction The direction the motor will turn in
-     * @param duration The amount of time the motor will turn for (in milliseconds)
-     */
-    private void turnMotor(DcMotor motor, DcMotor.Direction direction, long duration) {
-        if (direction == DcMotor.Direction.FORWARD) {
-            motor.setPower(1);
-        } else if (direction == DcMotor.Direction.REVERSE) {
-            motor.setPower(-1);
-        }
-
-        sleep(duration);
-
-        motor.setPower(0);
-
-        sleep(movementPadding);
-    }
-
-    /**
-     * Utility function to easily move a servo in one line
-     * NOTE: This will only work with 1 servo, because it uses `sleep`!
-     * @param servo The servo to turn
-     * @param direction The direction the servo will turn in
-     * @param position The position the servo will turn to
-     */
-    private void turnServo(Servo servo, Servo.Direction direction, double position) {
-        servo.setDirection(direction);
-        servo.setPosition(position);
-
-        sleep(movementPadding);
+    protected void endOpMode() {
+        sleep(AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds());
     }
 
     /**
      * Make the robot move forward
      * @param duration The amount of time the robot should move forward for (in milliseconds)
      */
-    public void moveForward(long duration) {
-        robot.frontLeftDrive.setPower(1);
-        robot.frontRightDrive.setPower(1);
-        robot.backLeftDrive.setPower(1);
-        robot.backRightDrive.setPower(1);
+    public void moveForward(double power, long duration) {
+        robot.frontLeftDrive.setPower(power);
+        robot.frontRightDrive.setPower(power);
+        robot.backLeftDrive.setPower(power);
+        robot.backRightDrive.setPower(power);
 
         sleep(duration);
 
@@ -104,11 +78,11 @@ public class MecanumAutonomous extends LinearOpMode {
      * Make the robot move right
      * @param duration The amount of time the robot should move right for (in milliseconds)
      */
-    public void moveRight(long duration) {
-        robot.frontLeftDrive .setPower(1);
-        robot.frontRightDrive.setPower(-1);
-        robot.backLeftDrive  .setPower(-1);
-        robot.backRightDrive .setPower(1);
+    public void moveRight(double power, long duration) {
+        robot.frontLeftDrive .setPower(power);
+        robot.frontRightDrive.setPower(-power);
+        robot.backLeftDrive  .setPower(-power);
+        robot.backRightDrive .setPower(power);
 
         sleep(duration);
 
@@ -124,11 +98,11 @@ public class MecanumAutonomous extends LinearOpMode {
      * Make the robot move backward
      * @param duration The amount of time the robot should move backward for (in milliseconds)
      */
-    public void moveBackward(long duration) {
-        robot.frontLeftDrive .setPower(-1);
-        robot.frontRightDrive.setPower(-1);
-        robot.backLeftDrive  .setPower(-1);
-        robot.backRightDrive .setPower(-1);
+    public void moveBackward(double power, long duration) {
+        robot.frontLeftDrive .setPower(-power);
+        robot.frontRightDrive.setPower(-power);
+        robot.backLeftDrive  .setPower(-power);
+        robot.backRightDrive .setPower(-power);
 
         sleep(duration);
 
@@ -144,11 +118,11 @@ public class MecanumAutonomous extends LinearOpMode {
      * Make the robot move left
      * @param duration The amount of time the robot should move left for (in milliseconds)
      */
-    public void moveLeft(long duration) {
-        robot.frontLeftDrive .setPower(-1);
-        robot.frontRightDrive.setPower(1);
-        robot.backLeftDrive  .setPower(1);
-        robot.backRightDrive .setPower(-1);
+    public void moveLeft(double power, long duration) {
+        robot.frontLeftDrive .setPower(-power);
+        robot.frontRightDrive.setPower(power);
+        robot.backLeftDrive  .setPower(power);
+        robot.backRightDrive .setPower(-power);
 
         sleep(duration);
 
@@ -164,11 +138,11 @@ public class MecanumAutonomous extends LinearOpMode {
      * Make the robot turn left
      * @param duration The amount of time the robot should turn left for (in milliseconds)
      */
-    public void turnLeft(long duration) {
-        robot.frontLeftDrive .setPower(-1);
-        robot.frontRightDrive.setPower(1);
-        robot.backLeftDrive  .setPower(-1);
-        robot.backRightDrive .setPower(1);
+    public void turnLeft(double power, long duration) {
+        robot.frontLeftDrive .setPower(-power);
+        robot.frontRightDrive.setPower(power);
+        robot.backLeftDrive  .setPower(-power);
+        robot.backRightDrive .setPower(power);
 
         sleep(duration);
 
@@ -184,11 +158,11 @@ public class MecanumAutonomous extends LinearOpMode {
      * Make the robot turn right
      * @param duration The amount of time the robot should turn right for (in milliseconds)
      */
-    public void turnRight(long duration) {
-        robot.frontLeftDrive .setPower(1);
-        robot.frontRightDrive.setPower(-1);
-        robot.backLeftDrive  .setPower(1);
-        robot.backRightDrive .setPower(-1);
+    public void turnRight(double power, long duration) {
+        robot.frontLeftDrive .setPower(power);
+        robot.frontRightDrive.setPower(-power);
+        robot.backLeftDrive  .setPower(power);
+        robot.backRightDrive .setPower(-power);
 
         sleep(duration);
 
@@ -202,20 +176,32 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the arm turn
-     * @param direction The direction for the arm to turn in
-     * @param duration The amount of time the arm should turn for (in milliseconds)
+     * @param power The speed the arm will turn at
+     * @param duration The amount of time the arm will turn for (in milliseconds)
      */
-    public void turnArm(DcMotor.Direction direction, long duration) {
-        turnMotor(robot.armTilt, direction, duration);
+    public void turnArm(double power, long duration) {
+        robot.armTilt.setPower(power);
+
+        sleep(duration);
+
+        robot.armTilt.setPower(0);
+
+        sleep(movementPadding);
     }
 
     /**
      * Make the claw turn
-     * @param direction The direction for the claw to turn in
-     * @param duration The amount of time the claw should turn for (in milliseconds)
+     * @param power The speed the claw will turn at
+     * @param duration The amount of time the claw will turn for (in milliseconds)
      */
-    public void turnClaw(DcMotor.Direction direction, long duration) {
-        turnMotor(robot.clawTilt, direction, duration);
+    public void turnClaw(double power, long duration) {
+        robot.clawTilt.setPower(power);
+
+        sleep(duration);
+
+        robot.clawTilt.setPower(0);
+
+        sleep(movementPadding);
     }
 
     /**
@@ -224,7 +210,10 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param position The position for the launcher to turn to
      */
     public void turnLauncher(Servo.Direction direction, double position) {
-        turnServo(robot.launcherTilt, direction, position);
+        robot.launcherTilt.setDirection(direction);
+        robot.launcherTilt.setPosition(position);
+
+        sleep(movementPadding);
     }
 
     /**
