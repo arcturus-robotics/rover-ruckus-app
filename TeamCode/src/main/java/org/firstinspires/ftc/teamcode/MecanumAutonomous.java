@@ -36,9 +36,7 @@ public class MecanumAutonomous extends LinearOpMode {
 
         // Run until the end of the match (when driver presses STOP)
         while(opModeIsActive()) {
-            long ms = 1000;
-            moveRight(ms);
-            moveForward(ms);
+            moveForward(2500);
 
             // If more than the maximum time has elapsed, break out of the loop
             if (elapsedTime.milliseconds() > AUTONOMOUS_DURATION) { break; }
