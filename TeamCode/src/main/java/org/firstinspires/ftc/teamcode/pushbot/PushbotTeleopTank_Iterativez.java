@@ -54,7 +54,7 @@ public class PushbotTeleopTank_Iterativez extends OpMode {
         // Initialize the robot with the hardware map
         robot.init(hardwareMap);
 
-        telemetry.addData("Status", "Waiting for Guac...");
+        telemetry.addData("Status", "Waiting for guac...");
     }
 
     /*
