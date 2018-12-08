@@ -18,6 +18,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *
  * Servos:
  *   launcherTilt
+ *   clawLeft
+ *   clawRight
  */
 public class HardwareMecanum {
     public static final double MID_SERVO = 0.5;
@@ -29,6 +31,8 @@ public class HardwareMecanum {
     public DcMotor armTilt         = null;
     public DcMotor clawTilt        = null;
     public Servo   launcherTilt    = null;
+    public Servo   clawLeft        = null;
+    public Servo   clawRight       = null;
 
     HardwareMap hwMap               = null;
     private ElapsedTime elapsedTime = new ElapsedTime();
@@ -39,7 +43,6 @@ public class HardwareMecanum {
     public void init(HardwareMap _hwMap) {
         // Save a reference to hardware map
         hwMap = _hwMap;
-
 
         /**
          * TODO: Change drive device names to completely snake case
@@ -80,8 +83,12 @@ public class HardwareMecanum {
 
         // Define and initialize servos
         launcherTilt = hwMap.get(Servo.class, "launcher_tilt");
+        clawLeft = hwMap.get(Servo.class, "claw_left");
+        clawRight = hwMap.get(Servo.class, "claw_right");
 
         // Reset servo positions
         launcherTilt.setPosition(MID_SERVO);
+        clawLeft.setPosition(MID_SERVO);
+        clawRight.setPosition(MID_SERVO);
     }
 }

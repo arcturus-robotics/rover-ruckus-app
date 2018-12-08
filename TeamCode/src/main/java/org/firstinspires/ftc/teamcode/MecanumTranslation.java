@@ -31,6 +31,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
@@ -93,6 +94,20 @@ public class MecanumTranslation extends OpMode {
             robot.armTilt.setPower(ARM_SPEED);
         else
             robot.armTilt.setPower(0);
+
+        // Intake
+        if (gamepad2.x || gamepad2.a) {
+            if (gamepad2.x) {
+                robot.clawLeft.setDirection(Servo.Direction.FORWARD);
+                robot.clawRight.setDirection(Servo.Direction.REVERSE);
+            } else if (gamepad2.a) {
+                robot.clawLeft.setDirection(Servo.Direction.REVERSE);
+                robot.clawRight.setDirection(Servo.Direction.FORWARD);
+            }
+
+            robot.clawLeft.setPosition(1);
+            robot.clawRight.setPosition(1);
+        }
     }
 
     @Override
