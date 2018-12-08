@@ -42,8 +42,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 //@Disabled
 public class MecanumTranslation extends OpMode {
     HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    final double CLAW_SPEED = 0.4; // Claw movement rate
-    final double ARM_SPEED  = 0.4; // Arm movement rate
+    final double CLAW_SPEED = 0.3; // Claw movement rate
+    final double ARM_SPEED  = 0.3; // Arm movement rate
 
     @Override
     public void init() {
@@ -63,36 +63,30 @@ public class MecanumTranslation extends OpMode {
 
     @Override
     public void loop() {
-        boolean lt = false;
-        boolean rt = false;
-        float fl = gamepad1.left_stick_y - gamepad1.left_stick_x;
-        float bl = gamepad1.left_stick_y + gamepad1.right_stick_x;
-        float fr = gamepad1.right_stick_y + gamepad1.right_stick_x;
-        float br = gamepad1.right_stick_y - gamepad1.left_stick_x;
+        float fl = gamepad1.left_stick_y - gamepad1.left_stick_x; // Front left drive
+        float bl = gamepad1.left_stick_y + gamepad1.right_stick_x; // Back left drive
+        float fr = gamepad1.right_stick_y + gamepad1.right_stick_x; // Front right drive
+        float br = gamepad1.right_stick_y - gamepad1.left_stick_x; // Back right drive
 
-        fl = Range.clip(fl, -1,1);
-        bl = Range.clip(bl, -1,1);
-        fr = Range.clip(fr, -1,1);
-        br = Range.clip(br, -1,1);
+        fl = -Range.clip(fl, -1,1);
+        bl = -Range.clip(bl, -1,1);
+        fr = -Range.clip(fr, -1,1);
+        br = -Range.clip(br, -1,1);
 
-        robot.frontLeftDrive.setPower(-fl);
-        robot.frontRightDrive.setPower(-fr);
-        robot.backLeftDrive.setPower(-bl);
-        robot.backRightDrive.setPower(-br);
+        robot.frontLeftDrive.setPower(fl);
+        robot.frontRightDrive.setPower(fr);
+        robot.backLeftDrive.setPower(bl);
+        robot.backRightDrive.setPower(br);
 
+        // Claw
         if (gamepad2.left_trigger == 1)
-            lt = true;
-
-        if (gamepad2.right_trigger == 1)
-            rt = true;
-
-        if (lt)
             robot.clawTilt.setPower(-CLAW_SPEED);
-        else if (rt)
+        else if (gamepad2.right_trigger == 1)
             robot.clawTilt.setPower(CLAW_SPEED);
         else
             robot.clawTilt.setPower(0);
 
+        // Arm
         if (gamepad2.left_bumper)
             robot.armTilt.setPower(-ARM_SPEED);
         else if (gamepad2.right_bumper)
@@ -100,7 +94,6 @@ public class MecanumTranslation extends OpMode {
         else
             robot.armTilt.setPower(0);
     }
-
 
     @Override
     public void stop() {
