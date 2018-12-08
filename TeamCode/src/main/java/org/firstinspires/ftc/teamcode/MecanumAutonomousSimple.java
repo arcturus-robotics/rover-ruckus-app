@@ -10,7 +10,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
- * The Mecanum autonomous opmode
+ * The Mecanum autonomous opmode that moves forward into the crater/depot
  */
 @TeleOp(name="Pushbot: Mecanum Autonomous (Simple)", group="Pushbot")
 //@Disabled

@@ -26,14 +26,17 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Call this function before your main loop
      *
-     * Example:
-     *
+     * ## Example
+     * ```
      * super.runOpMode();
      *
+     * // Run until the end of the match (when driver presses STOP)
      * while (opModeIsActive()) {
      *     doStuff();
-     *     if (endOpMode()) break;
+     *     endOpMode();
+     *     break;
      * }
+     * ```
      */
     @Override
     public void runOpMode() {
@@ -45,18 +48,22 @@ public class MecanumAutonomous extends LinearOpMode {
 
         // Reset the elapsed time
         elapsedTime.reset();
-
-        // Run until the end of the match (when driver presses STOP)
-        /* (loop goes here) */
     }
 
+    /**
+     * Sleep for the rest of autonomous
+     * NOTE: If more time has elapsed than the duration of autonomous, nothing will happen
+     */
     protected void endOpMode() {
-        sleep(AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds());
+        long duration = AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds();
+        if (duration < 0) return;
+        sleep(duration);
     }
 
     /**
      * Make the robot move forward
-     * @param duration The amount of time the robot should move forward for (in milliseconds)
+     * @param power The speed the robot will move forward at
+     * @param duration The amount of time the robot will move forward for (in milliseconds)
      */
     public void moveForward(double power, long duration) {
         robot.frontLeftDrive.setPower(power);
@@ -76,7 +83,8 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the robot move right
-     * @param duration The amount of time the robot should move right for (in milliseconds)
+     * @param power The speed the robot will move right at
+     * @param duration The amount of time the robot will move right for (in milliseconds)
      */
     public void moveRight(double power, long duration) {
         robot.frontLeftDrive .setPower(power);
@@ -96,7 +104,8 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the robot move backward
-     * @param duration The amount of time the robot should move backward for (in milliseconds)
+     * @param power The speed the robot will move backward at
+     * @param duration The amount of time the robot will move backward for (in milliseconds)
      */
     public void moveBackward(double power, long duration) {
         robot.frontLeftDrive .setPower(-power);
@@ -116,7 +125,8 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the robot move left
-     * @param duration The amount of time the robot should move left for (in milliseconds)
+     * @param power The speed the robot will move left at
+     * @param duration The amount of time the robot will move left for (in milliseconds)
      */
     public void moveLeft(double power, long duration) {
         robot.frontLeftDrive .setPower(-power);
@@ -136,7 +146,8 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the robot turn left
-     * @param duration The amount of time the robot should turn left for (in milliseconds)
+     * @param power The speed the arm will turn left at
+     * @param duration The amount of time the robot will turn left for (in milliseconds)
      */
     public void turnLeft(double power, long duration) {
         robot.frontLeftDrive .setPower(-power);
@@ -156,7 +167,8 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the robot turn right
-     * @param duration The amount of time the robot should turn right for (in milliseconds)
+     * @param power The speed the robot will turn right at
+     * @param duration The amount of time the robot will turn right for (in milliseconds)
      */
     public void turnRight(double power, long duration) {
         robot.frontLeftDrive .setPower(power);

@@ -10,12 +10,13 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
- * The Mecanum autonomous opmode
+ * The Mecanum autonomous opmode that deploys the marker
  */
 @TeleOp(name="Pushbot: Mecanum Autonomous (Deploy Marker)", group="Pushbot")
 //@Disabled
 public class MecanumAutonomousMarker extends MecanumAutonomous {
-    final double DEPLOY_SPEED = 0.2;
+    final double DEPLOY_SPEED  = 0.5; // The power at which the marker will be deployed
+    final long DEPLOY_DURATION = 600; // The amount of time the marker will be deployed for
 
     private ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
     private long movementPadding = 30; // A divider between each movement
@@ -27,13 +28,16 @@ public class MecanumAutonomousMarker extends MecanumAutonomous {
         super.runOpMode();
 
         while(opModeIsActive()) {
-            moveForward(1, 500);
-            moveLeft(1, 500);
-            turnRight(1, 250);
-            moveBackward(1, 2500);
-            turnClaw(DEPLOY_SPEED, 300);
+            // Move to depot and deploy marker
+            moveForward(1, 1250);
+            moveLeft(1, 1250);
+            turnRight(1, 800);
+            moveBackward(1, 4000);
+            turnClaw(DEPLOY_SPEED, DEPLOY_DURATION);
+            turnClaw(-DEPLOY_SPEED, DEPLOY_DURATION);
 
-            endOpMode();
+            // Move forward for the rest of autonomous
+            moveForward(1, AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds());
             break;
         }
     }
