@@ -38,7 +38,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 /**
  * An opmode for testing motors
  */
-@TeleOp(name="Pushbot: Tank Motor Test", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop Mecanum (Motor Test)", group="Pushbot")
 //@Disabled
 public class Motor_Test extends OpMode {
     HardwareMecanum robot       = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
@@ -75,7 +75,6 @@ public class Motor_Test extends OpMode {
      */
     @Override
     public void loop() {
-
         // y
         if (gamepad1.y)
             robot.frontLeftDrive.setPower(1);
@@ -100,6 +99,7 @@ public class Motor_Test extends OpMode {
         else
             robot.backLeftDrive.setPower(0);
 
+        // Launcher
         if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper)))
             robot.launcherTilt.setPosition(0.5);
         else {
