@@ -42,16 +42,16 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * See PushbotTeleopTank_Iterative and others classes starting with "Pushbot" for usage examples.
  *
  * This hardware class assumes the following device names have been configured on the robot:
- * NOTE:  All names are lower case and some have single spaces between words.
+ * NOTE: All names are lower case and some have single spaces between words.
  *
  * Motors:
- *   leftDrive
- *   rightDrive
- *   leftArm
+ *   leftDrive:  "left_drive"
+ *   rightDrive: "right_drive"
+ *   leftArm     "left_arm"
  *
  * Servos:
- *   leftHand
- *   rightHand
+ *   leftClaw:  "left_claw"
+ *   rightClaw: "right_claw"
  */
 public class HardwarePushbot {
     public static final double MID_SERVO      =  0.5;
@@ -64,7 +64,7 @@ public class HardwarePushbot {
     public Servo   leftClaw   = null;
     public Servo   rightClaw  = null;
 
-    HardwareMap hwMap          = null;
+    HardwareMap hwMap               = null;
     private ElapsedTime elapsedTime = new ElapsedTime();
 
     public HardwarePushbot () {}
@@ -80,7 +80,7 @@ public class HardwarePushbot {
         leftArm    = hwMap.get(DcMotor.class, "left_arm");
 
         // Set motor directions
-        // (Set to the opposite direction if using AndyMark motors)
+        // NOTE: Set to the opposite direction if you are using AndyMark motors
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
@@ -90,14 +90,14 @@ public class HardwarePushbot {
         leftArm.setPower(0);
 
         // Set motors to run without encoders
-        // (You may want to use RUN_USING_ENCODERS if encoders are installed)
+        // NOTE: You may want to use RUN_USING_ENCODERS if encoders are installed
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize servos.
-        leftClaw  = hwMap.get(Servo.class, "left_hand");
-        rightClaw = hwMap.get(Servo.class, "right_hand");
+        leftClaw  = hwMap.get(Servo.class, "left_claw");
+        rightClaw = hwMap.get(Servo.class, "right_claw");
 
         // Reset servo positions
         leftClaw.setPosition(MID_SERVO);

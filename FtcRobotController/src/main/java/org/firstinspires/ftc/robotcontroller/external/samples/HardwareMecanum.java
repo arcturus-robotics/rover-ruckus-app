@@ -9,17 +9,17 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Mecanum hardware
  *
  * Motors:
- *   frontLeftDrive
- *   frontRightDrive
- *   backLeftDrive
- *   backRightDrive
- *   armTilt
- *   clawTilt
+ *   frontLeftDrive:  "front_leftDrive"  TODO: "front_left_drive"
+ *   frontRightDrive: "front_rightDrive" TODO: "front_right_drive"
+ *   backLeftDrive:   "back_leftDrive"   TODO: "back_left_drive"
+ *   backRightDrive:  "back_rightDrive"  TODO: "back_right_drive"
+ *   armTilt:         "arm_tilt"
+ *   clawTilt:        "claw_tilt"
  *
  * Servos:
- *   launcherTilt
- *   clawLeft
- *   clawRight
+ *   launcherTilt: "launcher_tilt"
+ *   clawLeft:     "claw_left"
+ *   clawRight:    "claw_right"
  */
 public class HardwareMecanum {
     public static final double MID_SERVO = 0.5;
@@ -58,11 +58,12 @@ public class HardwareMecanum {
         clawTilt        = hwMap.get(DcMotor.class, "claw_tilt");
 
         // Set motor directions
-        // NOTE: Set to the opposite direction if using AndyMark motors
+        // NOTE: Set to the opposite direction if you are using AndyMark motors
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
+
         // Reset motor power
         frontLeftDrive.setPower(0);
         backRightDrive.setPower(0);
