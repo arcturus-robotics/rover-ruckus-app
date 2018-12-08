@@ -3,25 +3,29 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+/**
+ * The Mecanum autonomous opmode.
+ */
 @TeleOp(name="Pushbot: Mecanum Autonomous", group="Pushbot")
 public class MecanumAutonomous extends LinearOpMode {
-    public static final long AUTONOMOUS_TIME = 30000;
+    public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous
 
-    HardwareMecanum robot = new HardwareMecanum();
-    private ElapsedTime elapsedTime = new ElapsedTime();
-    private long postMovementSleep = 30;
+    HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    private ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
+    private long movementPadding = 30; // A sort of divider between each movement
 
     public MecanumAutonomous() {}
 
     @Override
     public void runOpMode() {
         /*
-         * The init() method of the hardware class does all the work here.
+         * Initialize the robot using the hardware map
          */
         robot.init(hardwareMap);
 
@@ -41,196 +45,211 @@ public class MecanumAutonomous extends LinearOpMode {
             moveBackward(ms);
 
             // If more than the maximum time has elapsed, break out of the loop
-            if (elapsedTime.milliseconds() > AUTONOMOUS_TIME) { break; }
+            if (elapsedTime.milliseconds() > AUTONOMOUS_DURATION) { break; }
 
             // Wait until the end of autonomous
-            sleep(AUTONOMOUS_TIME - (long) elapsedTime.milliseconds());
+            sleep(AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds());
         }
     }
 
     /**
-     * Make the robot move forward
-     * @param ms The amount of milliseconds to move forward
+     * Utility function to easily move a motor in one line
+     * @param motor The motor to turn
+     * @param direction The direction the motor will turn in
+     * @param duration The amount of time the motor will turn for (in milliseconds)
      */
-    public void moveForward(long ms) {
+    private void turnMotor(DcMotor motor, DcMotor.Direction direction, long duration) {
+        if (direction == DcMotor.Direction.FORWARD) {
+            motor.setPower(1);
+        } else if (direction == DcMotor.Direction.REVERSE) {
+            motor.setPower(-1);
+        }
+
+        sleep(duration);
+
+        motor.setPower(0);
+
+        sleep(movementPadding);
+    }
+
+    /**
+     * Utility function to easily move a servo in one line
+     * NOTE: This will only work with 1 servo, because it uses `sleep`!
+     * @param servo The servo to turn
+     * @param direction The direction the servo will turn in
+     * @param position The position the servo will turn to
+     */
+    private void turnServo(Servo servo, Servo.Direction direction, double position) {
+        servo.setDirection(direction);
+        servo.setPosition(position);
+
+        sleep(movementPadding);
+    }
+
+    /**
+     * Make the robot move forward
+     * @param duration The amount of time the robot should move forward for (in milliseconds)
+     */
+    public void moveForward(long duration) {
         robot.frontLeftDrive.setPower(1);
         robot.frontRightDrive.setPower(1);
         robot.backLeftDrive.setPower(1);
         robot.backRightDrive.setPower(1);
 
-        sleep(ms);
+        sleep(duration);
 
         robot.frontLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.backRightDrive.setPower(0);
 
-        sleep(postMovementSleep);
+        sleep(movementPadding);
     }
 
     /**
      * Make the robot move right
-     * @param ms The amount of milliseconds to move right
+     * @param duration The amount of time the robot should move right for (in milliseconds)
      */
-    public void moveRight(long ms) {
-        robot.frontLeftDrive.setPower(1);
+    public void moveRight(long duration) {
+        robot.frontLeftDrive .setPower(1);
         robot.frontRightDrive.setPower(-1);
-        robot.backLeftDrive.setPower(-1);
-        robot.backRightDrive.setPower(1);
+        robot.backLeftDrive  .setPower(-1);
+        robot.backRightDrive .setPower(1);
 
-        sleep(ms);
+        sleep(duration);
 
-        robot.frontLeftDrive.setPower(0);
+        robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive  .setPower(0);
+        robot.backRightDrive .setPower(0);
 
-        sleep(postMovementSleep);
+        sleep(movementPadding);
     }
 
     /**
      * Make the robot move backward
-     * @param ms The amount of milliseconds to move backward
+     * @param duration The amount of time the robot should move backward for (in milliseconds)
      */
-    public void moveBackward(long ms) {
-        robot.frontLeftDrive.setPower(-1);
+    public void moveBackward(long duration) {
+        robot.frontLeftDrive .setPower(-1);
         robot.frontRightDrive.setPower(-1);
-        robot.backLeftDrive.setPower(-1);
-        robot.backRightDrive.setPower(-1);
+        robot.backLeftDrive  .setPower(-1);
+        robot.backRightDrive .setPower(-1);
 
-        sleep(ms);
+        sleep(duration);
 
-        robot.frontLeftDrive.setPower(0);
+        robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive  .setPower(0);
+        robot.backRightDrive .setPower(0);
 
-        sleep(postMovementSleep);
+        sleep(movementPadding);
     }
 
     /**
      * Make the robot move left
-     * @param ms The amount of milliseconds to move left
+     * @param duration The amount of time the robot should move left for (in milliseconds)
      */
-    public void moveLeft(long ms) {
-        robot.frontLeftDrive.setPower(-1);
+    public void moveLeft(long duration) {
+        robot.frontLeftDrive .setPower(-1);
         robot.frontRightDrive.setPower(1);
-        robot.backLeftDrive.setPower(1);
-        robot.backRightDrive.setPower(-1);
+        robot.backLeftDrive  .setPower(1);
+        robot.backRightDrive .setPower(-1);
 
-        sleep(ms);
+        sleep(duration);
 
-        robot.frontLeftDrive.setPower(0);
+        robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive  .setPower(0);
+        robot.backRightDrive .setPower(0);
 
-        sleep(postMovementSleep);
+        sleep(movementPadding);
     }
 
     /**
      * Make the robot turn left
-     * @param ms The amount of milliseconds to turn left
+     * @param duration The amount of time the robot should turn left for (in milliseconds)
      */
-    public void turnLeft(long ms) {
-        robot.frontLeftDrive.setPower(-1);
+    public void turnLeft(long duration) {
+        robot.frontLeftDrive .setPower(-1);
         robot.frontRightDrive.setPower(1);
-        robot.backLeftDrive.setPower(-1);
-        robot.backRightDrive.setPower(1);
+        robot.backLeftDrive  .setPower(-1);
+        robot.backRightDrive .setPower(1);
 
-        sleep(ms);
+        sleep(duration);
 
-        robot.frontLeftDrive.setPower(0);
+        robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive  .setPower(0);
+        robot.backRightDrive .setPower(0);
 
-        sleep(postMovementSleep);
+        sleep(movementPadding);
     }
 
     /**
      * Make the robot turn right
-     * @param ms The amount of milliseconds to turn right
+     * @param duration The amount of time the robot should turn right for (in milliseconds)
      */
-    public void turnRight(long ms) {
-        robot.frontLeftDrive.setPower(1);
+    public void turnRight(long duration) {
+        robot.frontLeftDrive .setPower(1);
         robot.frontRightDrive.setPower(-1);
-        robot.backLeftDrive.setPower(1);
-        robot.backRightDrive.setPower(-1);
+        robot.backLeftDrive  .setPower(1);
+        robot.backRightDrive .setPower(-1);
 
-        sleep(ms);
+        sleep(duration);
 
-        robot.frontLeftDrive.setPower(0);
+        robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive  .setPower(0);
+        robot.backRightDrive .setPower(0);
 
-        sleep(postMovementSleep);
+        sleep(movementPadding);
     }
 
     /**
-     * Make the arm turn forward
-     * @param ms The amount of milliseconds for it to turn forward
+     * Make the arm turn
+     * @param direction The direction for the arm to turn in
+     * @param duration The amount of time the arm should turn for (in milliseconds)
      */
-    public void turnArmForward(long ms) {
-        robot.armTilt.setPower(1);
-
-        sleep(ms);
-
-        robot.armTilt.setPower(0);
-
-        sleep(postMovementSleep);
+    public void turnArm(DcMotor.Direction direction, long duration) {
+        turnMotor(robot.armTilt, direction, duration);
     }
 
     /**
-     * Make the arm turn backward
-     * @param ms The amount of milliseconds for it to turn backward
+     * Make the claw turn
+     * @param direction The direction for the claw to turn in
+     * @param duration The amount of time the claw should turn for (in milliseconds)
      */
-    public void turnArmBackward(long ms) {
-        robot.armTilt.setPower(-1);
-
-        sleep(ms);
-
-        robot.armTilt.setPower(0);
-
-        sleep(postMovementSleep);
+    public void turnClaw(DcMotor.Direction direction, long duration) {
+        turnMotor(robot.clawTilt, direction, duration);
     }
 
     /**
-     * Make the claw turn forward
-     * @param ms The amount of milliseconds for it to turn forward
+     * Make the launcher turn
+     * @param direction The direction for the launcher to turn in
+     * @param position The position for the launcher to turn to
      */
-    public void turnClawForward(long ms) {
-        robot.clawTilt.setPower(1);
-
-        sleep(ms);
-
-        robot.clawTilt.setPower(0);
-
-        sleep(postMovementSleep);
+    public void turnLauncher(Servo.Direction direction, double position) {
+        turnServo(robot.launcherTilt, direction, position);
     }
 
     /**
-     * Make the claw turn backward
-     * @param ms The amount of milliseconds for it to turn backward
+     * Make the launcher turn using degrees
+     * // NOTE: This is untested!
+     * @param direction The direction for the launcher to turn in
+     * @param degrees The angle for the launcher to turn to (in degrees)
      */
-    public void turnClawBackward(long ms) {
-        robot.clawTilt.setPower(-1);
-
-        sleep(ms);
-
-        robot.clawTilt.setPower(0);
-
-        sleep(postMovementSleep);
+    public void turnLauncherDeg(Servo.Direction direction, double degrees) {
+        turnLauncher(direction, degrees / 180);
     }
 
     /**
-     * Make the launcher turn forward
-     * @param dir The direction to go to
-     * @param pos The position to go to
+     * Make the launcher turn using radians
+     * NOTE: This is untested!
+     * @param direction The direction for the launcher to turn in
+     * @param radians The angle for the launcher to turn to (in radians)
      */
-    public void setLauncher(Servo.Direction dir, double pos) {
-        robot.launcherTilt.setDirection(dir);
-        robot.launcherTilt.setPosition(pos);
+    public void setLauncherRad(Servo.Direction direction, double radians) {
+        turnLauncher(direction, radians / Math.PI);
     }
 }

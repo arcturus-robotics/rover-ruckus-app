@@ -42,62 +42,64 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * See PushbotTeleopTank_Iterative and others classes starting with "Pushbot" for usage examples.
  *
  * This hardware class assumes the following device names have been configured on the robot:
- * Note:  All names are lower case and some have single spaces between words.
+ * NOTE:  All names are lower case and some have single spaces between words.
  *
- * Motor channel:  Left  drive motor:        "left_drive"
- * Motor channel:  Right drive motor:        "right_drive"
- * Motor channel:  Manipulator drive motor:  "left_arm"
- * Servo channel:  Servo to open left claw:  "left_hand"
- * Servo channel:  Servo to open right claw: "right_hand"
+ * Motors:
+ *   leftDrive
+ *   rightDrive
+ *   leftArm
+ *
+ * Servos:
+ *   leftHand
+ *   rightHand
  */
-public class HardwarePushbot
-{
-    /* Public OpMode members. */
-    public DcMotor  leftDrive   = null;
-    public DcMotor  rightDrive  = null;
-    public DcMotor  leftArm     = null;
-    public Servo    leftClaw    = null;
-    public Servo    rightClaw   = null;
+public class HardwarePushbot {
+    public static final double MID_SERVO      =  0.5;
+    public static final double ARM_UP_POWER   =  0.45;
+    public static final double ARM_DOWN_POWER = -0.45;
 
-    public static final double MID_SERVO       =  0.5 ;
-    public static final double ARM_UP_POWER    =  0.45 ;
-    public static final double ARM_DOWN_POWER  = -0.45 ;
+    public DcMotor leftDrive  = null;
+    public DcMotor rightDrive = null;
+    public DcMotor leftArm    = null;
+    public Servo   leftClaw   = null;
+    public Servo   rightClaw  = null;
 
-    /* local OpMode members. */
-    HardwareMap hwMap           =  null;
-    private ElapsedTime period  = new ElapsedTime();
+    HardwareMap hwMap          = null;
+    private ElapsedTime elapsedTime = new ElapsedTime();
 
-    /* Constructor */
-    public HardwarePushbot(){
+    public HardwarePushbot () {}
 
-    }
+    /* Initialize standard hardware interfaces */
+    public void init(HardwareMap _hwMap) {
+        // Save a reference to the hardware map
+        hwMap = _hwMap;
 
-    /* Initialize standard Hardware interfaces */
-    public void init(HardwareMap ahwMap) {
-        // Save reference to Hardware map
-        hwMap = ahwMap;
-
-        // Define and Initialize Motors
+        // Define and initialize motors
         leftDrive  = hwMap.get(DcMotor.class, "left_drive");
         rightDrive = hwMap.get(DcMotor.class, "right_drive");
         leftArm    = hwMap.get(DcMotor.class, "left_arm");
-        leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
-        // Set all motors to zero power
+        // Set motor directions
+        // (Set to the opposite direction if using AndyMark motors)
+        leftDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+
+        // Reset motor power
         leftDrive.setPower(0);
         rightDrive.setPower(0);
         leftArm.setPower(0);
 
-        // Set all motors to run without encoders.
-        // May want to use RUN_USING_ENCODERS if encoders are installed.
+        // Set motors to run without encoders
+        // (You may want to use RUN_USING_ENCODERS if encoders are installed)
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        // Define and initialize ALL installed servos.
+        // Define and initialize servos.
         leftClaw  = hwMap.get(Servo.class, "left_hand");
         rightClaw = hwMap.get(Servo.class, "right_hand");
+
+        // Reset servo positions
         leftClaw.setPosition(MID_SERVO);
         rightClaw.setPosition(MID_SERVO);
     }
