@@ -10,23 +10,22 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
- * The Mecanum autonomous opmode.
+ * The Mecanum autonomous opmode
  */
 @TeleOp(name="Pushbot: Mecanum Autonomous", group="Pushbot")
+@Disabled
 public class MecanumAutonomous extends LinearOpMode {
     public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous
 
     HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     private ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
-    private long movementPadding = 30; // A sort of divider between each movement
+    private long movementPadding = 30; // A divider between each movement
 
     public MecanumAutonomous() {}
 
     @Override
     public void runOpMode() {
-        /*
-         * Initialize the robot using the hardware map
-         */
+        // Initialize the robot using the hardware map
         robot.init(hardwareMap);
 
         // Wait until the start of the match (when driver presses START)

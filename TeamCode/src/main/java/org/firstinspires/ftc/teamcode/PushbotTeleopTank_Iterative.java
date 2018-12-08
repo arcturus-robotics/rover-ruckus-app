@@ -37,42 +37,24 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
- * This file provides basic Telop driving for a Pushbot robot.
- * The code is structured as an Iterative OpMode
- *
- * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
- * All device access is managed through the HardwarePushbot class.
- *
- * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
- * It raises and lowers the claw using the Gampad Y and A buttons respectively.
- * It also opens and closes the claws slowly using the left and right Bumper buttons.
- *
- * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
+ * The Mecanum tank opmode
  */
-
-@TeleOp(name="Pushbot: Teleop Tanks", group="Pushbot")
+@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
 @Disabled
-public class PushbotTeleopTank_Iterative extends OpMode{
-
-    /* Declare OpMode members. */
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;
-    // sets rate to move servo
+public class PushbotTeleopTank_Iterative extends OpMode {
+    HardwarePushbot robot       = new HardwarePushbot(); // The robot, containing each motor, servo, etc.
+    double          clawOffset  = 0.0; // Claw offset
+    final double    CLAW_SPEED  = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        /* Initialize the hardware variables.
-         * The init() method of the hardware class does all the work here
-         */
+        // Initialize the robot with the hardware map
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Waiting...");    //
+        telemetry.addData("Status", "Waiting...");
     }
 
     /*
@@ -84,7 +66,7 @@ public class PushbotTeleopTank_Iterative extends OpMode{
     }
 
     /*
-    55 * Code to run ONCE when the driver hits PLAY
+     * Code to run ONCE when the driver hits PLAY
      */
     @Override
     public void start() {
@@ -99,7 +81,8 @@ public class PushbotTeleopTank_Iterative extends OpMode{
         double left;
         double right;
 
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+        // Run wheels in tank mode
+        // NOTE: The joystick goes negative when pushed forwards, so negate it
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 

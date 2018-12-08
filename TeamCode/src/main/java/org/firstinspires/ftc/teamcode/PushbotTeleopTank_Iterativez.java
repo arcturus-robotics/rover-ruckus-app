@@ -50,12 +50,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-
 @TeleOp(name="Pushbot: Teleop Tankz", group="Pushbot")
 @Disabled
-public class PushbotTeleopTank_Iterativez extends OpMode{
-
-    /* Declare OpMode members. */
+public class PushbotTeleopTank_Iterativez extends OpMode {
     HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
     double          clawOffset  = 0.0 ;                  // Servo mid position
     final double    CLAW_SPEED  = 0.02 ;
@@ -66,30 +63,24 @@ public class PushbotTeleopTank_Iterativez extends OpMode{
      */
     @Override
     public void init() {
-        /* Initialize the hardware variables.
-         * The init() method of the hardware class does all the work here
-         */
+        // Initialize the robot with the hardware map
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Waiting Guac...");    //
+        telemetry.addData("Status", "Waiting for Guac...");
     }
 
     /*
      * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
      */
     @Override
-    public void init_loop() {
-
-    }
+    public void init_loop() {}
 
     /*
-    55 * Code to run ONCE when the driver hits PLAY
+     * Code to run ONCE when the driver hits PLAY
      */
     @Override
     public void start() {
-
-        telemetry.addData("TEST","TEST");
+        telemetry.addData("Status","Started");
     }
 
     /*
@@ -99,19 +90,22 @@ public class PushbotTeleopTank_Iterativez extends OpMode{
     public void loop() {
         double left;
         double right;
-        double testleft;
-        double testright;
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+        double testLeft;
+        double testRight;
+
+        // Run wheels in tank mode
+        // NOTE: The joystick is negative when pushed forwards, so negate it
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
-        testleft = -gamepad1.left_stick_x;
-        testright = -gamepad1.right_stick_x;
+        testLeft = -gamepad1.left_stick_x;
+        testRight = -gamepad1.right_stick_x;
 
         robot.leftDrive.setPower(left);
         robot.rightDrive.setPower(right);
 
-        telemetry.addData("Xvaluer", "%.2f", testleft);
-        telemetry.addData("xvaluer", "%.2f", testright);
+        telemetry.addData("Left test", "%.2f", testLeft);
+        telemetry.addData("Right test", "%.2f", testRight);
+
         /*
         // Use gamepad left & right Bumpers to open and close the claw
         if (gamepad1.right_bumper)
@@ -136,7 +130,7 @@ public class PushbotTeleopTank_Iterativez extends OpMode{
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
-   */
+        */
     }
 
     /*

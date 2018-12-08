@@ -51,40 +51,35 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Teleop Mecanum", group="Pushbot")
+/**
+ * The Mecanum tank opmode
+ */
+@TeleOp(name="Pushbot: Teleop Mecanum (Tank)", group="Pushbot")
 @Disabled
-public class MecanumTeleop_Tank extends OpMode{
-
-    /* Declare OpMode members. */
-    HardwareMecanum robot       = new HardwareMecanum(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;
-    // sets rate to move servo
+public class MecanumTeleop_Tank extends OpMode {
+    HardwareMecanum robot       = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    double          clawOffset  = 0.0; // Claw offset
+    final double    CLAW_SPEED  = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        /* Initialize the hardware variables.
-         * The init() method of the hardware class does all the work here
-         */
+        // Initialize the robot using the hardware map
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Waiting...");    //
+        telemetry.addData("Status", "Waiting...");
     }
 
     /*
      * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
      */
     @Override
-    public void init_loop() {
-
-    }
+    public void init_loop() {}
 
     /*
-    55 * Code to run ONCE when the driver hits PLAY
+     * Code to run ONCE when the driver hits PLAY
      */
     @Override
     public void start() {
@@ -96,21 +91,22 @@ public class MecanumTeleop_Tank extends OpMode{
      */
     @Override
     public void loop() {
-        double leftdrive;
-        double rightdrive;
+        double leftDrive;
+        double rightDrive;
         double move1;
         double move2;
 
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        leftdrive = -gamepad1.left_stick_y;
-        rightdrive = -gamepad1.right_stick_y;
+        // Run wheels in tank mode
+        // NOTE: The joystick goes negative when pushed forwards, so negate it
+        leftDrive = -gamepad1.left_stick_y;
+        rightDrive = -gamepad1.right_stick_y;
         move1 = gamepad1.right_stick_x;
         move2 = gamepad1.left_stick_x;
 
-        robot.frontLeftDrive.setPower(leftdrive);
-        robot.frontRightDrive.setPower(rightdrive);
-        robot.backLeftDrive.setPower(leftdrive);
-        robot.backRightDrive.setPower(rightdrive);
+        robot.frontLeftDrive.setPower(leftDrive);
+        robot.frontRightDrive.setPower(rightDrive);
+        robot.backLeftDrive.setPower(leftDrive);
+        robot.backRightDrive.setPower(rightDrive);
 
 
         /*

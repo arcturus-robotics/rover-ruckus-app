@@ -35,38 +35,40 @@ import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 
-
-@TeleOp(name="Pushbot: Teleop Mecanumz", group="Pushbot")
+/**
+ * An opmode for the claw and arm
+ */
+@TeleOp(name="Pushbot: Teleop Mecanum (Translation)", group="Pushbot")
 //@Disabled
-public class MecanumTranslation extends OpMode{
-
-    HardwareMecanum robot       = new HardwareMecanum(); // use the class created to define a Pushbot's hardware
+public class MecanumTranslation extends OpMode {
+    HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    final double CLAW_SPEED = 0.4; // Claw movement rate
+    final double ARM_SPEED  = 0.4; // Arm movement rate
 
     @Override
     public void init() {
-
+        // Initialize the robot with the hardware map
         robot.init(hardwareMap);
 
         telemetry.addData("Status", "Waiting...");
     }
 
     @Override
-    public void init_loop() { }
-
+    public void init_loop() {}
 
     @Override
     public void start() {
         telemetry.addData("Status", "Started");
     }
 
-
     @Override
     public void loop() {
-
-        float fl = gamepad1.left_stick_y - gamepad1.left_stick_x ;
-        float bl = gamepad1.left_stick_y + gamepad1.right_stick_x ;
-        float fr = gamepad1.right_stick_y + gamepad1.right_stick_x ;
-        float br = gamepad1.right_stick_y - gamepad1.left_stick_x ;
+        boolean lt = false;
+        boolean rt = false;
+        float fl = gamepad1.left_stick_y - gamepad1.left_stick_x;
+        float bl = gamepad1.left_stick_y + gamepad1.right_stick_x;
+        float fr = gamepad1.right_stick_y + gamepad1.right_stick_x;
+        float br = gamepad1.right_stick_y - gamepad1.left_stick_x;
 
         fl = Range.clip(fl, -1,1);
         bl = Range.clip(bl, -1,1);
@@ -78,20 +80,25 @@ public class MecanumTranslation extends OpMode{
         robot.backLeftDrive.setPower(-bl);
         robot.backRightDrive.setPower(-br);
 
-        robot.armTilt.setPower(gamepad2.left_stick_y);
-        robot.clawTilt.setPower(gamepad2.right_stick_y);
+        if (gamepad2.left_trigger == 1)
+            lt = true;
 
-        if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper)))
-            robot.launcherTilt.setPosition(0.5);
-        else {
-            if (gamepad1.left_bumper && gamepad1.right_bumper)
-                robot.launcherTilt.setPosition(0.5);
-            else if (gamepad1.left_bumper)
-                robot.launcherTilt.setPosition(-1.0);
-            else
-                robot.launcherTilt.setPosition(1.0);
-        }
+        if (gamepad2.right_trigger == 1)
+            rt = true;
 
+        if (lt)
+            robot.clawTilt.setPower(-CLAW_SPEED);
+        else if (rt)
+            robot.clawTilt.setPower(CLAW_SPEED);
+        else
+            robot.clawTilt.setPower(0);
+
+        if (gamepad2.left_bumper)
+            robot.armTilt.setPower(-ARM_SPEED);
+        else if (gamepad2.right_bumper)
+            robot.armTilt.setPower(ARM_SPEED);
+        else
+            robot.armTilt.setPower(0);
     }
 
 
