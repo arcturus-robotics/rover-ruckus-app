@@ -15,11 +15,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @TeleOp(name="Mecanum: Autonomous", group="Mecanum")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
-    public static final long CIRCLE              = 6000; // 360 degrees
-    public static final long FIELD               = 6000; // The width of the field
-    public static final long FIELD_CORNER        = FIELD * (long) Math.sqrt(2); // The length of the field from corner to corner
-    public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous
-    public static final long MOVEMENT_PADDING    = 30; // A divider between each movement
+    public static final long CIRCLE              = 6000; // 360 degrees (in milliseconds)
+    public static final long FIELD               = 6000; // The width of the field (in milliseconds)
+    public static final long FIELD_CORNER        = FIELD * (long) Math.sqrt(2); // The length of the field from corner to corner (in milliseconds)
+    public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous (in milliseconds)
+    public static final long MOVEMENT_PADDING    = 30; // A divider between each movement (in milliseconds)
 
     protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     protected ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop

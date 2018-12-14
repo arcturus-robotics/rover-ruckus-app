@@ -42,8 +42,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 //@Disabled
 public class Motor_Test extends OpMode {
     protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    double          clawOffset      = 0.0; // Claw offset
-    final double    CLAW_SPEED      = 0.02; // Claw movement rate
+    double       clawOffset         = 0.0; // Claw offset
+    final double CLAW_SPEED         = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
