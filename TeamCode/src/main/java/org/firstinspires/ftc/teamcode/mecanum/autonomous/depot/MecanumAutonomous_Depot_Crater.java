@@ -9,8 +9,8 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
  */
 @TeleOp(name="Mecanum: Autonomous Depot (Crater side)", group="Mecanum")
 //@Disabled
-public class MecanumAutonomousDepotCrater extends MecanumAutonomous {
-    public MecanumAutonomousDepotCrater() {}
+public class MecanumAutonomous_Depot_Crater extends MecanumAutonomous {
+    public MecanumAutonomous_Depot_Crater() {}
 
     @Override
     public void runOpMode() {

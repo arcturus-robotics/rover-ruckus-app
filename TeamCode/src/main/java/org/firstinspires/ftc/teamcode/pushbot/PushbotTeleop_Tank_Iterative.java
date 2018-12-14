@@ -41,7 +41,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 @TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
 @Disabled
-public class PushbotTeleopTank_Iterative extends OpMode {
+public class PushbotTeleop_Tank_Iterative extends OpMode {
     protected HardwarePushbot robot = new HardwarePushbot(); // The robot, containing each motor, servo, etc.
     double          clawOffset      = 0.0; // Claw offset
     final double    CLAW_SPEED      = 0.02; // Claw movement rate

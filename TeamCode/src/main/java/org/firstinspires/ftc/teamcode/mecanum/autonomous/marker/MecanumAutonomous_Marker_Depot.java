@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  */
 @TeleOp(name="Mecanum: Autonomous Marker (Depot)", group="Mecanum")
 //@Disabled
-public class MecanumAutonomousMarkerDepot extends MecanumAutonomousMarker {
-    public MecanumAutonomousMarkerDepot() {}
+public class MecanumAutonomous_Marker_Depot extends MecanumAutonomous_Marker {
+    public MecanumAutonomous_Marker_Depot() {}
 
     @Override
     public void runOpMode() {

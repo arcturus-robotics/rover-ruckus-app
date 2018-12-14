@@ -36,8 +36,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  */
 @TeleOp(name="Mecanum: Autonomous Simple", group="Mecanum")
 //@Disabled
-public class MecanumAutonomousSimple extends MecanumAutonomous {
-    public MecanumAutonomousSimple() {}
+public class MecanumAutonomous_Simple extends MecanumAutonomous {
+    public MecanumAutonomous_Simple() {}
 
     @Override
     public void runOpMode() {

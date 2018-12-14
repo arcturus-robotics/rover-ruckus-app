@@ -27,34 +27,33 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.pushbot;
+package org.firstinspires.ftc.teamcode.test.mecanum;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 
 /**
- * Pushbot Teleop Tankz
+ * An opmode for testing motors
  */
-@TeleOp(name="Pushbot: Teleop Tankz", group="Pushbot")
-@Disabled
-public class PushbotTeleopTank_Iterativez extends OpMode {
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0; // Claw offset
-    final double    CLAW_SPEED  = 0.02; // Claw movement rate from 0 to 1
+@TeleOp(name="Mecanum: Motor Test", group="Mecanum")
+//@Disabled
+public class MecanumTest_Motor extends OpMode {
+    protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    double       clawOffset         = 0.0; // Claw offset
+    final double CLAW_SPEED         = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        // Initialize the robot with the hardware map
+        // Initialize the robot using the hardware map
         robot.init(hardwareMap);
 
-        telemetry.addData("Status", "Waiting for guac...");
+        telemetry.addData("Status", "Waiting...");
     }
 
     /*
@@ -68,7 +67,7 @@ public class PushbotTeleopTank_Iterativez extends OpMode {
      */
     @Override
     public void start() {
-        telemetry.addData("Status","Started");
+        telemetry.addData("Status", "Started");
     }
 
     /*
@@ -76,23 +75,57 @@ public class PushbotTeleopTank_Iterativez extends OpMode {
      */
     @Override
     public void loop() {
-        double left;
-        double right;
-        double testLeft;
-        double testRight;
+        // y
+        if (gamepad1.y)
+            robot.frontLeftDrive.setPower(1);
+        else
+            robot.frontLeftDrive.setPower(0);
 
-        // Run wheels in tank mode
-        // NOTE: The joystick is negative when pushed forwards, so negate it
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
-        testLeft = -gamepad1.left_stick_x;
-        testRight = -gamepad1.right_stick_x;
+        // b
+        if (gamepad1.b)
+            robot.frontRightDrive.setPower(1);
+        else
+            robot.frontRightDrive.setPower(0);
 
-        robot.leftDrive.setPower(left);
-        robot.rightDrive.setPower(right);
+        // a
+        if (gamepad1.a)
+            robot.backRightDrive.setPower(1);
+        else
+            robot.backRightDrive.setPower(0);
 
-        telemetry.addData("Left test", "%.2f", testLeft);
-        telemetry.addData("Right test", "%.2f", testRight);
+        // x
+        if (gamepad1.x)
+            robot.backLeftDrive.setPower(1);
+        else
+            robot.backLeftDrive.setPower(0);
+
+        // Launcher
+        if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper)))
+            robot.launcherTilt.setPosition(0.5);
+        else {
+            if (gamepad1.left_bumper && gamepad1.right_bumper)
+                robot.launcherTilt.setPosition(0.5);
+            else if (gamepad1.left_bumper)
+                robot.launcherTilt.setPosition(-1.0);
+            else if (gamepad1.right_bumper)
+                robot.launcherTilt.setPosition(1.0);
+        }
+
+        /*
+        if (move1 > 0.8 ) ;
+               (move2 > 0.8);
+                robot.frontLeftDrive.setPower(-1);
+                robot.frontLeftDrive.setPower(-1);
+                robot.frontRightDrive.setPower(1);
+                robot.frontRightDrive.setPower(1);
+        if (move1 < -0.8)        ;
+            if (move2 < -0.8) ;
+                robot.frontleftDrive.setPower(1);
+                robot.frontleftDrive.setPower(1);
+                robot.frontrightDrive.setPower(-1);
+                robot.frontrightDrive.setPower(-1);
+        */
+
 
         /*
         // Use gamepad left & right Bumpers to open and close the claw
@@ -103,8 +136,8 @@ public class PushbotTeleopTank_Iterativez extends OpMode {
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
-        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+        // robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+        // robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y)

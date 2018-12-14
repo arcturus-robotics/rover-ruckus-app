@@ -2,15 +2,13 @@ package org.firstinspires.ftc.teamcode.mecanum.autonomous.marker;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomousMarker;
-
 /**
  * The Mecanum autonomous opmode that deploys the marker
  */
 @TeleOp(name="Mecanum: Autonomous Marker (Crater side)", group="Mecanum")
 //@Disabled
-public class MecanumAutonomousMarkerCrater extends MecanumAutonomousMarker {
-    public MecanumAutonomousMarkerCrater() {}
+public class MecanumAutonomous_Marker_Crater extends MecanumAutonomous_Marker {
+    public MecanumAutonomous_Marker_Crater() {}
 
     @Override
     public void runOpMode() {

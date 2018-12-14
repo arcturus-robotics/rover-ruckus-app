@@ -7,13 +7,18 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@TeleOp(name="Mecanum: Autonomous Depot", group="Mecanum")
+@TeleOp(name="Mecanum: Autonomous Depot (Depot side)", group="Mecanum")
 //@Disabled
-public class MecanumAutonomousDepot extends MecanumAutonomous {
-    public MecanumAutonomousDepot() {}
+public class MecanumAutonomous_Depot_Depot extends MecanumAutonomous {
+    public MecanumAutonomous_Depot_Depot() {}
 
     @Override
     public void runOpMode() {
         super.runOpMode();
+
+        while (opModeIsActive()) {
+            // Move to depot
+            moveForward(1, 2500);
+        }
     }
 }
