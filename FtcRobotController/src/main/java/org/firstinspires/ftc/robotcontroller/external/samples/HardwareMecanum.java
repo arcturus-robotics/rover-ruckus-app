@@ -92,6 +92,8 @@ public class HardwareMecanum {
         frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
+        armTilt.setDirection(DcMotor.Direction.FORWARD);
+        clawTilt.setDirection(DcMotor.Direction.FORWARD);
 
         // Reset motor power
         frontLeftDrive.setPower(0);
@@ -109,7 +111,6 @@ public class HardwareMecanum {
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         armTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         clawTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
 
         // Define and initialize servos
         launcherTilt = hwMap.get(Servo.class, "launcher_tilt");
