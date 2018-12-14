@@ -38,7 +38,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 /**
  * An opmode for testing motors
  */
-@TeleOp(name="Test: Motor", group="Test")
+@TeleOp(name="Mecanum: Motor Test", group="Mecanum")
 //@Disabled
 public class Motor_Test extends OpMode {
     protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
@@ -124,7 +124,6 @@ public class Motor_Test extends OpMode {
                 robot.frontleftDrive.setPower(1);
                 robot.frontrightDrive.setPower(-1);
                 robot.frontrightDrive.setPower(-1);
-
         */
 
 

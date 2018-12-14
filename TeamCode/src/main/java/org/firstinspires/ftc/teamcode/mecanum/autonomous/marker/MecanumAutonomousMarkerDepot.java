@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 /**
  * The Mecanum autonomous opmode that deploys the marker
  */
-@TeleOp(name="Mecanum: Autonomous Deploy Marker (Depot)", group="Mecanum")
+@TeleOp(name="Mecanum: Autonomous Marker (Depot)", group="Mecanum")
 //@Disabled
 public class MecanumAutonomousMarkerDepot extends MecanumAutonomousMarker {
     public MecanumAutonomousMarkerDepot() {}

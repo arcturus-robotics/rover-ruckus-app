@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * The Mecanum autonomous opmode that deploys the marker
  */
-@TeleOp(name="Mecanum: Autonomous Deploy Marker", group="Mecanum")
+@TeleOp(name="Mecanum: Autonomous Marker", group="Mecanum")
 //@Disabled
 public class MecanumAutonomousMarker extends MecanumAutonomous {
     protected final double DEPLOY_SPEED  = 0.5; // The power at which the marker will be deployed

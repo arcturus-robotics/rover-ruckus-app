@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomou
 /**
  * The Mecanum autonomous opmode that deploys the marker
  */
-@TeleOp(name="Mecanum: Autonomous Deploy Marker (Crater)", group="Mecanum")
+@TeleOp(name="Mecanum: Autonomous Marker (Crater side)", group="Mecanum")
 //@Disabled
 public class MecanumAutonomousMarkerCrater extends MecanumAutonomousMarker {
     public MecanumAutonomousMarkerCrater() {}

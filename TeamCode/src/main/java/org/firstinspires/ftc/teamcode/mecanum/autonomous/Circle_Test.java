@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomou
 /**
  * The Mecanum autonomous opmode that deploys the marker
  */
-@TeleOp(name="Test: Circle", group="Test")
+@TeleOp(name="Mecanum: Circle Test", group="Mecanum")
 //@Disabled
 public class Circle_Test extends MecanumAutonomousMarker {
     public Circle_Test() {}
