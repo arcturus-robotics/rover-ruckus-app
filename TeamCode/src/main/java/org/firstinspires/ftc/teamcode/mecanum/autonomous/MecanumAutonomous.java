@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * The Mecanum autonomous opmode
  */
-@TeleOp(name="Mecanum: Autonomous", group="Mecanum")
+@TeleOp(name="Mecanum Autonomous", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
     public static final long CIRCLE              = 6000; // 360 degrees (in milliseconds)

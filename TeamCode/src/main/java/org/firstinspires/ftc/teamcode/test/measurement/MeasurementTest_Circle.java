@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomous_Marker;
 
 /**
- * The Mecanum autonomous opmode that deploys the marker
+ * The measurement test that tries to find the amount of time it takes to turn in a full circle
  */
-@TeleOp(name="Mecanum: Circle Test", group="Mecanum")
+@TeleOp(name="Measurement Test: Circle", group="Measurement Test")
 //@Disabled
 public class MeasurementTest_Circle extends MecanumAutonomous_Marker {
     public MeasurementTest_Circle() {}

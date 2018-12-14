@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@TeleOp(name="Mecanum: Autonomous Depot", group="Mecanum")
+@TeleOp(name="Mecanum Autonomous: Depot", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous_Depot extends MecanumAutonomous {
     public MecanumAutonomous_Depot() {}

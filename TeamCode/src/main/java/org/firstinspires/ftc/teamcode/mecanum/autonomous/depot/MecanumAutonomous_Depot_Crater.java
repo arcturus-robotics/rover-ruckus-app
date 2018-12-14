@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@TeleOp(name="Mecanum: Autonomous Depot (Crater side)", group="Mecanum")
+@TeleOp(name="Mecanum Autonomous: Depot (Crater)", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous_Depot_Crater extends MecanumAutonomous {
     public MecanumAutonomous_Depot_Crater() {}
