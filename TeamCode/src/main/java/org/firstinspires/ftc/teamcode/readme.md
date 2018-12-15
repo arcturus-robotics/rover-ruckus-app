@@ -1,11 +1,18 @@
 # Team Code
-This is where all of our team's code is.
+This is here all of our team's code is.
 
-# Opmode Groups
-All of these are pretty self-explanatory.
-* Pushbot Teleop
-* Pushbot Autonomous
-* Mecanum Teleop
-* Mecanum Autonomous
-* Test Teleop
-* Test Autonomous
+## Opmode Groups
+* Pushbot
+  * Pushbot Autonomous
+  * Pushbot Teleop
+* Mecanum
+  * Mecanum Autonomous
+    * Mecanum Autonomous Depot
+    * Mecanum Autonomous Marker
+  * Mecanum Teleop
+* Test
+  * Test Teleop
+  * Test Autonomous
+    * Measurement Test
+    * Mecanum Test
+

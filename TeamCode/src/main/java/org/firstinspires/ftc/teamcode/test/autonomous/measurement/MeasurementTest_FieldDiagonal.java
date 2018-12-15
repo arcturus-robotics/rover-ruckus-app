@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.test.autonomous.measure;
+package org.firstinspires.ftc.teamcode.test.autonomous.measurement;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * A measurement test that tries to find the field length diagonally
  */
-@Autonomous(name="Test Autonomous: Measure Field Diagonal Length", group="Test Autonomous")
+@Autonomous(name="Measurement Test: Field Diagonal Length", group="Measurement Test")
 //@Disabled
 public class MeasurementTest_FieldDiagonal extends MecanumAutonomous {
     @Override

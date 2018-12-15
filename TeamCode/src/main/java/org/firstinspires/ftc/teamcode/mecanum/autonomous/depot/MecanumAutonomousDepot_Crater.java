@@ -1,15 +1,14 @@
 package org.firstinspires.ftc.teamcode.mecanum.autonomous.depot;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@Autonomous(name="Mecanum Autonomous: Depot (Crater)", group="Mecanum Autonomous")
+@Autonomous(name="Mecanum Autonomous Depot: Crater Side", group="Mecanum Autonomous Depot")
 //@Disabled
-public class MecanumAutonomous_Depot_Crater extends MecanumAutonomous_Depot {
-    public MecanumAutonomous_Depot_Crater() {}
+public class MecanumAutonomousDepot_Crater extends MecanumAutonomousDepot {
+    public MecanumAutonomousDepot_Crater() {}
 
     @Override
     public void runOpMode() {

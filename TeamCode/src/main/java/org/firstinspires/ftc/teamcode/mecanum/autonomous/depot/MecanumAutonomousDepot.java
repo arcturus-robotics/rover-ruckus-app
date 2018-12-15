@@ -8,10 +8,10 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@Autonomous(name="Mecanum Autonomous: Depot", group="Mecanum Autonomous")
+@Autonomous(name="Mecanum Autonomous Depot", group="Mecanum Autonomous Depot")
 //@Disabled
-public class MecanumAutonomous_Depot extends MecanumAutonomous {
-    public MecanumAutonomous_Depot() {}
+public class MecanumAutonomousDepot extends MecanumAutonomous {
+    public MecanumAutonomousDepot() {}
 
     @Override
     public void runOpMode() {
