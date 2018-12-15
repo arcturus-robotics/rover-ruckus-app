@@ -16,12 +16,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous(name="Mecanum Autonomous", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
-    public static final long CIRCLE              = 4500; // 360 degrees (in milliseconds)
-    public static final long FIELD               = 4500; // The length of the field (in milliseconds)
+    public static final long CIRCLE              = 3000; // 360 degrees (in milliseconds)
+    public static final long FIELD               = 3000; // The length of the field (in milliseconds)
     public static final long FIELD_DIAGONAL      = FIELD * (long) Math.sqrt(2); // The length of the field diagonally (in milliseconds)
-    public static final long LANDER              = 1875; // The distance from the lander to the corner of the field (in millseconds)
+    public static final long LANDER              = 1250; // The distance from the lander to the corner of the field (in millseconds)
     public static final double DEPLOY_SPEED      = 0.5; // The power at which the marker will be deployed
-    public static final long DEPLOY_DURATION     = 450; // The amount of time the marker will be deployed for
+    public static final long DEPLOY_DURATION     = 300; // The amount of time the marker will be deployed for
     public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous (in milliseconds)
     public static final long MOVEMENT_PADDING    = 30; // A divider between each movement (in milliseconds)
 
@@ -30,21 +30,6 @@ public class MecanumAutonomous extends LinearOpMode {
 
     public MecanumAutonomous() {}
 
-    /**
-     * Call this function before your main loop
-     *
-     * ## Example
-     * ```
-     * super.runOpMode();
-     *
-     * // Run until the end of the match (when driver presses STOP)
-     * while (opModeIsActive()) {
-     *     doStuff();
-     *     endOpMode();
-     *     break;
-     * }
-     * ```
-     */
     @Override
     public void runOpMode() {
         // Initialize the robot using the hardware map
