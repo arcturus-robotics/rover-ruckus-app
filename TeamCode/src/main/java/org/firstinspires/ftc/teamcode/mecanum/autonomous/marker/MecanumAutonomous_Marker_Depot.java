@@ -14,7 +14,7 @@ public class MecanumAutonomous_Marker_Depot extends MecanumAutonomous_Marker {
     public void runOpMode() {
         super.runOpMode();
 
-        while(opModeIsActive()) {
+        if (opModeIsActive()) {
             // Move to depot and deploy marker
             moveForward(1, 2500);
             turnClaw(DEPLOY_SPEED, DEPLOY_DURATION);
@@ -23,8 +23,6 @@ public class MecanumAutonomous_Marker_Depot extends MecanumAutonomous_Marker {
             // Move to crater
             turnRight(1, CIRCLE / 8);
             moveBackward(1, AUTONOMOUS_DURATION - (long) elapsedTime.time());
-
-            break;
         }
     }
 }

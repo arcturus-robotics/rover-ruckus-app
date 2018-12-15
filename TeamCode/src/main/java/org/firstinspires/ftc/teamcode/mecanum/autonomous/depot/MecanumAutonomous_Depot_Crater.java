@@ -9,17 +9,17 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
  */
 @TeleOp(name="Mecanum Autonomous: Depot (Crater)", group="Mecanum Autonomous")
 //@Disabled
-public class MecanumAutonomous_Depot_Crater extends MecanumAutonomous {
+public class MecanumAutonomous_Depot_Crater extends MecanumAutonomous_Depot {
     public MecanumAutonomous_Depot_Crater() {}
 
     @Override
     public void runOpMode() {
         super.runOpMode();
 
-        while (opModeIsActive()) {
+        if (opModeIsActive()) {
             // Move to depot
-            moveForward(1, 1250);
-            moveLeft(1, 1250);
+            moveForward(1, MOVEMENT_DURATION / 2);
+            moveLeft(1, MOVEMENT_DURATION / 2);
             turnRight(1, CIRCLE / 8);
             moveBackward(1, 4000);
         }
