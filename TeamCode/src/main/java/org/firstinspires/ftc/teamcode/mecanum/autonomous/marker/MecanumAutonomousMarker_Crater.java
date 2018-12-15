@@ -26,7 +26,7 @@ public class MecanumAutonomousMarker_Crater extends MecanumAutonomousMarker {
             turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
 
             // Move to crater
-            moveForward(1, Mecanum.AUTONOMOUS_DURATION - (long) elapsedTime.time());
+            moveForward(1, Mecanum.FIELD);
         }
     }
 }

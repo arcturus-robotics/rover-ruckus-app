@@ -24,7 +24,7 @@ public class MecanumAutonomousMarker_Depot extends MecanumAutonomousMarker {
 
             // Move to crater
             turnRight(1, Mecanum.CIRCLE / 8);
-            moveBackward(1, Mecanum.AUTONOMOUS_DURATION - (long) elapsedTime.time());
+            moveBackward(1, Mecanum.FIELD);
         }
     }
 }
