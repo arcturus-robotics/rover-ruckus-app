@@ -12,16 +12,19 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * The Mecanum autonomous opmode
+ * NOTE: If you are manually using the wheel motors, multiply your power by <code>POWER</code>
+ * @see MecanumAutonomous#POWER
  */
 @Autonomous(name="Mecanum Autonomous", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
-    public static final long CIRCLE              = 3000; // 360 degrees (in milliseconds)
-    public static final long FIELD               = 3000; // The length of the field (in milliseconds)
-    public static final long FIELD_DIAGONAL      = FIELD * (long) Math.sqrt(2); // The length of the field diagonally (in milliseconds)
-    public static final long LANDER              = 1250; // The distance from the lander to the corner of the field (in millseconds)
+    public static final double POWER             = 0.5; // Global power multiplier
     public static final double DEPLOY_SPEED      = 0.5; // The power at which the marker will be deployed
-    public static final long DEPLOY_DURATION     = 300; // The amount of time the marker will be deployed for
+    public static final long CIRCLE              = 6000; // 360 degrees (in milliseconds)
+    public static final long FIELD               = 6000; // The length of the field (in milliseconds)
+    public static final long FIELD_DIAGONAL      = FIELD * (long) Math.sqrt(2); // The length of the field diagonally (in milliseconds)
+    public static final long LANDER              = 2500; // The distance from the lander to the corner of the field (in millseconds)
+    public static final long DEPLOY_DURATION     = 600; // The amount of time the marker will be deployed for
     public static final long AUTONOMOUS_DURATION = 30000; // The duration of autonomous (in milliseconds)
     public static final long MOVEMENT_PADDING    = 30; // A divider between each movement (in milliseconds)
 
@@ -58,6 +61,8 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param duration The amount of time the robot will move forward for (in milliseconds)
      */
     public void moveForward(double power, long duration) {
+        power *= POWER;
+
         robot.frontLeftDrive.setPower(power);
         robot.frontRightDrive.setPower(power);
         robot.backLeftDrive.setPower(power);
@@ -79,6 +84,8 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param duration The amount of time the robot will move right for (in milliseconds)
      */
     public void moveRight(double power, long duration) {
+        power *= POWER;
+
         robot.frontLeftDrive .setPower(power);
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive  .setPower(-power);
@@ -100,6 +107,8 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param duration The amount of time the robot will move backward for (in milliseconds)
      */
     public void moveBackward(double power, long duration) {
+        power *= POWER;
+
         robot.frontLeftDrive .setPower(-power);
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive  .setPower(-power);
@@ -121,6 +130,8 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param duration The amount of time the robot will move left for (in milliseconds)
      */
     public void moveLeft(double power, long duration) {
+        power *= POWER;
+
         robot.frontLeftDrive .setPower(-power);
         robot.frontRightDrive.setPower(power);
         robot.backLeftDrive  .setPower(power);
@@ -142,6 +153,8 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param duration The amount of time the robot will turn left for (in milliseconds)
      */
     public void turnLeft(double power, long duration) {
+        power *= POWER;
+
         robot.frontLeftDrive .setPower(-power);
         robot.frontRightDrive.setPower(power);
         robot.backLeftDrive  .setPower(-power);
@@ -163,6 +176,8 @@ public class MecanumAutonomous extends LinearOpMode {
      * @param duration The amount of time the robot will turn right for (in milliseconds)
      */
     public void turnRight(double power, long duration) {
+        power *= POWER;
+
         robot.frontLeftDrive .setPower(power);
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive  .setPower(power);
