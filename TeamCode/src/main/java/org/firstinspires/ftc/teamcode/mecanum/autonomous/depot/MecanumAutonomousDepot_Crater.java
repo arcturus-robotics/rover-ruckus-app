@@ -19,7 +19,7 @@ public class MecanumAutonomousDepot_Crater extends MecanumAutonomousDepot {
             moveForward(1, LANDER / 2);
             moveLeft(1, LANDER / 2);
             turnRight(1, CIRCLE / 8);
-            moveBackward(1, 4000);
+            moveBackward(1, FIELD);
         }
     }
 }
