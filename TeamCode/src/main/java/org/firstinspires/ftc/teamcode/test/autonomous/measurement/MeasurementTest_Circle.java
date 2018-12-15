@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.test.autonomous.measurement;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
+import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomousMarker;
 
 /**
@@ -17,7 +18,7 @@ public class MeasurementTest_Circle extends MecanumAutonomousMarker {
         super.runOpMode();
 
         while(opModeIsActive()) {
-            turnRight(1, CIRCLE);
+            turnRight(1, Mecanum.CIRCLE);
             break;
         }
     }
