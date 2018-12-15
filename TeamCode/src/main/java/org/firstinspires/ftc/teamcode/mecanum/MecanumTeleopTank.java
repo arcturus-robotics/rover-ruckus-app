@@ -27,34 +27,34 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.pushbot;
+package org.firstinspires.ftc.teamcode.mecanum;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 /**
- * Pushbot Teleop Tankz
+ * The Mecanum tank opmode
  */
-@TeleOp(name="Pushbot: Teleop Tankz", group="Pushbot")
+@TeleOp(name="Mecanum: Teleop Tank", group="Mecanum")
 @Disabled
-public class PushbotTeleop_Tank_Iterativez extends OpMode {
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0; // Claw offset
-    final double    CLAW_SPEED  = 0.02; // Claw movement rate from 0 to 1
+public class MecanumTeleopTank extends OpMode {
+    protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    double          clawOffset      = 0.0; // Claw offset
+    final double    CLAW_SPEED      = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        // Initialize the robot with the hardware map
+        // Initialize the robot using the hardware map
         robot.init(hardwareMap);
 
-        telemetry.addData("Status", "Waiting for guac...");
+        telemetry.addData("Status", "Waiting...");
     }
 
     /*
@@ -68,7 +68,8 @@ public class PushbotTeleop_Tank_Iterativez extends OpMode {
      */
     @Override
     public void start() {
-        telemetry.addData("Status","Started");
+
+        telemetry.addData("Status", "Started");
     }
 
     /*
@@ -76,23 +77,38 @@ public class PushbotTeleop_Tank_Iterativez extends OpMode {
      */
     @Override
     public void loop() {
-        double left;
-        double right;
-        double testLeft;
-        double testRight;
+        double leftDrive;
+        double rightDrive;
+        double move1;
+        double move2;
 
         // Run wheels in tank mode
-        // NOTE: The joystick is negative when pushed forwards, so negate it
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
-        testLeft = -gamepad1.left_stick_x;
-        testRight = -gamepad1.right_stick_x;
+        // NOTE: The joystick goes negative when pushed forwards, so negate it
+        leftDrive = -gamepad1.left_stick_y;
+        rightDrive = -gamepad1.right_stick_y;
+        move1 = gamepad1.right_stick_x;
+        move2 = gamepad1.left_stick_x;
 
-        robot.leftDrive.setPower(left);
-        robot.rightDrive.setPower(right);
+        robot.frontLeftDrive.setPower(leftDrive);
+        robot.frontRightDrive.setPower(rightDrive);
+        robot.backLeftDrive.setPower(leftDrive);
+        robot.backRightDrive.setPower(rightDrive);
 
-        telemetry.addData("Left test", "%.2f", testLeft);
-        telemetry.addData("Right test", "%.2f", testRight);
+
+        /*
+        if (move1 > 0.8 ) ;
+               (move2 > 0.8);
+                robot.frontleftDrive.setPower(-1);
+                robot.frontleftDrive.setPower(-1);
+                robot.frontrightDrive.setPower(1);
+                robot.frontrightDrive.setPower(1);
+        if (move1 < -0.8)        ;
+            if (move2 < -0.8) ;
+                robot.frontleftDrive.setPower(1);
+                robot.frontleftDrive.setPower(1);
+                robot.frontrightDrive.setPower(-1);
+                robot.frontrightDrive.setPower(-1);
+        */
 
         /*
         // Use gamepad left & right Bumpers to open and close the claw
@@ -103,8 +119,8 @@ public class PushbotTeleop_Tank_Iterativez extends OpMode {
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
-        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+        // robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+        // robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y)

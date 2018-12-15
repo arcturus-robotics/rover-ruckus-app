@@ -34,10 +34,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 /**
  * The Mecanum autonomous opmode that moves forward into the crater/depot
  */
-@TeleOp(name="Mecanum Autonomous: Simple", group="Mecanum Autonomous")
+@TeleOp(name="Mecanum Autonomous: Basic", group="Mecanum Autonomous")
 //@Disabled
-public class MecanumAutonomous_Simple extends MecanumAutonomous {
-    public MecanumAutonomous_Simple() {}
+public class MecanumAutonomous_Basic extends MecanumAutonomous {
+    public MecanumAutonomous_Basic() {}
 
     @Override
     public void runOpMode() {

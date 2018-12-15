@@ -64,15 +64,15 @@ public class HardwarePushbot {
     public Servo   leftClaw   = null;
     public Servo   rightClaw  = null;
 
-    protected HardwareMap hwMap     = null;
-    private ElapsedTime elapsedTime = new ElapsedTime();
+    protected HardwareMap hardwareMap = null;
+    private ElapsedTime elapsedTime   = new ElapsedTime();
 
     public HardwarePushbot () {}
 
     /* Initialize standard hardware interfaces */
-    public void init(HardwareMap _hwMap) {
+    public void init(HardwareMap hwMap) {
         // Save a reference to the hardware map
-        hwMap = _hwMap;
+        hardwareMap = hwMap;
 
         // Define and initialize motors
         leftDrive  = hwMap.get(DcMotor.class, "left_drive");

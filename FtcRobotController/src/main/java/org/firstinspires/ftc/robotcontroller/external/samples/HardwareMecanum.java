@@ -63,15 +63,15 @@ public class HardwareMecanum {
     public Servo   clawLeft        = null;
     public Servo   clawRight       = null;
 
-    protected HardwareMap hwMap     = null;
-    private ElapsedTime elapsedTime = new ElapsedTime();
+    protected HardwareMap hardwareMap = null;
+    private ElapsedTime elapsedTime   = new ElapsedTime();
 
     public HardwareMecanum() {}
 
     /* Initialize standard hardware interfaces */
-    public void init(HardwareMap _hwMap) {
+    public void init(HardwareMap hwMap) {
         // Save a reference to hardware map
-        hwMap = _hwMap;
+        hardwareMap = hwMap;
 
         /**
          * TODO: Change drive device names to completely snake case
