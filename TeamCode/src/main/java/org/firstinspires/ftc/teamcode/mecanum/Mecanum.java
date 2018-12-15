@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.mecanum;
 
 public class Mecanum {
         public static final double POWER             = 0.5; // Global power multiplier
-        public static final double DEPLOY_SPEED      = 0.5; // The power at which the marker will be deployed
+        public static final double DEPLOY_POWER      = 0.5; // The power at which the marker will be deployed
         public static final long CIRCLE              = 6000; // 360 degrees (in milliseconds)
         public static final long FIELD               = 6000; // The length of the field (in milliseconds)
         public static final long LANDER              = 2500; // The distance from the lander to the corner of the field (in millseconds)

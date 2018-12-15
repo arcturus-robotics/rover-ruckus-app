@@ -19,8 +19,8 @@ public class MecanumAutonomousMarker_Depot extends MecanumAutonomousMarker {
         if (opModeIsActive()) {
             // Move to depot and deploy marker
             moveForward(1, Mecanum.LANDER);
-            turnClaw(Mecanum.DEPLOY_SPEED, Mecanum.DEPLOY_DURATION);
-            turnClaw(-Mecanum.DEPLOY_SPEED, Mecanum.DEPLOY_DURATION);
+            turnClaw(Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
+            turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
 
             // Move to crater
             turnRight(1, Mecanum.CIRCLE / 8);
