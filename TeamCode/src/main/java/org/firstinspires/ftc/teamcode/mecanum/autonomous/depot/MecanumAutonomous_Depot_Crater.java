@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode.mecanum.autonomous.depot;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
-
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
@@ -18,8 +16,8 @@ public class MecanumAutonomous_Depot_Crater extends MecanumAutonomous_Depot {
 
         if (opModeIsActive()) {
             // Move to depot
-            moveForward(1, MOVEMENT_DURATION / 2);
-            moveLeft(1, MOVEMENT_DURATION / 2);
+            moveForward(1, LANDER / 2);
+            moveLeft(1, LANDER / 2);
             turnRight(1, CIRCLE / 8);
             moveBackward(1, 4000);
         }

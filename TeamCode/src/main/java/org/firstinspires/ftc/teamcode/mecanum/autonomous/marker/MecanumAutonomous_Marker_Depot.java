@@ -16,7 +16,7 @@ public class MecanumAutonomous_Marker_Depot extends MecanumAutonomous_Marker {
 
         if (opModeIsActive()) {
             // Move to depot and deploy marker
-            moveForward(1, 2500);
+            moveForward(1, LANDER);
             turnClaw(DEPLOY_SPEED, DEPLOY_DURATION);
             turnClaw(-DEPLOY_SPEED, DEPLOY_DURATION);
 

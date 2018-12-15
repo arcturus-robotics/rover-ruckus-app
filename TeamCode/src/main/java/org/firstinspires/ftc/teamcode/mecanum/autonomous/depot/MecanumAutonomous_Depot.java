@@ -10,8 +10,6 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 @TeleOp(name="Mecanum Autonomous: Depot", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous_Depot extends MecanumAutonomous {
-    public static final long MOVEMENT_DURATION = 2500;
-
     public MecanumAutonomous_Depot() {}
 
     @Override

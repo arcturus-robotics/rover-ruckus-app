@@ -43,11 +43,8 @@ public class MecanumAutonomous_Basic extends MecanumAutonomous {
     public void runOpMode() {
         super.runOpMode();
 
-        while(opModeIsActive()) {
-            moveForward(1, 2500);
-
-            endOpMode();
-            break;
+        if (opModeIsActive()) {
+            moveForward(1, LANDER);
         }
     }
 }
