@@ -29,12 +29,13 @@
 
 package org.firstinspires.ftc.teamcode.mecanum.autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
  * The Mecanum autonomous opmode that moves forward into the crater/depot
  */
-@TeleOp(name="Mecanum Autonomous: Basic", group="Mecanum Autonomous")
+@Autonomous(name="Mecanum Autonomous: Basic", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous_Basic extends MecanumAutonomous {
     public MecanumAutonomous_Basic() {}

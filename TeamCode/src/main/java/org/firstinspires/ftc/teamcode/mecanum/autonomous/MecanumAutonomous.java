@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.mecanum.autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -12,7 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * The Mecanum autonomous opmode
  */
-@TeleOp(name="Mecanum Autonomous", group="Mecanum Autonomous")
+@Autonomous(name="Mecanum Autonomous", group="Mecanum Autonomous")
 //@Disabled
 public class MecanumAutonomous extends LinearOpMode {
     public static final long CIRCLE              = 6000; // 360 degrees (in milliseconds)

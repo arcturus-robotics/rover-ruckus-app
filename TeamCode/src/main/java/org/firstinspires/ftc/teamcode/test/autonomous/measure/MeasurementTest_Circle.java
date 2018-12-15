@@ -1,13 +1,13 @@
-package org.firstinspires.ftc.teamcode.test.measurement;
+package org.firstinspires.ftc.teamcode.test.autonomous.measure;
 
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomous_Marker;
 
 /**
  * The measurement test that tries to find the amount of time it takes to turn in a full circle
  */
-@TeleOp(name="Measurement Test: Circle", group="Measurement Test")
+@Autonomous(name="Test Autonomous: Measure Circle", group="Test Autonomous")
 //@Disabled
 public class MeasurementTest_Circle extends MecanumAutonomous_Marker {
     public MeasurementTest_Circle() {}

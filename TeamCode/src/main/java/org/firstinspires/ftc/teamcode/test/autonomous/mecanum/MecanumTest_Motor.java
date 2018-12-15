@@ -27,18 +27,17 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.test.mecanum;
+package org.firstinspires.ftc.teamcode.test.autonomous.mecanum;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 
 /**
  * An opmode for testing motors
  */
-@TeleOp(name="Mecanum Test: Motor", group="Mecanum Test")
+@TeleOp(name="Test Autonomous: Mecanum Motor", group="Test Autonomous")
 //@Disabled
 public class MecanumTest_Motor extends OpMode {
     protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.

@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.mecanum;
+package org.firstinspires.ftc.teamcode.mecanum.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -39,7 +39,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 /**
  * The Mecanum tank opmode
  */
-@TeleOp(name="Mecanum: Teleop Tank", group="Mecanum")
+@TeleOp(name="Mecanum Teleop: Tank", group="Mecanum Teleop")
 @Disabled
 public class MecanumTeleopTank extends OpMode {
     protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.

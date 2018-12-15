@@ -39,7 +39,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 /**
  * Pushbot Teleop Tankz
  */
-@TeleOp(name="Pushbot: Teleop Tankz", group="Pushbot")
+@TeleOp(name="Pushbot Teleop: Tankz", group="Pushbot Teleop")
 @Disabled
 public class PushbotTeleopTank_Iterativez extends OpMode {
     HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware

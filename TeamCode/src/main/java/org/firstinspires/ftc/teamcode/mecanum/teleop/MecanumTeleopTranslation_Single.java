@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.mecanum;
+package org.firstinspires.ftc.teamcode.mecanum.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -39,9 +39,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 /**
  * An opmode for the claw and arm
  */
-@TeleOp(name="Mecanum: Teleop Translation", group="Mecanum")
+@TeleOp(name="Mecanum Teleop: Translation (Single Controller)", group="Mecanum Teleop")
 //@Disabled
-public class MecanumTranslation extends OpMode {
+public class MecanumTeleopTranslation_Single extends OpMode {
     protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     final double CLAW_SPEED = 0.5; // Claw movement rate from 0 to 1
     final double ARM_SPEED  = 0.5; // Arm movement rate from 0 to 1
@@ -80,27 +80,27 @@ public class MecanumTranslation extends OpMode {
         robot.backRightDrive.setPower(backRight);
 
         // Claw
-        if (gamepad2.left_trigger == 1)
+        if (gamepad1.left_trigger == 1)
             robot.clawTilt.setPower(-CLAW_SPEED);
-        else if (gamepad2.right_trigger == 1)
+        else if (gamepad1.right_trigger == 1)
             robot.clawTilt.setPower(CLAW_SPEED);
         else
             robot.clawTilt.setPower(0);
 
         // Arm
-        if (gamepad2.left_bumper)
+        if (gamepad1.left_bumper)
             robot.armTilt.setPower(-ARM_SPEED);
-        else if (gamepad2.right_bumper)
+        else if (gamepad1.right_bumper)
             robot.armTilt.setPower(ARM_SPEED);
         else
             robot.armTilt.setPower(0);
 
         // Intake
-        if (gamepad2.x || gamepad2.a) {
-            if (gamepad2.x) {
+        if (gamepad1.x || gamepad1.a) {
+            if (gamepad1.x) {
                 robot.clawLeft.setDirection(Servo.Direction.FORWARD);
                 robot.clawRight.setDirection(Servo.Direction.REVERSE);
-            } else if (gamepad2.a) {
+            } else if (gamepad1.a) {
                 robot.clawLeft.setDirection(Servo.Direction.REVERSE);
                 robot.clawRight.setDirection(Servo.Direction.FORWARD);
             }
