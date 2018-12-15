@@ -16,10 +16,10 @@ public class MecanumAutonomousMarker_Crater extends MecanumAutonomousMarker {
 
         if (opModeIsActive()) {
             // Move to depot and deploy marker
-            moveForward(1, LANDER / 2);
-            moveLeft(1, LANDER / 2);
-            turnRight(1, CIRCLE / 8);
-            moveBackward(1, 4000);
+            moveForward(1, (LANDER / 2));
+            moveLeft(1, (long) 1.4 * (LANDER / 2));
+            turnRight(1, (long) (0.40*(CIRCLE / 8)));
+            moveBackward(1, 3250);
             turnClaw(DEPLOY_SPEED, DEPLOY_DURATION);
             turnClaw(-DEPLOY_SPEED, DEPLOY_DURATION);
 
