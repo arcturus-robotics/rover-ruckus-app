@@ -12,27 +12,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
  */
 @TeleOp(name="Mecanum Teleop: Translation (Single Controller)", group="Mecanum Teleop")
 //@Disabled
-public class MecanumTeleopTranslation_Single extends OpMode {
-    protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    final double CLAW_SPEED = 0.5; // Claw movement rate from 0 to 1
-    final double ARM_SPEED  = 0.5; // Arm movement rate from 0 to 1
-
-    @Override
-    public void init() {
-        // Initialize the robot with the hardware map
-        robot.init(hardwareMap);
-
-        telemetry.addData("Status", "Waiting...");
-    }
-
-    @Override
-    public void init_loop() {}
-
-    @Override
-    public void start() {
-        telemetry.addData("Status", "Started");
-    }
-
+public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
     @Override
     public void loop() {
         float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x; // Front left drive
@@ -71,7 +51,7 @@ public class MecanumTeleopTranslation_Single extends OpMode {
             if (gamepad1.x) {
                 robot.clawLeft.setDirection(Servo.Direction.FORWARD);
                 robot.clawRight.setDirection(Servo.Direction.REVERSE);
-            } else if (gamepad1.a) {
+            } else {
                 robot.clawLeft.setDirection(Servo.Direction.REVERSE);
                 robot.clawRight.setDirection(Servo.Direction.FORWARD);
             }
@@ -79,10 +59,5 @@ public class MecanumTeleopTranslation_Single extends OpMode {
             robot.clawLeft.setPosition(1);
             robot.clawRight.setPosition(1);
         }
-    }
-
-    @Override
-    public void stop() {
-        telemetry.addData("Status",  "Stopped");
     }
 }
