@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.mecanum.autonomous.marker;
+package org.firstinspires.ftc.teamcode.mecanum.autonomous.depot;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -6,11 +6,11 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 
 /**
- * The Mecanum autonomous opmode that deploys the marker
+ * The Mecanum autonomous opmode that goes to the depot
  */
-@Autonomous(name="Mecanum Autonomous Marker", group="Mecanum Autonomous Marker")
+@Autonomous(name="Mecanum Autonomous Depot", group="Mecanum Autonomous Depot")
 //@Disabled
-public class MecanumAutonomousMarker extends MecanumAutonomous {
+public class Depot extends MecanumAutonomous {
     @Override
     public void runOpMode() {
         super.runOpMode();

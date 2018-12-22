@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
  */
 @Autonomous(name="Mecanum Autonomous Depot: Depot side", group="Mecanum Autonomous Depot")
 //@Disabled
-public class MecanumAutonomousDepot_Depot extends MecanumAutonomousDepot {
+public class Depot_DepotSide extends Depot {
     @Override
     public void runOpMode() {
         super.runOpMode();
