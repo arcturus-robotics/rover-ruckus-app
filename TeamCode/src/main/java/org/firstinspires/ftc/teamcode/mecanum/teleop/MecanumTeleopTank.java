@@ -18,7 +18,6 @@ public class MecanumTeleopTank extends OpMode {
     protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     protected double clawOffset     = 0.0; // Claw offset
 
-
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -67,24 +66,21 @@ public class MecanumTeleopTank extends OpMode {
         robot.backLeftDrive.setPower(leftDrive);
         robot.backRightDrive.setPower(rightDrive);
 
-
         /*
-        if (move1 > 0.8 ) ;
-               (move2 > 0.8);
-                robot.frontleftDrive.setPower(-1);
-                robot.frontleftDrive.setPower(-1);
-                robot.frontrightDrive.setPower(1);
-                robot.frontrightDrive.setPower(1);
-        if (move1 < -0.8)        ;
-            if (move2 < -0.8) ;
-                robot.frontleftDrive.setPower(1);
-                robot.frontleftDrive.setPower(1);
-                robot.frontrightDrive.setPower(-1);
-                robot.frontrightDrive.setPower(-1);
+        if (move1 > 0.8 && move2 > 0.8)
+            robot.frontleftDrive.setPower(-1);
+            robot.frontleftDrive.setPower(-1);
+            robot.frontrightDrive.setPower(1);
+            robot.frontrightDrive.setPower(1);
+        if (move1 < -0.8 && move2 < -0.8)
+            robot.frontleftDrive.setPower(1);
+            robot.frontleftDrive.setPower(1);
+            robot.frontrightDrive.setPower(-1);
+            robot.frontrightDrive.setPower(-1);
         */
 
         /*
-        // Use gamepad left & right Bumpers to open and close the claw
+        // Use gamepad1's left and right bumpers to open and close the claw
         if (gamepad1.right_bumper)
             clawOffset += CLAW_SPEED;
         else if (gamepad1.left_bumper)
