@@ -7,15 +7,15 @@ import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@Autonomous(name="Mecanum Autonomous Depot: Crater Side", group="Mecanum Autonomous Depot")
+@Autonomous(name="Mecanum Autonomous Depot Side: Crater", group="Mecanum Autonomous Depot Side")
 //@Disabled
-public class Depot_CraterSide extends Depot {
+public class DepotSide_Crater extends DepotSide {
     @Override
     public void runOpMode() {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            // Move to depot
+            // Move to depot, deploy the marker, and go to the crater
             moveLeft(0.7, 220);
             moveForward(1, (Mecanum.LANDER / 3));
             moveLeft(1, Mecanum.LANDER / 2);

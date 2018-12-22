@@ -7,16 +7,18 @@ import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 /**
  * The Mecanum autonomous opmode that goes to the depot
  */
-@Autonomous(name="Mecanum Autonomous Depot: Depot side", group="Mecanum Autonomous Depot")
+@Autonomous(name="Mecanum Autonomous Depot Side: Depot", group="Mecanum Autonomous Depot Side")
 //@Disabled
-public class Depot_DepotSide extends Depot {
+public class DepotSide_Depot extends DepotSide {
     @Override
     public void runOpMode() {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            // Move to depot
+            // Move to depot and deploy marker
             moveForward(1, Mecanum.LANDER);
+            turnClaw(Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
+            turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
         }
     }
 }
