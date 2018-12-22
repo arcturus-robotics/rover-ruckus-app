@@ -20,10 +20,10 @@ public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
         float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x; // Back left drive
         float backRight = gamepad1.right_stick_y - gamepad1.left_stick_x; // Back right drive
 
-        frontLeft = -Range.clip(frontLeft, -1,1);
-        frontRight = -Range.clip(frontRight, -1,1);
-        backLeft = -Range.clip(backLeft, -1,1);
-        backRight = -Range.clip(backRight, -1,1);
+        frontLeft = -Range.clip(frontLeft, -1, 1);
+        frontRight = -Range.clip(frontRight, -1, 1);
+        backLeft = -Range.clip(backLeft, -1, 1);
+        backRight = -Range.clip(backRight, -1, 1);
 
         robot.frontLeftDrive.setPower(frontLeft);
         robot.frontRightDrive.setPower(frontRight);
@@ -31,20 +31,22 @@ public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
         robot.backRightDrive.setPower(backRight);
 
         // Claw
-        if (gamepad1.left_trigger == 1)
+        if (gamepad1.left_trigger == 1) {
             robot.clawTilt.setPower(-CLAW_SPEED);
-        else if (gamepad1.right_trigger == 1)
+        } else if (gamepad1.right_trigger == 1) {
             robot.clawTilt.setPower(CLAW_SPEED);
-        else
+        } else {
             robot.clawTilt.setPower(0);
+        }
 
         // Arm
-        if (gamepad1.left_bumper)
+        if (gamepad1.left_bumper) {
             robot.armTilt.setPower(-ARM_SPEED);
-        else if (gamepad1.right_bumper)
+        } else if (gamepad1.right_bumper) {
             robot.armTilt.setPower(ARM_SPEED);
-        else
+        } else {
             robot.armTilt.setPower(0);
+        }
 
         // Intake
         if (gamepad1.x || gamepad1.a) {

@@ -59,12 +59,13 @@ public class MecanumTeleopTranslation extends OpMode {
             robot.clawTilt.setPower(0);
 
         // Arm
-        if (gamepad2.left_bumper)
+        if (gamepad2.left_bumper) {
             robot.armTilt.setPower(-ARM_SPEED);
-        else if (gamepad2.right_bumper)
+        } else if (gamepad2.right_bumper) {
             robot.armTilt.setPower(ARM_SPEED);
-        else
+        } else {
             robot.armTilt.setPower(0);
+        }
 
         // Intake
         if (gamepad2.x || gamepad2.a) {

@@ -15,9 +15,8 @@ public class MeasurementTest_Circle extends MecanumAutonomousMarker {
     public void runOpMode() {
         super.runOpMode();
 
-        while(opModeIsActive()) {
+        if (opModeIsActive()) {
             turnRight(1, Mecanum.CIRCLE);
-            break;
         }
     }
 }

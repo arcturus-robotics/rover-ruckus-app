@@ -40,7 +40,9 @@ public class MecanumAutonomous extends LinearOpMode {
      */
     public long remainingTime() {
         long remaining = Mecanum.AUTONOMOUS_DURATION - (long) elapsedTime.milliseconds();
-        if (remaining < 0) remaining = 0;
+        if (remaining < 0)  {
+            remaining = 0;
+        }
         return remaining;
     }
 
