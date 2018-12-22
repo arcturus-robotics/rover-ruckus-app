@@ -10,8 +10,6 @@ import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 @Autonomous(name="Mecanum Autonomous Marker: Crater Side", group="Mecanum Autonomous Marker")
 //@Disabled
 public class MecanumAutonomousMarker_Crater extends MecanumAutonomousMarker {
-    public MecanumAutonomousMarker_Crater() {}
-
     @Override
     public void runOpMode() {
         super.runOpMode();

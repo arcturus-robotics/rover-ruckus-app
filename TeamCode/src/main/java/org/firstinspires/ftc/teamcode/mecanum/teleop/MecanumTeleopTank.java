@@ -13,11 +13,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 @TeleOp(name="Mecanum Teleop: Tank", group="Mecanum Teleop")
 @Disabled
 public class MecanumTeleopTank extends OpMode {
-    public static final double CLAW_SPEED = 0.02; // Claw movement rate
-
-    protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    protected double clawOffset     = 0.0; // Claw offset
-
+    protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    protected double clawOffset       = 0.0; // Claw offset
+    protected final double CLAW_SPEED = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -67,28 +65,28 @@ public class MecanumTeleopTank extends OpMode {
         robot.backLeftDrive.setPower(leftDrive);
         robot.backRightDrive.setPower(rightDrive);
 
-
         /*
-        if (move1 > 0.8 ) ;
-               (move2 > 0.8);
-                robot.frontleftDrive.setPower(-1);
-                robot.frontleftDrive.setPower(-1);
-                robot.frontrightDrive.setPower(1);
-                robot.frontrightDrive.setPower(1);
-        if (move1 < -0.8)        ;
-            if (move2 < -0.8) ;
-                robot.frontleftDrive.setPower(1);
-                robot.frontleftDrive.setPower(1);
-                robot.frontrightDrive.setPower(-1);
-                robot.frontrightDrive.setPower(-1);
+        if (move1 > 0.8 && move2 > 0.8) {
+            robot.frontleftDrive.setPower(-1);
+            robot.frontleftDrive.setPower(-1);
+            robot.frontrightDrive.setPower(1);
+            robot.frontrightDrive.setPower(1);
+        }
+        if (move1 < -0.8 && move2 < -0.8) {
+            robot.frontleftDrive.setPower(1);
+            robot.frontleftDrive.setPower(1);
+            robot.frontrightDrive.setPower(-1);
+            robot.frontrightDrive.setPower(-1);
+        }
         */
 
         /*
-        // Use gamepad left & right Bumpers to open and close the claw
-        if (gamepad1.right_bumper)
+        // Use gamepad1's left and right bumpers to open and close the claw
+        if (gamepad1.right_bumper) {
             clawOffset += CLAW_SPEED;
-        else if (gamepad1.left_bumper)
+        } else if (gamepad1.left_bumper) {
             clawOffset -= CLAW_SPEED;
+        }
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
@@ -96,12 +94,13 @@ public class MecanumTeleopTank extends OpMode {
         // robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad1.y)
+        if (gamepad1.y) {
             robot.leftArm.setPower(robot.ARM_UP_POWER);
-        else if (gamepad1.a)
+        } else if (gamepad1.a) {
             robot.leftArm.setPower(robot.ARM_DOWN_POWER);
-        else
+        } else {
             robot.leftArm.setPower(0.0);
+        }
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);

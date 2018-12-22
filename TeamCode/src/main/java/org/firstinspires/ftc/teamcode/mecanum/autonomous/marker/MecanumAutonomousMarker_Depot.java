@@ -10,8 +10,6 @@ import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 @Autonomous(name="Mecanum Autonomous Marker: Depot Side", group="Mecanum Autonomous Marker")
 //@Disabled
 public class MecanumAutonomousMarker_Depot extends MecanumAutonomousMarker {
-    public MecanumAutonomousMarker_Depot() {}
-
     @Override
     public void runOpMode() {
         super.runOpMode();

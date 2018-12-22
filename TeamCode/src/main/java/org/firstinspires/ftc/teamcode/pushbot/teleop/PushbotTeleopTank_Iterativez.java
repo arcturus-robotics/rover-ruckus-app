@@ -13,9 +13,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 @TeleOp(name="Pushbot Teleop: Tankz", group="Pushbot Teleop")
 @Disabled
 public class PushbotTeleopTank_Iterativez extends OpMode {
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0; // Claw offset
-    final double    CLAW_SPEED  = 0.02; // Claw movement rate from 0 to 1
+    protected HardwarePushbot robot   = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    protected double clawOffset       = 0.0; // Claw offset
+    protected final double CLAW_SPEED = 0.02; // Claw movement rate from 0 to 1
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -67,10 +67,11 @@ public class PushbotTeleopTank_Iterativez extends OpMode {
 
         /*
         // Use gamepad left & right Bumpers to open and close the claw
-        if (gamepad1.right_bumper)
+        if (gamepad1.right_bumper) {
             clawOffset += CLAW_SPEED;
-        else if (gamepad1.left_bumper)
+        } else if (gamepad1.left_bumper) {
             clawOffset -= CLAW_SPEED;
+        }
 
         // Move both servos to new position.  Assume servos are mirror image of each other.
         clawOffset = Range.clip(clawOffset, -0.5, 0.5);
@@ -78,12 +79,13 @@ public class PushbotTeleopTank_Iterativez extends OpMode {
         robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
-        if (gamepad1.y)
+        if (gamepad1.y) {
             robot.leftArm.setPower(robot.ARM_UP_POWER);
-        else if (gamepad1.a)
+        } else if (gamepad1.a) {
             robot.leftArm.setPower(robot.ARM_DOWN_POWER);
-        else
+        } else {
             robot.leftArm.setPower(0.0);
+        }
 
         // Send telemetry message to signify robot running;
         telemetry.addData("claw",  "Offset = %.2f", clawOffset);

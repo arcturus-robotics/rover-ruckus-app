@@ -48,7 +48,7 @@ After the prefix, other conventions will apply:
 
 * Sensor class names are constructed as:    Sensor - Company - Type
 * Hardware class names are constructed as:  Hardware - Robot type
-* Pushbot class names are constructed as:   Pushbot - Mode - Action - OpModetype
-* Concept class names are constructed as:   Concept - Topic - OpModetype
-* Library class names are constructed as:   Library - Topic - OpModetype
+* Pushbot class names are constructed as:   Pushbot - Mode - Action - OpMode type
+* Concept class names are constructed as:   Concept - Topic - OpMode type
+* Library class names are constructed as:   Library - Topic - OpMode type
 

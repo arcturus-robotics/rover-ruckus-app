@@ -13,10 +13,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
 @TeleOp(name="Mecanum Teleop: Translation", group="Mecanum Teleop")
 //@Disabled
 public class MecanumTeleopTranslation extends OpMode {
-    public static final double CLAW_SPEED = 0.5; // Claw movement rate from 0 to 1
-    public static final double ARM_SPEED  = 0.5; // Arm movement rate from 0 to 1
-
-    protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    protected final double CLAW_SPEED = 0.5; // Claw movement rate from 0 to 1
+    protected final double ARM_SPEED  = 0.5; // Arm movement rate from 0 to 1
 
     @Override
     public void init() {
@@ -60,12 +59,13 @@ public class MecanumTeleopTranslation extends OpMode {
             robot.clawTilt.setPower(0);
 
         // Arm
-        if (gamepad2.left_bumper)
+        if (gamepad2.left_bumper) {
             robot.armTilt.setPower(-ARM_SPEED);
-        else if (gamepad2.right_bumper)
+        } else if (gamepad2.right_bumper) {
             robot.armTilt.setPower(ARM_SPEED);
-        else
+        } else {
             robot.armTilt.setPower(0);
+        }
 
         // Intake
         if (gamepad2.x || gamepad2.a) {
