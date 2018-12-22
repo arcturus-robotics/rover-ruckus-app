@@ -27,6 +27,7 @@ public class DepotSide_Crater extends DepotSide {
             turnClaw(-0.7, 400);
             turnLeft(0.7, 220);
             moveForward(1, (long) (Mecanum.FIELD * 0.5));
+            turnArm(-1, 500);
         }
     }
 }
