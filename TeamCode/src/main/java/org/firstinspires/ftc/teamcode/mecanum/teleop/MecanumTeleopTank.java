@@ -13,10 +13,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 @TeleOp(name="Mecanum Teleop: Tank", group="Mecanum Teleop")
 @Disabled
 public class MecanumTeleopTank extends OpMode {
-    public static final double CLAW_SPEED = 0.02; // Claw movement rate
-
-    protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
-    protected double clawOffset     = 0.0; // Claw offset
+    protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
+    protected double clawOffset       = 0.0; // Claw offset
+    protected final double CLAW_SPEED = 0.02; // Claw movement rate
 
     /*
      * Code to run ONCE when the driver hits INIT

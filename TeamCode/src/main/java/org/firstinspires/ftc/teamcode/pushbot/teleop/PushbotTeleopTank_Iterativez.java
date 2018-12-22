@@ -13,9 +13,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 @TeleOp(name="Pushbot Teleop: Tankz", group="Pushbot Teleop")
 @Disabled
 public class PushbotTeleopTank_Iterativez extends OpMode {
-    HardwarePushbot robot       = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0; // Claw offset
-    final double    CLAW_SPEED  = 0.02; // Claw movement rate from 0 to 1
+    protected HardwarePushbot robot   = new HardwarePushbot(); // use the class created to define a Pushbot's hardware
+    protected double clawOffset       = 0.0; // Claw offset
+    protected final double CLAW_SPEED = 0.02; // Claw movement rate from 0 to 1
 
     /*
      * Code to run ONCE when the driver hits INIT

@@ -11,8 +11,6 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.marker.MecanumAutonomou
 @Autonomous(name="Measurement Test: Circle", group="Measurement Test")
 //@Disabled
 public class MeasurementTest_Circle extends MecanumAutonomousMarker {
-    public MeasurementTest_Circle() {}
-
     @Override
     public void runOpMode() {
         super.runOpMode();

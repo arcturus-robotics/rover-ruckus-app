@@ -22,8 +22,6 @@ public class MecanumAutonomous extends LinearOpMode {
     protected HardwareMecanum robot   = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     protected ElapsedTime elapsedTime = new ElapsedTime(); // Keep track of the time so you know when to stop
 
-    public MecanumAutonomous() {}
-
     @Override
     public void runOpMode() {
         // Initialize the robot using the hardware map
