@@ -18,10 +18,14 @@ public class MecanumAutonomousDepot_Crater extends MecanumAutonomousDepot {
 
         if (opModeIsActive()) {
             // Move to depot
-            moveForward(1, Mecanum.LANDER / 2);
+            moveForward(1, (Mecanum.LANDER / 3));
             moveLeft(1, Mecanum.LANDER / 2);
-            turnRight(1, Mecanum.CIRCLE / 8);
-            moveBackward(1, Mecanum.FIELD);
+            turnRight(1, Mecanum.CIRCLE / 12);
+            moveBackward(1, (long)(Mecanum.FIELD * 0.4));
+            turnClaw(1, 500);
+            turnClaw(-1, 500);
+            turnRight(0.7, 300);
+            moveForward(1, (long) (Mecanum.FIELD * 0.5));
         }
     }
 }
