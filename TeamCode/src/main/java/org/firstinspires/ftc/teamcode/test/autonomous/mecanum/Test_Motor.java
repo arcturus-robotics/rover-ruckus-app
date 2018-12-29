@@ -10,7 +10,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
  */
 @TeleOp(name="Mecanum Test: Motor", group="Mecanum Test")
 //@Disabled
-public class MecanumTest_Motor extends OpMode {
+public class Test_Motor extends OpMode {
     protected HardwareMecanum robot = new HardwareMecanum(); // The robot, containing each motor, servo, etc.
     protected double clawOffset               = 0.0; // Claw offset
     protected final double CLAW_SPEED         = 0.02; // Claw movement rate
