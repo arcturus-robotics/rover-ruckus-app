@@ -12,7 +12,7 @@ public class Mecanum {
     public static final double DEPLOY_POWER       = 0.5; // The power at which the marker will be deployed
     public static final double DEPLOY_ANGLE       = 120; // The amount of time the marker will be deployed for
     public static final double INCHES_PER_SECOND  = 36.0416666666666667; // The distance the robot moves in a second, in inches
-    public static final double DEGREES_PER_SECOND = 0; // The angle the robot turns in one second
+    public static final double DEGREES_PER_SECOND = 85; // (approximate) The angle the robot turns in one second
     public static final double CIRCLE             = 360; // 360 degrees
     public static final double FIELD_LENGTH       = 144; // The length of the field, in inches
     public static final double FIELD_DIAGONAL     = FIELD_LENGTH * Math.sqrt(2); // The length of the field diagonally
