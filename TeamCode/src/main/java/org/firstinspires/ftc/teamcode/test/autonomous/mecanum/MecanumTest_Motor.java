@@ -69,6 +69,13 @@ public class MecanumTest_Motor extends OpMode {
         else
             robot.backLeftDrive.setPower(0);
 
+        //launchermechanism
+        if (gamepad1.left_trigger == 1 )
+            robot.launchermechanism.setPower(-1);
+        if (gamepad1.right_trigger == 1)
+            robot.launchermechanism.setPower(1);
+        else
+            robot.launchermechanism.setPower(0);
         // Launcher
         if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper)))
             robot.launcherTilt.setPosition(0.5);

@@ -62,7 +62,7 @@ public class HardwareMecanum {
     public Servo   launcherTilt    = null;
     public Servo   clawLeft        = null;
     public Servo   clawRight       = null;
-
+    public DcMotor launchermechanism = null;
     protected HardwareMap hardwareMap = null;
     private ElapsedTime elapsedTime   = new ElapsedTime();
 
@@ -85,6 +85,7 @@ public class HardwareMecanum {
         backRightDrive  = hwMap.get(DcMotor.class, "back_rightDrive");
         armTilt         = hwMap.get(DcMotor.class, "arm_tilt");
         clawTilt        = hwMap.get(DcMotor.class, "claw_tilt");
+        launchermechanism = hwMap.get(DcMotor.class, "launchermotor");
 
         // Set motor directions
         // NOTE: Set to the opposite direction if you are using AndyMark motors
@@ -102,6 +103,7 @@ public class HardwareMecanum {
         backLeftDrive.setPower(0);
         armTilt.setPower(0);
         clawTilt.setPower(0);
+        launchermechanism.setPower(0);
 
         // Set all motors to run without encoders
         // NOTE: You may want to use RUN_USING_ENCODERS if encoders are installed
@@ -111,7 +113,7 @@ public class HardwareMecanum {
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         armTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         clawTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
+        launchermechanism.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // Define and initialize servos
         launcherTilt = hwMap.get(Servo.class, "launcher_tilt");
         clawLeft = hwMap.get(Servo.class, "claw_left");
