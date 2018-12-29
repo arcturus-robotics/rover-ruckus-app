@@ -8,14 +8,14 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 /**
  * Find the meters per second
  */
-@Autonomous(name="Measurement Test: Meters per second", group="Measurement Test")
-public class Test_FeetPerSecond extends MecanumAutonomous {
+@Autonomous(name="Measurement Test: Degrees per second", group="Measurement Test")
+public class Test_DegreesPerSecond extends MecanumAutonomous {
     @Override
     public void runOpMode() {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            moveForward(1, 1000);
+            turnRight(1, 1000);
         }
     }
 }

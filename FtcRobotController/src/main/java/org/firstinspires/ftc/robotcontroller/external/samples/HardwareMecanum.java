@@ -38,12 +38,13 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Mecanum hardware
  *
  * Motors:
- *   frontLeftDrive:  "front_leftDrive"  TODO: "front_left_drive"
- *   frontRightDrive: "front_rightDrive" TODO: "front_right_drive"
- *   backLeftDrive:   "back_leftDrive"   TODO: "back_left_drive"
- *   backRightDrive:  "back_rightDrive"  TODO: "back_right_drive"
- *   armTilt:         "arm_tilt"
- *   clawTilt:        "claw_tilt"
+ *   frontLeftDrive:    "front_leftDrive"  TODO: "front_left_drive"
+ *   frontRightDrive:   "front_rightDrive" TODO: "front_right_drive"
+ *   backLeftDrive:     "back_leftDrive"   TODO: "back_left_drive"
+ *   backRightDrive:    "back_rightDrive"  TODO: "back_right_drive"
+ *   armTilt:           "arm_tilt"
+ *   clawTilt:          "claw_tilt"
+ *   launcherMechanism: "launchermotor"    TODO; "launcher_mechanism"
  *
  * Servos:
  *   launcherTilt: "launcher_tilt"
@@ -53,16 +54,16 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class HardwareMecanum {
     public static final double MID_SERVO = 0.5;
 
-    public DcMotor frontLeftDrive  = null;
-    public DcMotor frontRightDrive = null;
-    public DcMotor backLeftDrive   = null;
-    public DcMotor backRightDrive  = null;
-    public DcMotor armTilt         = null;
-    public DcMotor clawTilt        = null;
-    public Servo   launcherTilt    = null;
-    public Servo   clawLeft        = null;
-    public Servo   clawRight       = null;
-    public DcMotor launchermechanism = null;
+    public DcMotor frontLeftDrive     = null;
+    public DcMotor frontRightDrive    = null;
+    public DcMotor backLeftDrive      = null;
+    public DcMotor backRightDrive     = null;
+    public DcMotor armTilt            = null;
+    public DcMotor clawTilt           = null;
+    public Servo   launcherTilt       = null;
+    public Servo   clawLeft           = null;
+    public Servo   clawRight          = null;
+    public DcMotor launcherMechanism  = null;
     protected HardwareMap hardwareMap = null;
     private ElapsedTime elapsedTime   = new ElapsedTime();
 
@@ -79,13 +80,13 @@ public class HardwareMecanum {
          * "All names are lower case and some have single spaces between words."
          */
         // Define and initialize motors
-        frontLeftDrive  = hwMap.get(DcMotor.class, "front_leftDrive");
-        frontRightDrive = hwMap.get(DcMotor.class, "front_rightDrive");
-        backLeftDrive   = hwMap.get(DcMotor.class, "back_leftDrive");
-        backRightDrive  = hwMap.get(DcMotor.class, "back_rightDrive");
-        armTilt         = hwMap.get(DcMotor.class, "arm_tilt");
-        clawTilt        = hwMap.get(DcMotor.class, "claw_tilt");
-        launchermechanism = hwMap.get(DcMotor.class, "launchermotor");
+        frontLeftDrive    = hwMap.get(DcMotor.class, "front_leftDrive");
+        frontRightDrive   = hwMap.get(DcMotor.class, "front_rightDrive");
+        backLeftDrive     = hwMap.get(DcMotor.class, "back_leftDrive");
+        backRightDrive    = hwMap.get(DcMotor.class, "back_rightDrive");
+        armTilt           = hwMap.get(DcMotor.class, "arm_tilt");
+        clawTilt          = hwMap.get(DcMotor.class, "claw_tilt");
+        launcherMechanism = hwMap.get(DcMotor.class, "launchermotor");
 
         // Set motor directions
         // NOTE: Set to the opposite direction if you are using AndyMark motors
@@ -103,7 +104,7 @@ public class HardwareMecanum {
         backLeftDrive.setPower(0);
         armTilt.setPower(0);
         clawTilt.setPower(0);
-        launchermechanism.setPower(0);
+        launcherMechanism.setPower(0);
 
         // Set all motors to run without encoders
         // NOTE: You may want to use RUN_USING_ENCODERS if encoders are installed
@@ -113,7 +114,7 @@ public class HardwareMecanum {
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         armTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         clawTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        launchermechanism.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        launcherMechanism.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         // Define and initialize servos
         launcherTilt = hwMap.get(Servo.class, "launcher_tilt");
         clawLeft = hwMap.get(Servo.class, "claw_left");

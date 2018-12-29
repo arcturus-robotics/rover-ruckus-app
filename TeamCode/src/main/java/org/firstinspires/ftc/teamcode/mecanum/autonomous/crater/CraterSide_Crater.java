@@ -16,7 +16,7 @@ public class CraterSide_Crater extends CraterSide {
 
         if (opModeIsActive()) {
             // Move to crater
-            moveForward(1, Mecanum.LANDER);
+            moveForward(1, Mecanum.FIELD_DIAGONAL);
         }
     }
 }

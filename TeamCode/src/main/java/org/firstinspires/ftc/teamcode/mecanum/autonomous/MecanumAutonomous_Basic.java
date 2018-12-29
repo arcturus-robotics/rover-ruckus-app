@@ -16,7 +16,7 @@ public class MecanumAutonomous_Basic extends MecanumAutonomous {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            moveForward(1, Mecanum.LANDER);
+            moveForward(1, Mecanum.FIELD_DIAGONAL);
         }
     }
 }

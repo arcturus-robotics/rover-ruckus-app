@@ -18,18 +18,17 @@ public class DepotSide_Crater extends DepotSide {
 
         if (opModeIsActive()) {
             // Move to depot
-            moveForward(1, Mecanum.LANDER / 3);
-            moveLeft(1,(Mecanum.LANDER / 2) + 154);
-            turnRight(1, Mecanum.CIRCLE / 12);
-            moveBackward(1, (long) (Mecanum.FIELD * 0.4));
+            moveForward(1, Mecanum.FIELD_DIAGONAL);
+            moveLeft(1, 36);
+            turnRight(1, Mecanum.CIRCLE / 20);
+            moveBackward(1, Mecanum.FIELD_LENGTH);
 
             // Deploy marker
             deployMarker();
 
             // Move to crater
-            turnLeft(1, 154);
-            moveForward(1, Mecanum.FIELD / 2);
-            turnArm(-1, 500);
+            moveForward(1, Mecanum.FIELD_LENGTH);
+            turnArm(-1, Mecanum.CIRCLE / 12);
         }
     }
 }

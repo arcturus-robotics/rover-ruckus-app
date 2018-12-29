@@ -31,7 +31,7 @@ public class MecanumAutonomous extends LinearOpMode {
         elapsedTime.reset();
 
         // Sleep for the initial delay so we don't get in the way of our ally
-        initialDelay();
+        sleep(Mecanum.INITIAL_DELAY);
     }
 
     /**
@@ -48,38 +48,27 @@ public class MecanumAutonomous extends LinearOpMode {
     }
 
     /**
-     * Sleep for the initial delay
-     * @see Mecanum#INITIAL_DELAY
-     */
-    private void initialDelay() {
-        sleep(Mecanum.INITIAL_DELAY);
-    }
-
-    /**
      * Deploy the marker
      * @see Mecanum#DEPLOY_POWER
      */
     public void deployMarker() {
-        turnClaw(Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
-        turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
+        turnClaw(Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_ANGLE);
+        turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_ANGLE);
     }
 
     /**
      * Make the robot move forward
      * @param power The speed the robot will move forward at
-     * @param duration The amount of time the robot will move forward for (in milliseconds)
-     * @see Mecanum#DRIVE_POWER
+     * @param distance
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void moveForward(double power, long duration) {
-        power *= Mecanum.DRIVE_POWER;
-
+    public void moveForward(double power, double distance) {
         robot.frontLeftDrive.setPower(power);
         robot.frontRightDrive.setPower(power);
         robot.backLeftDrive.setPower(power);
         robot.backRightDrive.setPower(power);
 
-        sleep(duration);
+        sleep(Mecanum.duration(distance));
 
         robot.frontLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -92,19 +81,16 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move right
      * @param power The speed the robot will move right at
-     * @param duration The amount of time the robot will move right for (in milliseconds)
-     * @see Mecanum#DRIVE_POWER
+     * @param distance
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void moveRight(double power, long duration) {
-        power *= Mecanum.DRIVE_POWER;
-
+    public void moveRight(double power, double distance) {
         robot.frontLeftDrive .setPower(power);
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive  .setPower(-power);
         robot.backRightDrive .setPower(power);
 
-        sleep(duration);
+        sleep(Mecanum.duration(distance));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -117,19 +103,16 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move backward
      * @param power The speed the robot will move backward at
-     * @param duration The amount of time the robot will move backward for (in milliseconds)
-     * @see Mecanum#DRIVE_POWER
+     * @param distance
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void moveBackward(double power, long duration) {
-        power *= Mecanum.DRIVE_POWER;
-
+    public void moveBackward(double power, double distance) {
         robot.frontLeftDrive .setPower(-power);
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive  .setPower(-power);
         robot.backRightDrive .setPower(-power);
 
-        sleep(duration);
+        sleep(Mecanum.duration(distance));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -142,19 +125,16 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move left
      * @param power The speed the robot will move left at
-     * @param duration The amount of time the robot will move left for (in milliseconds)
-     * @see Mecanum#DRIVE_POWER
+     * @param distance
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void moveLeft(double power, long duration) {
-        power *= Mecanum.DRIVE_POWER;
-
+    public void moveLeft(double power, double distance) {
         robot.frontLeftDrive .setPower(-power);
         robot.frontRightDrive.setPower(power);
         robot.backLeftDrive  .setPower(power);
         robot.backRightDrive .setPower(-power);
 
-        sleep(duration);
+        sleep(Mecanum.duration(distance));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -167,19 +147,16 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot turn left
      * @param power The speed the arm will turn left at
-     * @param duration The amount of time the robot will turn left for (in milliseconds)
-     * @see Mecanum#DRIVE_POWER
+     * @param degrees
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void turnLeft(double power, long duration) {
-        power *= Mecanum.DRIVE_POWER;
-
+    public void turnLeft(double power, double degrees) {
         robot.frontLeftDrive .setPower(-power);
         robot.frontRightDrive.setPower(power);
         robot.backLeftDrive  .setPower(-power);
         robot.backRightDrive .setPower(power);
 
-        sleep(duration);
+        sleep(Mecanum.angle(degrees));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -192,19 +169,16 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot turn right
      * @param power The speed the robot will turn right at
-     * @param duration The amount of time the robot will turn right for (in milliseconds)
-     * @see Mecanum#DRIVE_POWER
+     * @param degrees
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void turnRight(double power, long duration) {
-        power *= Mecanum.DRIVE_POWER;
-
+    public void turnRight(double power, double degrees) {
         robot.frontLeftDrive .setPower(power);
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive  .setPower(power);
         robot.backRightDrive .setPower(-power);
 
-        sleep(duration);
+        sleep(Mecanum.angle(degrees));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -217,13 +191,13 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the arm turn
      * @param power The speed the arm will turn at
-     * @param duration The amount of time the arm will turn for (in milliseconds)
+     * @param degrees
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void turnArm(double power, long duration) {
+    public void turnArm(double power, double degrees) {
         robot.armTilt.setPower(power);
 
-        sleep(duration);
+        sleep(Mecanum.angle(degrees));
 
         robot.armTilt.setPower(0);
 
@@ -233,13 +207,13 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the claw turn
      * @param power The speed the claw will turn at
-     * @param duration The amount of time the claw will turn for (in milliseconds)
+     * @param degrees
      * @see Mecanum#MOVEMENT_PADDING
      */
-    public void turnClaw(double power, long duration) {
+    public void turnClaw(double power, double degrees) {
         robot.clawTilt.setPower(power);
 
-        sleep(duration);
+        sleep(Mecanum.angle(degrees));
 
         robot.clawTilt.setPower(0);
 
@@ -257,27 +231,5 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.launcherTilt.setPosition(position);
 
         sleep(Mecanum.MOVEMENT_PADDING);
-    }
-
-    /**
-     * Make the launcher turn using degrees
-     * NOTE: This is untested!
-     * @param direction The direction for the launcher to turn in
-     * @param degrees The angle for the launcher to turn to (in degrees)
-     * @see Mecanum#MOVEMENT_PADDING
-     */
-    public void turnLauncherDeg(Servo.Direction direction, double degrees) {
-        turnLauncher(direction, degrees / 180);
-    }
-
-    /**
-     * Make the launcher turn using radians
-     * NOTE: This is untested!
-     * @param direction The direction for the launcher to turn in
-     * @param radians The angle for the launcher to turn to (in radians)
-     * @see Mecanum#MOVEMENT_PADDING
-     */
-    public void setLauncherRad(Servo.Direction direction, double radians) {
-        turnLauncher(direction, radians / Math.PI);
     }
 }
