@@ -29,11 +29,13 @@ public class MecanumAutonomous extends LinearOpMode {
 
         // Reset the elapsed time
         elapsedTime.reset();
+
+        // Sleep for the initial delay so we don't get in the way of our ally
+        initialDelay();
     }
 
     /**
-     * Get the remaining time
-     * NOTE: If more time has elapsed than the duration of autonomous, this will return 0
+     * Calculate the remaining time
      * @return The remaining time
      * @see Mecanum#AUTONOMOUS_DURATION
      */
@@ -43,6 +45,23 @@ public class MecanumAutonomous extends LinearOpMode {
             remaining = 0;
         }
         return remaining;
+    }
+
+    /**
+     * Sleep for the initial delay
+     * @see Mecanum#INITIAL_DELAY
+     */
+    private void initialDelay() {
+        sleep(Mecanum.INITIAL_DELAY);
+    }
+
+    /**
+     * Deploy the marker
+     * @see Mecanum#DEPLOY_POWER
+     */
+    public void deployMarker() {
+        turnClaw(Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
+        turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
     }
 
     /**

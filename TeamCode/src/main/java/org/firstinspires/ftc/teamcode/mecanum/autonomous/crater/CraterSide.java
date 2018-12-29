@@ -9,9 +9,4 @@ import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
  */
 @Autonomous(name="Mecanum Autonomous Crater Side", group="Mecanum Autonomous Crater Side")
 //@Disabled
-public class CraterSide extends MecanumAutonomous {
-    @Override
-    public void runOpMode() {
-        super.runOpMode();
-    }
-}
+public class CraterSide extends MecanumAutonomous {}

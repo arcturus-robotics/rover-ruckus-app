@@ -6,17 +6,16 @@ import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 import org.firstinspires.ftc.teamcode.mecanum.autonomous.MecanumAutonomous;
 
 /**
- * A measurement test that tries to find the field length
+ * Find the meters per second
  */
-@Autonomous(name="Measurement Test: Field Length", group="Measurement Test")
-//@Disabled
-public class MeasurementTest_FieldLength extends MecanumAutonomous {
+@Autonomous(name="Measurement Test: Field length", group="Measurement Test")
+public class Test_FieldLength extends MecanumAutonomous {
     @Override
     public void runOpMode() {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            moveForward(1, Mecanum.FIELD);
+            moveForward(1, 1000);
         }
     }
 }

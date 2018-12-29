@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import org.firstinspires.ftc.teamcode.mecanum.Mecanum;
 
 /**
- * The Mecanum autonomous opmode that goes to the depot
+ * 1. Move to depot
+ * 2. Deploy marker
  */
 @Autonomous(name="Mecanum Autonomous Depot Side: Depot", group="Mecanum Autonomous Depot Side")
 //@Disabled
@@ -15,10 +16,11 @@ public class DepotSide_Depot extends DepotSide {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            // Move to depot and deploy marker
+            // Move to depot
             moveForward(1, Mecanum.LANDER);
-            turnClaw(Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
-            turnClaw(-Mecanum.DEPLOY_POWER, Mecanum.DEPLOY_DURATION);
+
+            // Deploy marker
+            deployMarker();
         }
     }
 }
