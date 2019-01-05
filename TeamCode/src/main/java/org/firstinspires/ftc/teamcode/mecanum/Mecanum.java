@@ -16,6 +16,7 @@ public class Mecanum {
     public static final double CIRCLE             = 360; // 360 degrees
     public static final double FIELD_LENGTH       = 144; // The length of the field, in inches
     public static final double FIELD_DIAGONAL     = FIELD_LENGTH * Math.sqrt(2); // The length of the field diagonally
+    public static final double LANDER_TO_CORNER   = 91; // The distance from the lander to the corner
     public static final double RADIUS             = 11.66726188957803; // The radius of the robot, in inches
 
     /**
@@ -28,9 +29,9 @@ public class Mecanum {
     }
 
     /**
-     *
+     * Find the duration to turn for in milliseconds using an angle, in degrees
      * @param degrees The angle
-     * @return
+     * @return ...
      */
     public static long angle(double degrees) {
         return (long) (1000 * (degrees / DEGREES_PER_SECOND));

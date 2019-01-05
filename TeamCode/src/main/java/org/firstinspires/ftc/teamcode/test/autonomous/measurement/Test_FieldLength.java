@@ -15,7 +15,7 @@ public class Test_FieldLength extends MecanumAutonomous {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            moveForward(1, 1000);
+            moveForward(1, Mecanum.FIELD_LENGTH);
         }
     }
 }
