@@ -44,7 +44,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *   backRightDrive:    "back_rightDrive"  TODO: "back_right_drive"
  *   armTilt:           "arm_tilt"
  *   clawTilt:          "claw_tilt"
- *   launcherMechanism: "launchermotor"    TODO; "launcher_mechanism"
+ *   launcherMechanism: "launchermotor"    TODO: "launcher_mechanism"
  *
  * Servos:
  *   launcherTilt: "launcher_tilt"
@@ -64,7 +64,8 @@ public class HardwareMecanum {
     public Servo   clawLeft           = null;
     public Servo   clawRight          = null;
     public DcMotor launcherMechanism  = null;
-    protected HardwareMap hardwareMap = null;
+
+    private HardwareMap hardwareMap = null;
     private ElapsedTime elapsedTime   = new ElapsedTime();
 
     public HardwareMecanum() {}
