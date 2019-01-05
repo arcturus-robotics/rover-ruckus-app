@@ -67,7 +67,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive.setPower(power);
         robot.backRightDrive.setPower(power);
 
-        sleep(Mecanum.duration(distance));
+        sleep(Mecanum.distance(distance));
 
         robot.frontLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -89,7 +89,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(-power);
         robot.backRightDrive .setPower(power);
 
-        sleep(Mecanum.duration(distance));
+        sleep(Mecanum.distance(distance));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -111,7 +111,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(-power);
         robot.backRightDrive .setPower(-power);
 
-        sleep(Mecanum.duration(distance));
+        sleep(Mecanum.distance(distance));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -133,7 +133,7 @@ public class MecanumAutonomous extends LinearOpMode {
         robot.backLeftDrive  .setPower(power);
         robot.backRightDrive .setPower(-power);
 
-        sleep(Mecanum.duration(distance));
+        sleep(Mecanum.distance(distance));
 
         robot.frontLeftDrive .setPower(0);
         robot.frontRightDrive.setPower(0);
