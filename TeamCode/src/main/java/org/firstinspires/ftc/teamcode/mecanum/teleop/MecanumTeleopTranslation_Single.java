@@ -31,13 +31,14 @@ public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
         robot.backRightDrive.setPower(backRight);
 
         // Claw
+        /*
         if (gamepad1.left_trigger == 1) {
             robot.clawTilt.setPower(-CLAW_SPEED);
         } else if (gamepad1.right_trigger == 1) {
             robot.clawTilt.setPower(CLAW_SPEED);
         } else {
             robot.clawTilt.setPower(0);
-        }
+        }*/
 
         // Arm
         if (gamepad1.left_bumper) {
@@ -46,6 +47,15 @@ public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
             robot.armTilt.setPower(ARM_SPEED);
         } else {
             robot.armTilt.setPower(0);
+        }
+
+        // Launcher
+        if (gamepad1.left_trigger == 1) {
+            robot.launcherMechanism.setPower(-1);
+        } else if (gamepad1.right_trigger == 1) {
+            robot.launcherMechanism.setPower(1);
+        } else {
+            robot.launcherMechanism.setPower(0);
         }
 
         // Intake
