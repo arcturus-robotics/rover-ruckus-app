@@ -11,7 +11,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * The Mecanum autonomous opmode
- * NOTE: If you are manually using the wheel motors, multiply your power by <code>Mecanum.DRIVE_POWER</code>
  */
 @Autonomous(name="Mecanum Autonomous", group="Mecanum Autonomous")
 //@Disabled
@@ -59,7 +58,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move forward
      * @param power The speed the robot will move forward at
-     * @param distance
+     * @param distance The distance, in inches, to move the robot forward for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void moveForward(double power, double distance) {
@@ -81,7 +80,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move right
      * @param power The speed the robot will move right at
-     * @param distance
+     * @param distance The distance, in inches, to move the robot right for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void moveRight(double power, double distance) {
@@ -103,7 +102,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move backward
      * @param power The speed the robot will move backward at
-     * @param distance
+     * @param distance The distance, in inches, to move the robot backward for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void moveBackward(double power, double distance) {
@@ -125,7 +124,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot move left
      * @param power The speed the robot will move left at
-     * @param distance
+     * @param distance The distance, in inches, to move the robot left for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void moveLeft(double power, double distance) {
@@ -146,8 +145,8 @@ public class MecanumAutonomous extends LinearOpMode {
 
     /**
      * Make the robot turn left
-     * @param power The speed the arm will turn left at
-     * @param degrees
+     * @param power The speed the robot will turn left at
+     * @param degrees The angle to turn the robot left for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void turnLeft(double power, double degrees) {
@@ -169,7 +168,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the robot turn right
      * @param power The speed the robot will turn right at
-     * @param degrees
+     * @param degrees The angle to turn the robot right for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void turnRight(double power, double degrees) {
@@ -191,7 +190,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the arm turn
      * @param power The speed the arm will turn at
-     * @param degrees
+     * @param degrees The angle turn turn the arm for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void turnArm(double power, double degrees) {
@@ -207,7 +206,7 @@ public class MecanumAutonomous extends LinearOpMode {
     /**
      * Make the claw turn
      * @param power The speed the claw will turn at
-     * @param degrees
+     * @param degrees The angle to turn the claw for
      * @see Mecanum#MOVEMENT_PADDING
      */
     public void turnClaw(double power, double degrees) {

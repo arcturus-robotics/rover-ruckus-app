@@ -17,7 +17,7 @@ public class DepotSide_Depot extends DepotSide {
 
         if (opModeIsActive()) {
             // Move to depot
-            moveForward(1, Mecanum.FIELD_DIAGONAL);
+            moveForward(1, Mecanum.LANDER_TO_CORNER);
 
             // Deploy marker
             deployMarker();

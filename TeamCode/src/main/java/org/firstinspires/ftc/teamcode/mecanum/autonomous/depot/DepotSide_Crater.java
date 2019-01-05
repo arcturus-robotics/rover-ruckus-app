@@ -18,7 +18,7 @@ public class DepotSide_Crater extends DepotSide {
 
         if (opModeIsActive()) {
             // Move to depot
-            moveForward(1, Mecanum.FIELD_DIAGONAL);
+            moveForward(1, Mecanum.LANDER_TO_CORNER);
             moveLeft(1, 36);
             turnRight(1, Mecanum.CIRCLE / 20);
             moveBackward(1, Mecanum.FIELD_LENGTH);
