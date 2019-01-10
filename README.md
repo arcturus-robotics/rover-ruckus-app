@@ -1,2 +1,2 @@
 # ftc_app
-Arcturus' robot controller for FTC
+Arcturus' robot controller for FTC.
