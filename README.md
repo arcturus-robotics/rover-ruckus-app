@@ -1,2 +1,2 @@
 # ftc_app
-Arcturus' robot controller for FTC.
+This repository holds all of the code for Arcturus' robot controller for FTC.
