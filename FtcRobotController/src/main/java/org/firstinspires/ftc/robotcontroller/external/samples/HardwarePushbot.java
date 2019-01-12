@@ -64,8 +64,8 @@ public class HardwarePushbot {
     public Servo   leftClaw   = null;
     public Servo   rightClaw  = null;
 
-    private HardwareMap hardwareMap = null;
-    private ElapsedTime elapsedTime   = new ElapsedTime();
+    HardwareMap hardwareMap    = null;
+    private ElapsedTime period = new ElapsedTime();
 
     public HardwarePushbot () {}
 

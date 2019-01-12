@@ -65,8 +65,8 @@ public class HardwareMecanum {
     public Servo   clawRight          = null;
     public DcMotor launcherMechanism  = null;
 
-    private HardwareMap hardwareMap = null;
-    private ElapsedTime elapsedTime   = new ElapsedTime();
+    HardwareMap hardwareMap    = null;
+    private ElapsedTime period = new ElapsedTime();
 
     public HardwareMecanum() {}
 
