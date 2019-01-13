@@ -36,39 +36,40 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * Mecanum hardware
- *
+ * <p>
  * Motors:
- *   frontLeftDrive:    "front_leftDrive"  TODO: "front_left_drive"
- *   frontRightDrive:   "front_rightDrive" TODO: "front_right_drive"
- *   backLeftDrive:     "back_leftDrive"   TODO: "back_left_drive"
- *   backRightDrive:    "back_rightDrive"  TODO: "back_right_drive"
- *   armTilt:           "arm_tilt"
- *   clawTilt:          "claw_tilt"
- *   launcherMechanism: "launchermotor"    TODO: "launcher_mechanism"
- *
+ * frontLeftDrive:    "front_leftDrive"  TODO: "front_left_drive"
+ * frontRightDrive:   "front_rightDrive" TODO: "front_right_drive"
+ * backLeftDrive:     "back_leftDrive"   TODO: "back_left_drive"
+ * backRightDrive:    "back_rightDrive"  TODO: "back_right_drive"
+ * armTilt:           "arm_tilt"
+ * clawTilt:          "claw_tilt"
+ * launcherMechanism: "launchermotor"    TODO: "launcher_mechanism"
+ * <p>
  * Servos:
- *   launcherTilt: "launcher_tilt"
- *   clawLeft:     "claw_left"
- *   clawRight:    "claw_right"
+ * launcherTilt: "launcher_tilt"
+ * clawLeft:     "claw_left"
+ * clawRight:    "claw_right"
  */
 public class HardwareMecanum {
     public static final double MID_SERVO = 0.5;
 
-    public DcMotor frontLeftDrive     = null;
-    public DcMotor frontRightDrive    = null;
-    public DcMotor backLeftDrive      = null;
-    public DcMotor backRightDrive     = null;
-    public DcMotor armTilt            = null;
-    public DcMotor clawTilt           = null;
-    public Servo   launcherTilt       = null;
-    public Servo   clawLeft           = null;
-    public Servo   clawRight          = null;
-    public DcMotor launcherMechanism  = null;
+    public DcMotor frontLeftDrive = null;
+    public DcMotor frontRightDrive = null;
+    public DcMotor backLeftDrive = null;
+    public DcMotor backRightDrive = null;
+    public DcMotor armTilt = null;
+    public DcMotor clawTilt = null;
+    public Servo launcherTilt = null;
+    public Servo clawLeft = null;
+    public Servo clawRight = null;
+    public DcMotor launcherMechanism = null;
 
-    HardwareMap hardwareMap    = null;
+    HardwareMap hardwareMap = null;
     private ElapsedTime period = new ElapsedTime();
 
-    public HardwareMecanum() {}
+    public HardwareMecanum() {
+    }
 
     /* Initialize standard hardware interfaces */
     public void init(HardwareMap hwMap) {
@@ -81,12 +82,12 @@ public class HardwareMecanum {
          * "All names are lower case and some have single spaces between words."
          */
         // Define and initialize motors
-        frontLeftDrive    = hwMap.get(DcMotor.class, "front_leftDrive");
-        frontRightDrive   = hwMap.get(DcMotor.class, "front_rightDrive");
-        backLeftDrive     = hwMap.get(DcMotor.class, "back_leftDrive");
-        backRightDrive    = hwMap.get(DcMotor.class, "back_rightDrive");
-        armTilt           = hwMap.get(DcMotor.class, "arm_tilt");
-        clawTilt          = hwMap.get(DcMotor.class, "claw_tilt");
+        frontLeftDrive = hwMap.get(DcMotor.class, "front_leftDrive");
+        frontRightDrive = hwMap.get(DcMotor.class, "front_rightDrive");
+        backLeftDrive = hwMap.get(DcMotor.class, "back_leftDrive");
+        backRightDrive = hwMap.get(DcMotor.class, "back_rightDrive");
+        armTilt = hwMap.get(DcMotor.class, "arm_tilt");
+        clawTilt = hwMap.get(DcMotor.class, "claw_tilt");
         launcherMechanism = hwMap.get(DcMotor.class, "launchermotor");
 
         // Set motor directions
