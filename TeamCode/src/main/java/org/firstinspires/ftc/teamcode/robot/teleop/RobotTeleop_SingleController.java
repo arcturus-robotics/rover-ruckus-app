@@ -22,12 +22,21 @@ public class RobotTeleop_SingleController extends RobotTeleop {
         backLeft = -Range.clip(backLeft, -1, 1);
         backRight = -Range.clip(backRight, -1, 1);
 
-        robot.frontLeftDrive.setPower(frontLeft);
-        robot.frontRightDrive.setPower(frontRight);
-        robot.backLeftDrive.setPower(backLeft);
-        robot.backRightDrive.setPower(backRight);
+        robot.frontLeftDrive.setPower(-frontLeft);
+        robot.frontRightDrive.setPower(-frontRight);
+        robot.backLeftDrive.setPower(-backLeft);
+        robot.backRightDrive.setPower(-backRight);
 
-        /*
+        // Latch mechanism
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
+            robot.latchMechanism.setPower(-1);
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
+            robot.latchMechanism.setPower(1);
+        } else {
+            robot.latchMechanism.setPower(0);
+        }
+
+        /* Unimplemented
         // Claw
         if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
             robot.clawTilt.setPower(-CLAW_POWER);
@@ -36,7 +45,6 @@ public class RobotTeleop_SingleController extends RobotTeleop {
         } else {
             robot.clawTilt.setPower(0);
         }
-        */
 
         // Arm
         if (gamepad1.left_bumper) {
@@ -45,15 +53,6 @@ public class RobotTeleop_SingleController extends RobotTeleop {
             robot.armTilt.setPower(ARM_POWER);
         } else {
             robot.armTilt.setPower(0);
-        }
-
-        // Launcher
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
-            robot.launcherMechanism.setPower(-1);
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
-            robot.launcherMechanism.setPower(1);
-        } else {
-            robot.launcherMechanism.setPower(0);
         }
 
         // Intake
@@ -69,5 +68,6 @@ public class RobotTeleop_SingleController extends RobotTeleop {
             robot.clawLeft.setPosition(1);
             robot.clawRight.setPosition(1);
         }
+        */
     }
 }

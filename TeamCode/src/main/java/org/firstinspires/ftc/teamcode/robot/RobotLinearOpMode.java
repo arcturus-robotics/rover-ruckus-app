@@ -44,10 +44,10 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see Constants#PADDING_DURATION
      */
     private void drive(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, long duration) {
-        robot.frontLeftDrive.setPower(frontLeftPower);
-        robot.frontRightDrive.setPower(frontRightPower);
-        robot.backLeftDrive.setPower(backLeftPower);
-        robot.backRightDrive.setPower(backRightPower);
+        robot.frontLeftDrive.setPower(-frontLeftPower);
+        robot.frontRightDrive.setPower(-frontRightPower);
+        robot.backLeftDrive.setPower(-backLeftPower);
+        robot.backRightDrive.setPower(-backRightPower);
 
         sleep(duration);
 
@@ -65,8 +65,10 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see Constants#DEPLOY_ANGLE
      */
     public void deployMarker() {
+        /* Unimplemented
         turnClawTilt(Constants.DEPLOY_ANGLE);
         turnClawTilt(Constants.DEPLOY_ANGLE);
+        */
     }
 
     /**
@@ -166,17 +168,19 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see Conversion#degreesToTorquenado(double)
      */
     public void turnArmTilt(double degrees) {
+        /* Unimplemented
         if (degrees > 0) {
-            robot.launcherMechanism.setPower(1);
+            robot.latchMechanism.setPower(1);
         } else {
-            robot.launcherMechanism.setPower(-1);
+            robot.latchMechanism.setPower(-1);
         }
 
         sleep(Conversion.degreesToTorquenado(degrees));
 
-        robot.launcherMechanism.setPower(0);
+        robot.latchMechanism.setPower(0);
 
         sleep(Constants.PADDING_DURATION);
+        */
     }
 
     /**
@@ -186,40 +190,43 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see Conversion#degreesToTorquenado(double)
      */
     public void turnClawTilt(double degrees) {
+        /* Unimplemented
         if (degrees > 0) {
-            robot.launcherMechanism.setPower(1);
+            robot.latchMechanism.setPower(1);
         } else {
-            robot.launcherMechanism.setPower(-1);
+            robot.latchMechanism.setPower(-1);
         }
 
         sleep(Conversion.degreesToTorquenado(degrees));
 
-        robot.launcherMechanism.setPower(0);
+        robot.latchMechanism.setPower(0);
 
         sleep(Constants.PADDING_DURATION);
+        */
     }
 
     /**
-     * Turn the launcher mechanism
+     * Turn the latch mechanism
      *
-     * @param degrees The angle to turn the launcher mechanism for
+     * @param degrees The angle to turn the latch mechanism for
      * @see Conversion#degreesToTorquenado(double)
      */
-    public void turnLauncherMechanism(double degrees) {
+    public void turnLatchMechanism(double degrees) {
         if (degrees > 0) {
-            robot.launcherMechanism.setPower(1);
+            robot.latchMechanism.setPower(1);
         } else {
-            robot.launcherMechanism.setPower(-1);
+            robot.latchMechanism.setPower(-1);
         }
 
         sleep(Conversion.degreesToTorquenado(degrees));
 
-        robot.launcherMechanism.setPower(0);
+        robot.latchMechanism.setPower(0);
 
         sleep(Constants.PADDING_DURATION);
     }
 
     public void rotateLauncherTilt(double degrees) {
+        /* Unimplemented
         if (degrees > 0) {
             robot.launcherTilt.setDirection(Servo.Direction.FORWARD);
         } else {
@@ -229,9 +236,11 @@ public class RobotLinearOpMode extends LinearOpMode {
         robot.launcherTilt.setPosition(Conversion.degreesToServoPosition(degrees));
 
         sleep(Constants.PADDING_DURATION);
+        */
     }
 
     public void rotateClawLeft(double degrees) {
+        /* Unimplemented
         if (degrees > 0) {
             robot.clawLeft.setDirection(Servo.Direction.FORWARD);
         } else {
@@ -241,9 +250,11 @@ public class RobotLinearOpMode extends LinearOpMode {
         robot.clawRight.setPosition(Conversion.degreesToServoPosition(degrees));
 
         sleep(Constants.PADDING_DURATION);
+        */
     }
 
     public void rotateClawRight(double degrees) {
+        /* Unimplemented
         if (degrees > 0) {
             robot.clawRight.setDirection(Servo.Direction.FORWARD);
         } else {
@@ -253,5 +264,6 @@ public class RobotLinearOpMode extends LinearOpMode {
         robot.clawRight.setPosition(Conversion.degreesToServoPosition(degrees));
 
         sleep(Constants.PADDING_DURATION);
+        */
     }
 }

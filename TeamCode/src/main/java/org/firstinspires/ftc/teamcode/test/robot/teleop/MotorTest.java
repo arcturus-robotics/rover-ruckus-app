@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.test.robot.teleop;
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
 /**
- *
+ * Motor test teleop
  */
 public class MotorTest extends RobotOpMode {
     @Override
@@ -35,16 +35,17 @@ public class MotorTest extends RobotOpMode {
             robot.backLeftDrive.setPower(0);
         }
 
-        // Launcher Mechanism
+        // Latch mechanism
         if (gamepad1.left_trigger == 1) {
-            robot.launcherMechanism.setPower(-1);
+            robot.latchMechanism.setPower(-1);
         } else if (gamepad1.right_trigger == 1)
-            robot.launcherMechanism.setPower(1);
+            robot.latchMechanism.setPower(1);
         else {
-            robot.launcherMechanism.setPower(0);
+            robot.latchMechanism.setPower(0);
         }
 
-        // Launcher
+        /* Unimplemented
+        // Launcher tilt
         if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper))) {
             robot.launcherTilt.setPosition(0.5);
         } else {
@@ -56,6 +57,7 @@ public class MotorTest extends RobotOpMode {
                 robot.launcherTilt.setPosition(1.0);
             }
         }
+        */
 
         /*
         if (move1 > 0.8 && move1 > 0.8) ;

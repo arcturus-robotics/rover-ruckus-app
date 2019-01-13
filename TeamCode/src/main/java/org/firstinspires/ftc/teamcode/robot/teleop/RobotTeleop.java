@@ -18,10 +18,10 @@ public class RobotTeleop extends RobotOpMode {
 
     @Override
     public void loop() {
-        float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x;
-        float frontRight = gamepad1.right_stick_y + gamepad1.right_stick_x;
-        float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x;
-        float backRight = gamepad1.right_stick_y - gamepad1.left_stick_x;
+        float frontLeft = gamepad1.left_stick_y + gamepad1.left_stick_x;
+        float frontRight = gamepad1.right_stick_y - gamepad1.right_stick_x;
+        float backLeft = gamepad1.left_stick_y - gamepad1.right_stick_x;
+        float backRight = gamepad1.right_stick_y + gamepad1.left_stick_x;
 
         frontLeft = -Range.clip(frontLeft, -1, 1);
         frontRight = -Range.clip(frontRight, -1, 1);
@@ -33,6 +33,16 @@ public class RobotTeleop extends RobotOpMode {
         robot.backLeftDrive.setPower(backLeft);
         robot.backRightDrive.setPower(backRight);
 
+        // Latch mechanism
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
+            robot.latchMechanism.setPower(-1);
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
+            robot.latchMechanism.setPower(1);
+        } else {
+            robot.latchMechanism.setPower(0);
+        }
+
+        /* Unimplemented
         // Arm
         if (gamepad2.left_bumper) {
             robot.armTilt.setPower(-ARM_POWER);
@@ -40,16 +50,6 @@ public class RobotTeleop extends RobotOpMode {
             robot.armTilt.setPower(ARM_POWER);
         } else {
             robot.armTilt.setPower(0);
-        }
-
-
-        // Launcher
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
-            robot.launcherMechanism.setPower(-1);
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
-            robot.launcherMechanism.setPower(1);
-        } else {
-            robot.launcherMechanism.setPower(0);
         }
 
         // Claw
@@ -74,5 +74,6 @@ public class RobotTeleop extends RobotOpMode {
             robot.clawLeft.setPosition(1);
             robot.clawRight.setPosition(1);
         }
+        */
     }
 }
