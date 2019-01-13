@@ -5,6 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+/**
+ * An opmode with many utility methods for autonomous programs
+ */
 public class RobotLinearOpMode extends LinearOpMode {
     protected RobotHardware robot = new RobotHardware();
     protected ElapsedTime period = new ElapsedTime();

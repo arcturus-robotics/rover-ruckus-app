@@ -6,6 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.robot.Constants;
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 
+/**
+ * An autonomous program that moves from the lander, facing the crater side, to the depot to deploy
+ * the marker, and finally moves to the crater
+ */
 @Autonomous(name = "Crater Side to Depot", group = "Robot Autonomous")
 //@Disabled
 public class CraterSide_DepotToCrater extends RobotLinearOpMode {

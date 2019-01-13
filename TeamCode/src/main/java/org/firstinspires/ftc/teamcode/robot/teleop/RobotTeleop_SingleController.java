@@ -1,18 +1,15 @@
 package org.firstinspires.ftc.teamcode.robot.teleop;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
-
-@TeleOp(name = "Complete Teleop", group = "Robot Teleop")
+/**
+ * <code>RobotTeleop</code> but it only uses a single controller
+ */
+@TeleOp(name = "Robot Teleop w/ Single Controller", group = "Robot Teleop")
 //@Disabled
-public class CompleteTeleop extends RobotOpMode {
-    public static final double ARM_POWER = 0.5;
-    public static final double CLAW_POWER = 0.5;
-
+public class RobotTeleop_SingleController extends RobotTeleop {
     @Override
     public void loop() {
         float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x;
@@ -30,15 +27,25 @@ public class CompleteTeleop extends RobotOpMode {
         robot.backLeftDrive.setPower(backLeft);
         robot.backRightDrive.setPower(backRight);
 
+        /*
+        // Claw
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
+            robot.clawTilt.setPower(-CLAW_POWER);
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
+            robot.clawTilt.setPower(CLAW_POWER);
+        } else {
+            robot.clawTilt.setPower(0);
+        }
+        */
+
         // Arm
-        if (gamepad2.left_bumper) {
+        if (gamepad1.left_bumper) {
             robot.armTilt.setPower(-ARM_POWER);
-        } else if (gamepad2.right_bumper) {
+        } else if (gamepad1.right_bumper) {
             robot.armTilt.setPower(ARM_POWER);
         } else {
             robot.armTilt.setPower(0);
         }
-
 
         // Launcher
         if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
@@ -49,18 +56,9 @@ public class CompleteTeleop extends RobotOpMode {
             robot.launcherMechanism.setPower(0);
         }
 
-        // Claw
-        if (gamepad2.left_trigger >= BUTTON_THRESHOLD) {
-            robot.clawTilt.setPower(-CLAW_POWER);
-        } else if (gamepad2.right_trigger == BUTTON_THRESHOLD) {
-            robot.clawTilt.setPower(CLAW_POWER);
-        } else {
-            robot.clawTilt.setPower(0);
-        }
-
         // Intake
-        if (gamepad2.x || gamepad2.a) {
-            if (gamepad2.x) {
+        if (gamepad1.x || gamepad1.a) {
+            if (gamepad1.x) {
                 robot.clawLeft.setDirection(Servo.Direction.FORWARD);
                 robot.clawRight.setDirection(Servo.Direction.REVERSE);
             } else {

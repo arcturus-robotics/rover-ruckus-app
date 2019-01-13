@@ -4,7 +4,12 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
+import org.firstinspires.ftc.teamcode.robot.Constants;
 
+/**
+ * A test for measuring Constants.TURN_RATE
+ * @see Constants#TURN_RATE
+ */
 @Autonomous(name = "Turn Rate", group = "Measurement Tests")
 //@Disabled
 public class TurnRateMeasurement extends RobotLinearOpMode {

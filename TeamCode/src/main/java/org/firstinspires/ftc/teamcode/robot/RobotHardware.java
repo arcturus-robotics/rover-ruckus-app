@@ -6,8 +6,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
- * TODO: Change device names to completely snake case
+ *
  * A container for our robot's hardware
+ *
+ * TODO: Change device names to completely snake case
  * <p>
  * Motors:
  * frontLeftDrive:    "front_leftDrive"  TODO: "front_left_drive"

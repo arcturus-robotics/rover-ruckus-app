@@ -5,6 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
+/**
+ * A basic teleop with basic functionality
+ */
 @TeleOp(name = "Basic Teleop", group = "Robot Teleop")
 //@Disabled
 public class BasicTeleop extends RobotOpMode {

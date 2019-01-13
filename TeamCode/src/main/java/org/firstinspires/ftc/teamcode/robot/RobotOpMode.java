@@ -3,6 +3,9 @@ package org.firstinspires.ftc.teamcode.robot;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+/**
+ * An opmode that implements methods, members, and constants for teleop programs
+ */
 public class RobotOpMode extends OpMode {
     public static final double BUTTON_THRESHOLD = 0.8;
 
@@ -25,6 +28,7 @@ public class RobotOpMode extends OpMode {
      */
     @Override
     public void init_loop() {
+
     }
 
     /*
@@ -40,6 +44,7 @@ public class RobotOpMode extends OpMode {
      */
     @Override
     public void loop() {
+
     }
 
     /*

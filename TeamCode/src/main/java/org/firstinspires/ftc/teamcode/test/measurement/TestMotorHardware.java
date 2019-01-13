@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode.test.measurement;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.robot.RobotHardware;
 
+/**
+ * A container for our robot's hardware with an extra motor for motor testing
+ */
 public class TestMotorHardware extends RobotHardware {
     public DcMotor testMotor = null;
 

@@ -2,6 +2,9 @@ package org.firstinspires.ftc.teamcode.test.robot.teleop;
 
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
+/**
+ *
+ */
 public class MotorTest extends RobotOpMode {
     @Override
     public void loop() {
@@ -45,12 +48,13 @@ public class MotorTest extends RobotOpMode {
         if ((!(gamepad1.left_bumper) && !(gamepad1.right_bumper))) {
             robot.launcherTilt.setPosition(0.5);
         } else {
-            if (gamepad1.left_bumper && gamepad1.right_bumper)
+            if (gamepad1.left_bumper && gamepad1.right_bumper) {
                 robot.launcherTilt.setPosition(0.5);
-            else if (gamepad1.left_bumper)
+            } else if (gamepad1.left_bumper) {
                 robot.launcherTilt.setPosition(-1.0);
-            else if (gamepad1.right_bumper)
+            } else if (gamepad1.right_bumper) {
                 robot.launcherTilt.setPosition(1.0);
+            }
         }
 
         /*
