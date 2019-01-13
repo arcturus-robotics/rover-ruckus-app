@@ -1,24 +1,19 @@
-package org.firstinspires.ftc.teamcode.mecanum.teleop;
+package org.firstinspires.ftc.teamcode.robot.teleop;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwareMecanum;
-
-/**
- * An opmode for the claw and arm
- */
-@TeleOp(name="Mecanum Teleop: Translation (Single Controller)", group="Mecanum Teleop")
+@TeleOp(name = "Complete Teleop w/ Single Controller", group = "Robot Teleop")
 //@Disabled
-public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
+public class CompleteTeleop_SingleController extends CompleteTeleop {
     @Override
     public void loop() {
-        float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x; // Front left drive
-        float frontRight = gamepad1.right_stick_y + gamepad1.right_stick_x; // Front right drive
-        float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x; // Back left drive
-        float backRight = gamepad1.right_stick_y - gamepad1.left_stick_x; // Back right drive
+        float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x;
+        float frontRight = gamepad1.right_stick_y + gamepad1.right_stick_x;
+        float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x;
+        float backRight = gamepad1.right_stick_y - gamepad1.left_stick_x;
 
         frontLeft = -Range.clip(frontLeft, -1, 1);
         frontRight = -Range.clip(frontRight, -1, 1);
@@ -30,29 +25,30 @@ public class MecanumTeleopTranslation_Single extends MecanumTeleopTranslation {
         robot.backLeftDrive.setPower(backLeft);
         robot.backRightDrive.setPower(backRight);
 
-        // Claw
         /*
-        if (gamepad1.left_trigger == 1) {
-            robot.clawTilt.setPower(-CLAW_SPEED);
-        } else if (gamepad1.right_trigger == 1) {
-            robot.clawTilt.setPower(CLAW_SPEED);
+        // Claw
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
+            robot.clawTilt.setPower(-CLAW_POWER);
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
+            robot.clawTilt.setPower(CLAW_POWER);
         } else {
             robot.clawTilt.setPower(0);
-        }*/
+        }
+        */
 
         // Arm
         if (gamepad1.left_bumper) {
-            robot.armTilt.setPower(-ARM_SPEED);
+            robot.armTilt.setPower(-ARM_POWER);
         } else if (gamepad1.right_bumper) {
-            robot.armTilt.setPower(ARM_SPEED);
+            robot.armTilt.setPower(ARM_POWER);
         } else {
             robot.armTilt.setPower(0);
         }
 
         // Launcher
-        if (gamepad1.left_trigger == 1) {
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
             robot.launcherMechanism.setPower(-1);
-        } else if (gamepad1.right_trigger == 1) {
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
             robot.launcherMechanism.setPower(1);
         } else {
             robot.launcherMechanism.setPower(0);
