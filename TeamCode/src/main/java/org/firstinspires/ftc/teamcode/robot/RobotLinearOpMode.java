@@ -33,6 +33,26 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
+     * Dismount off the lander
+     *
+     * @see #turnLatch(double)
+     */
+    public void dismountLander() {
+        turnLatch(-360);
+        driveLeft(5);
+    }
+
+    /**
+     * Mount onto the lander (WIP)
+     *
+     * @see #turnLatch
+     */
+    public void mountLander() {
+        turnLatch(360);
+        driveRight(5);
+    }
+
+    /**
      * Utility function for driving with the specified drive powers and a duration <code>duration</code>
      *
      * @param frontLeftPower The power to drive the front left drive motor with

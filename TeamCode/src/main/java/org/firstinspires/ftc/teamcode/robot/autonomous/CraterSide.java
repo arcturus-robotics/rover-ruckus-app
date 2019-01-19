@@ -17,6 +17,9 @@ public class CraterSide extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
+            // Dismount off the lander
+            dismountLander();
+
             // Move to depot
             driveForward(Constants.LANDER_TO_CORNER_LENGTH);
             driveLeft(36);
