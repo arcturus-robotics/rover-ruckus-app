@@ -1,4 +1,6 @@
-package org.firstinspires.ftc.teamcode.robot;
+package org.firstinspires.ftc.teamcode;
+
+import org.firstinspires.ftc.teamcode.Constants;
 
 /**
  * A collection of various conversion methods

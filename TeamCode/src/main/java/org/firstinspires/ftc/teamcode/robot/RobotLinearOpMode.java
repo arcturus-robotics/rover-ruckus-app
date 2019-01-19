@@ -2,8 +2,10 @@ package org.firstinspires.ftc.teamcode.robot;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.Conversion;
 
 /**
  * An opmode with many utility methods for autonomous programs
@@ -43,7 +45,7 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see RobotHardware#backRightDrive
      * @see Constants#PADDING_DURATION
      */
-    private void drive(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, long duration) {
+    public void drive(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, long duration) {
         robot.frontLeftDrive.setPower(-frontLeftPower);
         robot.frontRightDrive.setPower(-frontRightPower);
         robot.backLeftDrive.setPower(-backLeftPower);

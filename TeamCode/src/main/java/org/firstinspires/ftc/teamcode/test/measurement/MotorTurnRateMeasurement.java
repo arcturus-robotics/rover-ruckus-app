@@ -1,10 +1,9 @@
 package org.firstinspires.ftc.teamcode.test.measurement;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
-import org.firstinspires.ftc.teamcode.robot.Constants;
+import org.firstinspires.ftc.teamcode.Constants;
 
 /**
  * A test for measuring Constants.MOTOR_TURN_RATE
