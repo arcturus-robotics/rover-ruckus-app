@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
  * A basic teleop with basic functionality
  */
 @TeleOp(name = "Basic Teleop", group = "Robot Teleop")
-//@Disabled
+@Disabled
 public class BasicTeleop extends RobotOpMode {
     public static final double CLAW_POWER = 0.02;
 

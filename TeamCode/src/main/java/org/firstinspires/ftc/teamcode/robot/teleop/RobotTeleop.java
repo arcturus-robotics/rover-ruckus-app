@@ -14,6 +14,7 @@ import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 public class RobotTeleop extends RobotOpMode {
     @Override
     public void loop() {
+        // Drive
         float frontLeft = Range.clip(gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1);
         float frontRight = Range.clip(gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1);
         float backLeft = Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1);
@@ -34,12 +35,12 @@ public class RobotTeleop extends RobotOpMode {
         }
 
         // Arm
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
+        if (gamepad2.left_trigger >= BUTTON_THRESHOLD && gamepad2.right_trigger < BUTTON_THRESHOLD) {
             robot.armLeft.setPower((-gamepad1.left_trigger));
             robot.armRight.setPower((gamepad1.left_trigger));
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD  ) {
-            robot.armLeft.setPower((gamepad1.right_trigger)/3);
-            robot.armRight.setPower((-gamepad1.right_trigger)/3);
+        } else if (gamepad2.right_trigger >= BUTTON_THRESHOLD && gamepad2.left_trigger < BUTTON_THRESHOLD  ) {
+            robot.armLeft.setPower((gamepad2.right_trigger)/3);
+            robot.armRight.setPower((-gamepad2.right_trigger)/3);
         } else {
             robot.armLeft.setPower(0);
             robot.armRight.setPower(0);
