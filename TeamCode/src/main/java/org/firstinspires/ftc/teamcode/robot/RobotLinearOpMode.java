@@ -173,12 +173,12 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Turn the latch mechanism
+     * Turn the latch
      *
-     * @param degrees The angle to turn the latch mechanism for
+     * @param degrees The angle to turn the latch for
      * @see Conversion#degreesToTorquenado(double)
      */
-    public void turnLatchMechanism(double degrees) {
+    public void turnLatch(double degrees) {
         if (degrees > 0) {
             robot.latch.setPower(1);
         } else {
