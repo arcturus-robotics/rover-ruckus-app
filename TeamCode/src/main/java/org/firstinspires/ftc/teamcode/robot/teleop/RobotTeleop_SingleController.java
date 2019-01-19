@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.util.Range;
 public class RobotTeleop_SingleController extends RobotTeleop {
     @Override
     public void loop() {
+        // Drive
         float frontLeft = gamepad1.left_stick_y + gamepad1.left_stick_x;
         float frontRight = gamepad1.right_stick_y - gamepad1.right_stick_x;
         float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x;
@@ -27,46 +28,42 @@ public class RobotTeleop_SingleController extends RobotTeleop {
         robot.backRightDrive.setPower(backRight);
 
         // Latch mechanism
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
+        if (gamepad1.x) {
             robot.latch.setPower(-1);
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
+        } else if (gamepad1.a) {
             robot.latch.setPower(1);
         } else {
             robot.latch.setPower(0);
         }
 
-        /* Unimplemented
-        // Claw
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
-            robot.clawTilt.setPower(-CLAW_POWER);
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
-            robot.clawTilt.setPower(CLAW_POWER);
+        // Arm
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
+            robot.armLeft.setPower((-gamepad1.left_trigger));
+            robot.armRight.setPower((gamepad1.left_trigger));
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD  ) {
+            robot.armLeft.setPower((gamepad1.right_trigger)/3);
+            robot.armRight.setPower((-gamepad1.right_trigger)/3);
         } else {
-            robot.clawTilt.setPower(0);
+            robot.armLeft.setPower(0);
+            robot.armRight.setPower(0);
         }
 
-        // Arm
-        if (gamepad1.left_bumper) {
-            robot.armTilt.setPower(-ARM_POWER);
-        } else if (gamepad1.right_bumper) {
-            robot.armTilt.setPower(ARM_POWER);
-        } else {
-            robot.armTilt.setPower(0);
-        }
 
         // Intake
-        if (gamepad1.x || gamepad1.a) {
-            if (gamepad1.x) {
-                robot.leftIntake.setDirection(Servo.Direction.FORWARD);
-                robot.rightIntake.setDirection(Servo.Direction.REVERSE);
+        if (gamepad1.left_bumper || gamepad1.right_bumper) {
+            if (gamepad1.left_bumper) {
+                //robot.leftIntake.setDirection(Servo.Direction.FORWARD);
+                //robot.rightIntake.setDirection(Servo.Direction.REVERSE);
             } else {
-                robot.leftIntake.setDirection(Servo.Direction.REVERSE);
-                robot.rightIntake.setDirection(Servo.Direction.FORWARD);
+                //robot.leftIntake.setDirection(Servo.Direction.REVERSE);
+                //robot.rightIntake.setDirection(Servo.Direction.FORWARD);
             }
 
-            robot.leftIntake.setPosition(1);
-            robot.rightIntake.setPosition(1);
+            //robot.leftIntake.setPosition(1);
+            //robot.rightIntake.setPosition(1);
+        } else {
+            //robot.leftIntake.setPosition(0);
+            //robot.rightIntake.setPosition(0);
         }
-        */
     }
 }

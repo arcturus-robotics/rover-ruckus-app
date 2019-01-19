@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.Constants;
  * @see Constants#MOTOR_TURN_RATE
  */
 @Autonomous(name = "Motor Turn Rate", group = "Measurement Tests")
-//@Disabled
+//
 public class MotorTurnRateMeasurement extends RobotLinearOpMode {
     protected TestMotorHardware robot = new TestMotorHardware();
 
