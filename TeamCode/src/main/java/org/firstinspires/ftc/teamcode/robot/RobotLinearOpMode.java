@@ -35,7 +35,7 @@ public class RobotLinearOpMode extends LinearOpMode {
     /**
      * Dismount off the lander
      *
-     * @see #turnLatch(double)
+     * @see #turnLatch
      */
     public void dismountLander() {
         turnLatch(-360);
