@@ -43,7 +43,7 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Mount onto the lander (WIP)
+     * Mount onto the lander
      *
      * @see #turnLatch
      */
