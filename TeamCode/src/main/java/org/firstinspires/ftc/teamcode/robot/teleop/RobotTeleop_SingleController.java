@@ -11,8 +11,8 @@ import com.qualcomm.robotcore.util.Range;
 public class RobotTeleop_SingleController extends RobotTeleop {
     @Override
     public void loop() {
-        float frontLeft = gamepad1.left_stick_y - gamepad1.left_stick_x;
-        float frontRight = gamepad1.right_stick_y + gamepad1.right_stick_x;
+        float frontLeft = gamepad1.left_stick_y + gamepad1.left_stick_x;
+        float frontRight = gamepad1.right_stick_y - gamepad1.right_stick_x;
         float backLeft = gamepad1.left_stick_y + gamepad1.right_stick_x;
         float backRight = gamepad1.right_stick_y - gamepad1.left_stick_x;
 

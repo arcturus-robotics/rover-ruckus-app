@@ -14,10 +14,10 @@ import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 public class RobotTeleop extends RobotOpMode {
     @Override
     public void loop() {
-        float frontLeft = Range.clip(-gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1);
-        float frontRight = Range.clip(-gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1);
-        float backLeft = Range.clip(-gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1);
-        float backRight = Range.clip(-gamepad1.right_stick_y + gamepad1.left_stick_x, -1, 1);
+        float frontLeft = Range.clip(gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1);
+        float frontRight = Range.clip(gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1);
+        float backLeft = Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1);
+        float backRight = Range.clip(gamepad1.right_stick_y + gamepad1.left_stick_x, -1, 1);
 
         robot.frontLeftDrive.setPower(frontLeft);
         robot.frontRightDrive.setPower(frontRight);
