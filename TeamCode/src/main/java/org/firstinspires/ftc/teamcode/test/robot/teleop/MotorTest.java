@@ -37,11 +37,11 @@ public class MotorTest extends RobotOpMode {
 
         // Latch mechanism
         if (gamepad1.left_trigger == 1) {
-            robot.latchMechanism.setPower(-1);
+            robot.latch.setPower(-1);
         } else if (gamepad1.right_trigger == 1)
-            robot.latchMechanism.setPower(1);
+            robot.latch.setPower(1);
         else {
-            robot.latchMechanism.setPower(0);
+            robot.latch.setPower(0);
         }
 
         /* Unimplemented

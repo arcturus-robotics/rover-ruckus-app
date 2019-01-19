@@ -1,8 +1,6 @@
 package org.firstinspires.ftc.teamcode.robot.teleop;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
@@ -30,11 +28,11 @@ public class RobotTeleop extends RobotOpMode {
 
         // Latch mechanism
         if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
-            robot.latchMechanism.setPower(-1);
+            robot.latch.setPower(-1);
         } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
-            robot.latchMechanism.setPower(1);
+            robot.latch.setPower(1);
         } else {
-            robot.latchMechanism.setPower(0);
+            robot.latch.setPower(0);
         }
 
         /* Unimplemented

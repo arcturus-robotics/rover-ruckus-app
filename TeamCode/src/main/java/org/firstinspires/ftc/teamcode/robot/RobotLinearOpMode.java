@@ -47,10 +47,10 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see Constants#PADDING_DURATION
      */
     public void drive(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower, long duration) {
-        robot.frontLeftDrive.setPower(-frontLeftPower);
-        robot.frontRightDrive.setPower(-frontRightPower);
-        robot.backLeftDrive.setPower(-backLeftPower);
-        robot.backRightDrive.setPower(-backRightPower);
+        robot.frontLeftDrive.setPower(frontLeftPower);
+        robot.frontRightDrive.setPower(frontRightPower);
+        robot.backLeftDrive.setPower(backLeftPower);
+        robot.backRightDrive.setPower(backRightPower);
 
         sleep(duration);
 
@@ -160,14 +160,14 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void turnArmTilt(double degrees) {
         if (degrees > 0) {
-            robot.latchMechanism.setPower(1);
+            robot.latch.setPower(1);
         } else {
-            robot.latchMechanism.setPower(-1);
+            robot.latch.setPower(-1);
         }
 
         sleep(Conversion.degreesToTorquenado(degrees));
 
-        robot.latchMechanism.setPower(0);
+        robot.latch.setPower(0);
 
         sleep(Constants.PADDING_DURATION);
     }
@@ -180,14 +180,14 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void turnLatchMechanism(double degrees) {
         if (degrees > 0) {
-            robot.latchMechanism.setPower(1);
+            robot.latch.setPower(1);
         } else {
-            robot.latchMechanism.setPower(-1);
+            robot.latch.setPower(-1);
         }
 
         sleep(Conversion.degreesToTorquenado(degrees));
 
-        robot.latchMechanism.setPower(0);
+        robot.latch.setPower(0);
 
         sleep(Constants.PADDING_DURATION);
     }
