@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.Constants;
 @Autonomous(name = "Motor Turn Rate", group = "Measurement Tests")
 //
 public class MotorTurnRateMeasurement extends RobotLinearOpMode {
-    public TestMotorHardware robot = new TestMotorHardware();
+    protected TestMotorHardware robot = new TestMotorHardware();
 
     @Override
     public void runOpMode() {
