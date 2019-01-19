@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.Constants;
+
 /**
  * A container for our robot's hardware
  *
@@ -19,8 +21,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * <p>
  * Servos:
  * launcherTilt: "launcher_tilt"
- * clawLeft:     "claw_left"
- * clawRight:    "claw_right"
+ * leftIntake:   "left_intake"
+ * rightIntake:  "right_intake"
  */
 public class RobotHardware {
     public static final String FRONT_LEFT_DRIVE = "front_left_drive";
@@ -28,19 +30,19 @@ public class RobotHardware {
     public static final String BACK_LEFT_DRIVE = "back_left_drive";
     public static final String BACK_RIGHT_DRIVE = "back_right_drive";
     public static final String LATCH_MECHANISM = "latch_mechanism";
+    public static final String ARM_TILT = "arm_tilt";
+
+    public static final String LEFT_INTAKE = "left_intake";
+    public static final String RIGHT_INTAKE = "right_intake";
 
     public DcMotor frontLeftDrive = null;
     public DcMotor frontRightDrive = null;
     public DcMotor backLeftDrive = null;
     public DcMotor backRightDrive = null;
     public DcMotor latchMechanism = null;
-    /* Unimplemented
     public DcMotor armTilt = null;
-    public DcMotor clawTilt = null;
-    public Servo launcherTilt = null;
-    public Servo clawLeft = null;
-    public Servo clawRight = null;
-    */
+    public Servo leftIntake = null;
+    public Servo rightIntake = null;
 
     protected HardwareMap hardwareMap = null;
     private ElapsedTime period = new ElapsedTime();
@@ -64,10 +66,7 @@ public class RobotHardware {
         backLeftDrive = hwMap.get(DcMotor.class, BACK_LEFT_DRIVE);
         backRightDrive = hwMap.get(DcMotor.class, BACK_RIGHT_DRIVE);
         latchMechanism = hwMap.get(DcMotor.class, LATCH_MECHANISM);
-        /* Unimplemented
-        armTilt = hwMap.get(DcMotor.class, "arm_tilt");
-        clawTilt = hwMap.get(DcMotor.class, "claw_tilt");
-        */
+        armTilt = hwMap.get(DcMotor.class, ARM_TILT);
 
         // Set motor directions
         // NOTE: Set to the opposite direction if we are using AndyMark motors
@@ -76,10 +75,7 @@ public class RobotHardware {
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
         latchMechanism.setDirection(DcMotor.Direction.FORWARD);
-        /* Unimplemented
         armTilt.setDirection(DcMotor.Direction.FORWARD);
-        clawTilt.setDirection(DcMotor.Direction.FORWARD);
-        */
 
         // Reset motor power
         frontLeftDrive.setPower(0);
@@ -87,10 +83,7 @@ public class RobotHardware {
         frontRightDrive.setPower(0);
         backLeftDrive.setPower(0);
         latchMechanism.setPower(0);
-        /* Unimplemented
         armTilt.setPower(0);
-        clawTilt.setPower(0);
-        */
 
         // Set all motors to run without encoders
         // NOTE: We may want to use RUN_USING_ENCODERS if we ever install encoders
@@ -99,21 +92,14 @@ public class RobotHardware {
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         latchMechanism.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        /* Unimplemented
         armTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        clawTilt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        */
 
-        /* Unimplemented
         // Define and initialize servos
-        launcherTilt = hwMap.get(Servo.class, "launcher_tilt");
-        clawLeft = hwMap.get(Servo.class, "claw_left");
-        clawRight = hwMap.get(Servo.class, "claw_right");
+        leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
+        rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
 
         // Reset servo positions
-        launcherTilt.setPosition(Constants.MID_SERVO);
-        clawLeft.setPosition(Constants.MID_SERVO);
-        clawRight.setPosition(Constants.MID_SERVO);
-        */
+        leftIntake.setPosition(Constants.MID_SERVO);
+        rightIntake.setPosition(Constants.MID_SERVO);
     }
 }

@@ -23,9 +23,6 @@ public class CraterSide extends RobotLinearOpMode {
             turnRight(Constants.CIRCLE / 20);
             driveBackward(Constants.FIELD_LENGTH);
 
-            // Deploy marker
-            deployMarker();
-
             // Move to crater
             driveForward(Constants.FIELD_LENGTH);
         }

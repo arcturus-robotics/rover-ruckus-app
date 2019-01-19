@@ -58,15 +58,15 @@ public class RobotTeleop_SingleController extends RobotTeleop {
         // Intake
         if (gamepad1.x || gamepad1.a) {
             if (gamepad1.x) {
-                robot.clawLeft.setDirection(Servo.Direction.FORWARD);
-                robot.clawRight.setDirection(Servo.Direction.REVERSE);
+                robot.leftIntake.setDirection(Servo.Direction.FORWARD);
+                robot.rightIntake.setDirection(Servo.Direction.REVERSE);
             } else {
-                robot.clawLeft.setDirection(Servo.Direction.REVERSE);
-                robot.clawRight.setDirection(Servo.Direction.FORWARD);
+                robot.leftIntake.setDirection(Servo.Direction.REVERSE);
+                robot.rightIntake.setDirection(Servo.Direction.FORWARD);
             }
 
-            robot.clawLeft.setPosition(1);
-            robot.clawRight.setPosition(1);
+            robot.leftIntake.setPosition(1);
+            robot.rightIntake.setPosition(1);
         }
         */
     }

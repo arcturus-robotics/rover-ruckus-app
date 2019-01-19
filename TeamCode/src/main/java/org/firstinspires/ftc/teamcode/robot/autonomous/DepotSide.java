@@ -20,9 +20,6 @@ public class DepotSide extends RobotLinearOpMode {
             // Move to depot
             driveForward(Constants.LANDER_TO_CORNER_LENGTH);
 
-            // Deploy marker
-            deployMarker();
-
             // Move to crater
             turnLeft(Constants.CIRCLE / 20);
             driveBackward(Constants.FIELD_LENGTH);
