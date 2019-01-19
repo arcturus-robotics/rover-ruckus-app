@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * An opmode that implements methods, members, and constants for teleop programs
  */
 public class RobotOpMode extends OpMode {
-    public static final double BUTTON_THRESHOLD = 0.8;
+    public static final double BUTTON_THRESHOLD = 0.5;
 
     protected RobotHardware robot = new RobotHardware();
     protected ElapsedTime period = new ElapsedTime();

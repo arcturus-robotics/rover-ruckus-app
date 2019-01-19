@@ -193,7 +193,7 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     public void rotateLeftIntake(double degrees) {
-        if (degrees > 0) {
+        /*if (degrees > 0) {
             robot.leftIntake.setDirection(Servo.Direction.FORWARD);
         } else {
             robot.leftIntake.setDirection(Servo.Direction.REVERSE);
@@ -201,10 +201,11 @@ public class RobotLinearOpMode extends LinearOpMode {
 
         robot.rightIntake.setPosition(Conversion.degreesToServoPosition(degrees));
 
-        sleep(Constants.PADDING_DURATION);
+        sleep(Constants.PADDING_DURATION);*/
     }
 
     public void rotateRightIntake(double degrees) {
+        /*
         if (degrees > 0) {
             robot.rightIntake.setDirection(Servo.Direction.FORWARD);
         } else {
@@ -213,6 +214,6 @@ public class RobotLinearOpMode extends LinearOpMode {
 
         robot.rightIntake.setPosition(Conversion.degreesToServoPosition(degrees));
 
-        sleep(Constants.PADDING_DURATION);
+        sleep(Constants.PADDING_DURATION);*/
     }
 }

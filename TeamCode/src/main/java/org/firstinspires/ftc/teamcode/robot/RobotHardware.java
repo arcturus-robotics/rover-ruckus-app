@@ -16,26 +16,26 @@ import org.firstinspires.ftc.teamcode.Constants;
  * frontRightDrive: {@value #FRONT_RIGHT_DRIVE}
  * backLeftDrive:   {@value #BACK_LEFT_DRIVE}
  * backRightDrive:  {@value #BACK_RIGHT_DRIVE}
- * latch:  {@value #LATCH_MECHANISM}
+ * latch:           {@value #LATCH}
  * armLeft:         {@value #ARM_LEFT}
  * armRight:        {@value #ARM_RIGHT}
  *
  * <p>
  * Servos:
- * leftIntake:   {@value #LEFT_INTAKE}
- * rightIntake:  {@value #RIGHT_INTAKE}
+ * leftIntake:   {//@value #LEFT_INTAKE} (Not implemented)
+ * rightIntake:  {//@value #RIGHT_INTAKE} (Not implemented
  */
 public class RobotHardware {
     public static final String FRONT_LEFT_DRIVE = "front_left_drive";
     public static final String FRONT_RIGHT_DRIVE = "front_right_drive";
     public static final String BACK_LEFT_DRIVE = "back_left_drive";
     public static final String BACK_RIGHT_DRIVE = "back_right_drive";
-    public static final String LATCH_MECHANISM = "latch_mechanism";
+    public static final String LATCH = "latch";
     public static final String ARM_LEFT = "arm_left";
     public static final String ARM_RIGHT = "arm_right";
 
-    public static final String LEFT_INTAKE = "left_intake";
-    public static final String RIGHT_INTAKE = "right_intake";
+    //public static final String LEFT_INTAKE = "left_intake";
+    //public static final String RIGHT_INTAKE = "right_intake";
 
     public DcMotor frontLeftDrive;
     public DcMotor frontRightDrive;
@@ -45,8 +45,8 @@ public class RobotHardware {
     public DcMotor armLeft;
     public DcMotor armRight;
 
-    public Servo leftIntake;
-    public Servo rightIntake;
+    //public Servo leftIntake;
+    //public Servo rightIntake;
 
     protected HardwareMap hardwareMap;
     private ElapsedTime period = new ElapsedTime();
@@ -69,7 +69,7 @@ public class RobotHardware {
         frontRightDrive = hwMap.get(DcMotor.class, FRONT_RIGHT_DRIVE);
         backLeftDrive = hwMap.get(DcMotor.class, BACK_LEFT_DRIVE);
         backRightDrive = hwMap.get(DcMotor.class, BACK_RIGHT_DRIVE);
-        latch = hwMap.get(DcMotor.class, LATCH_MECHANISM);
+        latch = hwMap.get(DcMotor.class, LATCH);
         armLeft = hwMap.get(DcMotor.class, ARM_LEFT);
         armRight = hwMap.get(DcMotor.class, ARM_RIGHT);
 
@@ -102,11 +102,11 @@ public class RobotHardware {
         armRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize servos
-        leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
-        rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
+        //leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
+        //rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
 
         // Reset servo positions
-        leftIntake.setPosition(Constants.MID_SERVO);
-        rightIntake.setPosition(Constants.MID_SERVO);
+        //leftIntake.setPosition(Constants.MID_SERVO);
+        //rightIntake.setPosition(Constants.MID_SERVO);
     }
 }

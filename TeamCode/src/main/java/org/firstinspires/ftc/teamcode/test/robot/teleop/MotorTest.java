@@ -1,10 +1,16 @@
 package org.firstinspires.ftc.teamcode.test.robot.teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Gamepad;
+
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
 /**
  * Motor test teleop
  */
+@TeleOp(name = "Motor Test", group = "Robot Teleop Tests")
+//@Disabled
 public class MotorTest extends RobotOpMode {
     @Override
     public void loop() {
@@ -36,13 +42,27 @@ public class MotorTest extends RobotOpMode {
         }
 
         // Latch mechanism
-        if (gamepad1.left_trigger == 1) {
+        if (gamepad1.left_bumper) {
             robot.latch.setPower(-1);
-        } else if (gamepad1.right_trigger == 1)
+        } else if (gamepad1.right_bumper)
             robot.latch.setPower(1);
         else {
             robot.latch.setPower(0);
         }
+
+        // Arm mechanism
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
+            robot.armLeft.setPower(-gamepad1.left_trigger);
+            robot.armRight.setPower(gamepad1.left_trigger);
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD  ) {
+            robot.armLeft.setPower(-gamepad1.right_trigger);
+            robot.armRight.setPower(gamepad1.right_trigger);
+        } else {
+            robot.armLeft.setPower(0);
+            robot.armRight.setPower(0);
+        }
+
+
 
         /* Unimplemented
         // Launcher tilt
