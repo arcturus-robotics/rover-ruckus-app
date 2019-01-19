@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
  */
 @Autonomous(name = "Crater Side to Depot", group = "Robot Autonomous")
 //@Disabled
-public class CraterSide_DepotToCrater extends RobotLinearOpMode {
+public class CraterSide extends RobotLinearOpMode {
     @Override
     public void runOpMode() {
         super.runOpMode();
