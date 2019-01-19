@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.robot.RobotHardware;
  * A container for our robot's hardware with an extra motor for motor testing
  */
 public class TestMotorHardware extends RobotHardware {
-    public DcMotor testMotor = null;
+    public DcMotor testMotor;
 
     @Override
     public void init(HardwareMap hwMap) {

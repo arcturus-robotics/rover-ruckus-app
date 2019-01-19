@@ -14,37 +14,10 @@ import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 public class MotorTest extends RobotOpMode {
     @Override
     public void loop() {
-        // Y
-        if (gamepad1.y) {
-            robot.frontLeftDrive.setPower(1);
-        } else {
-            robot.frontLeftDrive.setPower(0);
-        }
-
-        // B
-        if (gamepad1.b) {
-            robot.frontRightDrive.setPower(1);
-        } else {
-            robot.frontRightDrive.setPower(0);
-        }
-
-        // A
-        if (gamepad1.a) {
-            robot.backRightDrive.setPower(1);
-        } else {
-            robot.backRightDrive.setPower(0);
-        }
-        // X
+        // Latch
         if (gamepad1.x) {
-            robot.backLeftDrive.setPower(1);
-        } else {
-            robot.backLeftDrive.setPower(0);
-        }
-
-        // Latch mechanism
-        if (gamepad1.left_bumper) {
             robot.latch.setPower(-1);
-        } else if (gamepad1.right_bumper)
+        } else if (gamepad1.a)
             robot.latch.setPower(1);
         else {
             robot.latch.setPower(0);
@@ -52,11 +25,11 @@ public class MotorTest extends RobotOpMode {
 
         // Arm mechanism
         if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
-            robot.armLeft.setPower(-gamepad1.left_trigger);
-            robot.armRight.setPower(gamepad1.left_trigger);
+            robot.armLeft.setPower((-gamepad1.left_trigger));
+            robot.armRight.setPower((gamepad1.left_trigger));
         } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD  ) {
-            robot.armLeft.setPower(-gamepad1.right_trigger);
-            robot.armRight.setPower(gamepad1.right_trigger);
+            robot.armLeft.setPower((gamepad1.right_trigger)/3);
+            robot.armRight.setPower((-gamepad1.right_trigger)/3);
         } else {
             robot.armLeft.setPower(0);
             robot.armRight.setPower(0);

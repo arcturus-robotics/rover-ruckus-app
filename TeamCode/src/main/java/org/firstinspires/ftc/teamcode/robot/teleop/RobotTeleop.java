@@ -25,38 +25,42 @@ public class RobotTeleop extends RobotOpMode {
         robot.backRightDrive.setPower(backRight);
 
         // Latch mechanism
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD) {
+        if (gamepad2.x) {
             robot.latch.setPower(-1);
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD) {
+        } else if (gamepad2.a) {
             robot.latch.setPower(1);
         } else {
             robot.latch.setPower(0);
         }
 
         // Arm
-        if (gamepad2.left_bumper) {
-            robot.armLeft.setPower(-1);
-            robot.armRight.setPower(-1);
-        } else if (gamepad2.right_bumper) {
-            robot.armLeft.setPower(1);
-            robot.armRight.setPower(1);
+        if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
+            robot.armLeft.setPower((-gamepad1.left_trigger));
+            robot.armRight.setPower((gamepad1.left_trigger));
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD  ) {
+            robot.armLeft.setPower((gamepad1.right_trigger)/3);
+            robot.armRight.setPower((-gamepad1.right_trigger)/3);
         } else {
             robot.armLeft.setPower(0);
             robot.armRight.setPower(0);
         }
 
+
         // Intake
-        if (gamepad2.x || gamepad2.a) {
-            if (gamepad2.x) {
-                robot.leftIntake.setDirection(Servo.Direction.FORWARD);
-                robot.rightIntake.setDirection(Servo.Direction.REVERSE);
+        if (gamepad2.left_bumper || gamepad2.right_bumper) {
+            if (gamepad2.left_bumper) {
+                //robot.leftIntake.setDirection(Servo.Direction.FORWARD);
+                //robot.rightIntake.setDirection(Servo.Direction.REVERSE);
             } else {
-                robot.leftIntake.setDirection(Servo.Direction.REVERSE);
-                robot.rightIntake.setDirection(Servo.Direction.FORWARD);
+                //robot.leftIntake.setDirection(Servo.Direction.REVERSE);
+                //robot.rightIntake.setDirection(Servo.Direction.FORWARD);
             }
 
-            robot.leftIntake.setPosition(1);
-            robot.rightIntake.setPosition(1);
+            //robot.leftIntake.setPosition(1);
+            //robot.rightIntake.setPosition(1);
+        } else {
+            //robot.leftIntake.setPosition(0);
+            //robot.rightIntake.setPosition(0);
         }
     }
 }
