@@ -185,7 +185,7 @@ public class RobotLinearOpMode extends LinearOpMode {
             robot.latch.setPower(-1);
         }
 
-        sleep(Conversion.degreesToTorquenado(degrees));
+        sleep(Conversion.degreesToTorquenado(Math.abs(degrees)));
 
         robot.latch.setPower(0);
 
@@ -205,7 +205,7 @@ public class RobotLinearOpMode extends LinearOpMode {
             robot.latch.setPower(-1);
         }
 
-        sleep(Conversion.degreesToTorquenado(degrees));
+        sleep(Conversion.degreesToTorquenado(Math.abs(degrees)));
 
         robot.latch.setPower(0);
 
@@ -219,7 +219,7 @@ public class RobotLinearOpMode extends LinearOpMode {
             robot.leftIntake.setDirection(Servo.Direction.REVERSE);
         }
 
-        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(degrees));
+        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
 
         sleep(Constants.PADDING_DURATION);
     }
@@ -231,7 +231,7 @@ public class RobotLinearOpMode extends LinearOpMode {
             robot.rightIntake.setDirection(Servo.Direction.REVERSE);
         }
 
-        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(degrees));
+        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
 
         sleep(Constants.PADDING_DURATION);
     }
