@@ -47,9 +47,6 @@ public class RobotHardware {
     public Servo leftIntake;
     public Servo rightIntake;
 
-    //public Servo leftIntake;
-    //public Servo rightIntake;
-
     protected HardwareMap hardwareMap;
     private ElapsedTime period = new ElapsedTime();
 
@@ -109,7 +106,7 @@ public class RobotHardware {
         rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
 
         // Reset servo positions
-        //leftIntake.setPosition(Constants.MID_SERVO);
-        //rightIntake.setPosition(Constants.MID_SERVO);
+        leftIntake.setPosition(Constants.MID_SERVO);
+        rightIntake.setPosition(Constants.MID_SERVO);
     }
 }
