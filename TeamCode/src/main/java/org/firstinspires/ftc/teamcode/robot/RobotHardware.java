@@ -34,9 +34,8 @@ public class RobotHardware {
     public static final String LATCH = "latch";
     public static final String ARM_LEFT = "arm_left";
     public static final String ARM_RIGHT = "arm_right";
-
-    //public static final String LEFT_INTAKE = "left_intake";
-    //public static final String RIGHT_INTAKE = "right_intake";
+    public static final String LEFT_INTAKE = "left_intake";
+    public static final String RIGHT_INTAKE = "right_intake";
 
     public DcMotor frontLeftDrive;
     public DcMotor frontRightDrive;
@@ -45,6 +44,8 @@ public class RobotHardware {
     public DcMotor latch;
     public DcMotor armLeft;
     public DcMotor armRight;
+    public Servo leftIntake;
+    public Servo rightIntake;
 
     //public Servo leftIntake;
     //public Servo rightIntake;
@@ -74,11 +75,12 @@ public class RobotHardware {
         armLeft = hwMap.get(DcMotor.class, ARM_LEFT);
         armRight = hwMap.get(DcMotor.class, ARM_RIGHT);
 
+
         // Set motor directions
         // NOTE: Set to the opposite direction if we are using AndyMark motors
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
-        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
-        backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
+        frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
+        backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
         latch.setDirection(DcMotor.Direction.FORWARD);
         armLeft.setDirection(DcMotor.Direction.FORWARD);
@@ -103,8 +105,8 @@ public class RobotHardware {
         armRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize servos
-        //leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
-        //rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
+        leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
+        rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
 
         // Reset servo positions
         //leftIntake.setPosition(Constants.MID_SERVO);
