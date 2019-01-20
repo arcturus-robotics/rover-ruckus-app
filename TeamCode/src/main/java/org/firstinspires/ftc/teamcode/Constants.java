@@ -80,4 +80,9 @@ public class Constants {
      * The angle of the middle of a servo
      */
     public static final double MID_SERVO = 0.5;
+
+    /**
+     * The amount of degrees it takes for the latch to lower the robot to the ground or raise it to the lander
+     */
+    public static final double LATCH_DEGREES = 1800;
 }

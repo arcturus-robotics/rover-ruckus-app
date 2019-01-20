@@ -38,7 +38,7 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #turnLatch
      */
     public void dismountLander() {
-        turnLatch(-360);
+        turnLatch(Constants.LATCH_DEGREES);
         driveLeft(5);
     }
 
@@ -48,7 +48,7 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #turnLatch
      */
     public void mountLander() {
-        turnLatch(360);
+        turnLatch(-Constants.LATCH_DEGREES);
         driveRight(5);
     }
 
