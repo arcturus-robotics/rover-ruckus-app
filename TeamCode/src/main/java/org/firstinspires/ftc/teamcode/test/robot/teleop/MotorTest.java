@@ -27,9 +27,9 @@ public class MotorTest extends RobotOpMode {
         if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
             robot.armLeft.setPower((-gamepad1.left_trigger));
             robot.armRight.setPower((gamepad1.left_trigger));
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD  ) {
-            robot.armLeft.setPower((gamepad1.right_trigger)/3);
-            robot.armRight.setPower((-gamepad1.right_trigger)/3);
+        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD) {
+            robot.armLeft.setPower((gamepad1.right_trigger) / 3);
+            robot.armRight.setPower((-gamepad1.right_trigger) / 3);
         } else {
             robot.armLeft.setPower(0);
             robot.armRight.setPower(0);

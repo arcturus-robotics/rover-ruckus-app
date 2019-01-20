@@ -55,11 +55,11 @@ public class RobotLinearOpMode extends LinearOpMode {
     /**
      * Utility function for driving with the specified drive powers and a duration <code>duration</code>
      *
-     * @param frontLeftPower The power to drive the front left drive motor with
+     * @param frontLeftPower  The power to drive the front left drive motor with
      * @param frontRightPower The power to drive the front right  drive motor with
-     * @param backLeftPower The power to drive the back left drive motor with
-     * @param backRightPower The power to drive the back right drive motor with
-     * @param duration The duration to drive for (in milliseconds)
+     * @param backLeftPower   The power to drive the back left drive motor with
+     * @param backRightPower  The power to drive the back right drive motor with
+     * @param duration        The duration to drive for (in milliseconds)
      * @see RobotHardware#frontLeftDrive
      * @see RobotHardware#frontRightDrive
      * @see RobotHardware#backLeftDrive
