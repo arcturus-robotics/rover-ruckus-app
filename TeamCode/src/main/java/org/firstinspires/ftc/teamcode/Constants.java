@@ -45,9 +45,9 @@ public class Constants {
     public static final double MOTOR_TURN_RATE = 1;
 
     /**
-     * The approximate rate at which a Torquenado motor turns in a second (in degrees) (to be measured)
+     * The approximate rate at which a Torquenado motor turns in a second (in degrees)
      */
-    public static final double TORQUENADO_TURN_RATE = 1;
+    public static final double TORQUENADO_TURN_RATE = 1395;
 
     /**
      * 360 degrees
