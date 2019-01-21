@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.robot;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
 /**
  * An opmode that implements methods, members, and constants for teleop programs
@@ -53,5 +54,18 @@ public class RobotOpMode extends OpMode {
     @Override
     public void stop() {
         telemetry.addData("Status", "Stopped");
+    }
+
+    /**
+     * Calculate the power for each drive motor based on the left and right sticks of <code>gamepad1</code>
+     *
+     * @return The power for each drive motor
+     */
+    protected float[] getDrive() {
+        return new float[]
+                {-Range.clip(gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1)
+                 -Range.clip(gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1)
+                 -Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1)
+                 -Range.clip(gamepad1.right_stick_y + gamepad1.left_stick_x, -1, 1)};
     }
 }

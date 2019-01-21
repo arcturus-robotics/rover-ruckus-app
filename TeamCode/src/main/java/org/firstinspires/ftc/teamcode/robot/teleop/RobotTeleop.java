@@ -14,16 +14,8 @@ import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 public class RobotTeleop extends RobotOpMode {
     @Override
     public void loop() {
-        // Drive
-        float frontLeft = gamepad1.left_stick_y + gamepad1.left_stick_x;
-        float frontRight = gamepad1.right_stick_y - gamepad1.right_stick_x;
-        float backLeft = gamepad1.left_stick_y - gamepad1.right_stick_x;
-        float backRight = gamepad1.right_stick_y + gamepad1.left_stick_x;
-
-        frontLeft = Range.clip(frontLeft, -1, 1);
-        frontRight = Range.clip(frontRight, -1, 1);
-        backLeft = Range.clip(backLeft, -1, 1);
-        backRight = Range.clip(backRight, -1, 1);
+        float[] drive = getDrive();
+        float frontLeft = drive[0], frontRight = drive[1], backLeft = drive[2], backRight = drive[3];
 
         robot.frontLeftDrive.setPower(frontLeft);
         robot.frontRightDrive.setPower(frontRight);

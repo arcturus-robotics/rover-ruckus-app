@@ -83,7 +83,6 @@ public class Constants {
 
     /**
      * The amount of degrees it takes for the latch to lower the robot to the ground or raise it to the lander
-     * (8 revolutions)
      */
-    public static final double LATCH_DEGREES = 5400;
+    public static final double LATCH_DEGREES = Utilities.revolutions(15);
 }
