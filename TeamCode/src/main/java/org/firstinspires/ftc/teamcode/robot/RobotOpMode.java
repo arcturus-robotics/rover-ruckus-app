@@ -55,17 +55,4 @@ public class RobotOpMode extends OpMode {
     public void stop() {
         telemetry.addData("Status", "Stopped");
     }
-
-    /**
-     * Calculate the power for each drive motor based on the left and right sticks of <code>gamepad1</code>
-     *
-     * @return The power for each drive motor
-     */
-    protected float[] getDrive() {
-        return new float[]
-                {-Range.clip(gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1)
-                 -Range.clip(gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1)
-                 -Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1)
-                 -Range.clip(gamepad1.right_stick_y + gamepad1.left_stick_x, -1, 1)};
-    }
 }

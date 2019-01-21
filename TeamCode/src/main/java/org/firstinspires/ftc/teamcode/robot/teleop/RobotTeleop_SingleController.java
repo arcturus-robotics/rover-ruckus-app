@@ -12,19 +12,16 @@ import com.qualcomm.robotcore.util.Range;
 public class RobotTeleop_SingleController extends RobotTeleop {
     @Override
     public void loop() {
-        float[] drive = getDrive();
-        float frontLeft = drive[0], frontRight = drive[1], backLeft = drive[2], backRight = drive[3];
-
-        frontLeft = -Range.clip(frontLeft, -1, 1);
-        frontRight = -Range.clip(frontRight, -1, 1);
-        backLeft = -Range.clip(backLeft, -1, 1);
-        backRight = -Range.clip(backRight, -1, 1);
+        // Drive
+        float frontLeft = -Range.clip(gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1);
+        float frontRight = -Range.clip(gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1);
+        float backLeft = -Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1);
+        float backRight = -Range.clip(gamepad1.right_stick_y + gamepad1.left_stick_x, -1, 1);
 
         robot.frontLeftDrive.setPower(frontLeft);
         robot.frontRightDrive.setPower(frontRight);
         robot.backLeftDrive.setPower(backLeft);
         robot.backRightDrive.setPower(backRight);
-
 
         // Latch mechanism
         if (gamepad1.x) {
