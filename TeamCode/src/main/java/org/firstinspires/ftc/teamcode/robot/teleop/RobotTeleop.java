@@ -50,18 +50,18 @@ public class RobotTeleop extends RobotOpMode {
         // Intake
         if (gamepad2.left_bumper || gamepad2.right_bumper) {
             if (gamepad2.left_bumper) {
-                //robot.leftIntake.setDirection(Servo.Direction.FORWARD);
-                //robot.rightIntake.setDirection(Servo.Direction.REVERSE);
+                robot.leftIntake.setDirection(Servo.Direction.FORWARD);
+                robot.rightIntake.setDirection(Servo.Direction.REVERSE);
             } else {
-                //robot.leftIntake.setDirection(Servo.Direction.REVERSE);
-                //robot.rightIntake.setDirection(Servo.Direction.FORWARD);
+                robot.leftIntake.setDirection(Servo.Direction.REVERSE);
+                robot.rightIntake.setDirection(Servo.Direction.FORWARD);
             }
 
-            //robot.leftIntake.setPosition(1);
-            //robot.rightIntake.setPosition(1);
+            robot.leftIntake.setPosition(1);
+            robot.rightIntake.setPosition(1);
         } else {
-            //robot.leftIntake.setPosition(0);
-            //robot.rightIntake.setPosition(0);
+            robot.leftIntake.setPosition(0);
+            robot.rightIntake.setPosition(0);
         }
     }
 }
