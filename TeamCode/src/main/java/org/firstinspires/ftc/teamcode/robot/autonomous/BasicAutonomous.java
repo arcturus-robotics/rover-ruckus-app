@@ -16,7 +16,7 @@ public class BasicAutonomous extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            driveForward(Constants.FIELD_DIAGONAL_DISTANCE);
+            driveToCorner();
         }
     }
 }
