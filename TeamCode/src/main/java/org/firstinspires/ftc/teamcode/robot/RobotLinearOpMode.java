@@ -44,7 +44,9 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(500);
         driveForward(Constants.DISMOUNT_FORWARD_DISTANCE);
         sleep(500);
-        driveLeft(Constants.DISMOUNT_DISTANCE);
+        driveLeft(Constants.DISMOUNT_DISTANCE + 1);
+        sleep(500);
+        turnLatch(Constants.LATCH_ANGLE);
     }
 
     /**
@@ -101,8 +103,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveLeft(double inches) {
         drive(
-                -1, 1,
                 1, -1,
+                -1, 1,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -131,8 +133,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveRight(double inches) {
         drive(
-                1, -1,
                 -1, 1,
+                1, -1,
                 Conversion.inchesToDrive(inches)
         );
     }

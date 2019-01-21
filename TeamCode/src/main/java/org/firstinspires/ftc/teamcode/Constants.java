@@ -5,7 +5,6 @@ package org.firstinspires.ftc.teamcode;
  * They are mainly durations, distances, and angles
  */
 public class Constants {
-
     /**
      * Our Vuforia license key
      */
@@ -91,15 +90,15 @@ public class Constants {
     /**
      * The approximate distance from the lander to the edge of the lander (in inches)
      */
-    public static final double LANDER_TO_CRATER_DISTANCE = 48;
+    public static final double LANDER_TO_CRATER_DISTANCE = 24;
 
     /**
      * The distance to move off of the lander so we don't get caught on the hanger (in inches)
      */
-    public static final double DISMOUNT_DISTANCE = 30;
+    public static final double DISMOUNT_DISTANCE = 7.75;
 
     /**
      * The distance to move forward to escape the lander (in inches)
      */
-    public static final double DISMOUNT_FORWARD_DISTANCE = 10;
+    public static final double DISMOUNT_FORWARD_DISTANCE = 0.85;
 }
