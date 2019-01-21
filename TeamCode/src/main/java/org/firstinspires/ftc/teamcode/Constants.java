@@ -5,6 +5,7 @@ package org.firstinspires.ftc.teamcode;
  * They are mainly durations, distances, and angles
  */
 public class Constants {
+
     /**
      * Our Vuforia license key
      */
@@ -85,7 +86,7 @@ public class Constants {
     /**
      * The amount of degrees it takes for the latch to lower the robot to the ground or raise it to the lander
      */
-    public static final double LATCH_ANGLE = Utilities.revolutions(15);
+    public static final double LATCH_ANGLE = Utilities.revolutions(16);
 
     /**
      * The approximate distance from the lander to the edge of the lander (in inches)
@@ -93,7 +94,12 @@ public class Constants {
     public static final double LANDER_TO_CRATER_DISTANCE = 48;
 
     /**
-     * The distance to move on and off of the lander so we don't get caught on the hanger (in inches)
+     * The distance to move off of the lander so we don't get caught on the hanger (in inches)
      */
-    public static final double MOUNT_DISTANCE = 10;
+    public static final double DISMOUNT_DISTANCE = 30;
+
+    /**
+     * The distance to move forward to escape the lander (in inches)
+     */
+    public static final double DISMOUNT_FORWARD_DISTANCE = 10;
 }
