@@ -43,7 +43,7 @@ public class Constants {
     /**
      * The approximate rate at which a motor turns in a second (in degrees) (to be measured)
      */
-    public static final double MOTOR_TURN_RATE = 1;
+    public static final double MOTOR_TURN_RATE = 1395;
 
     /**
      * The approximate rate at which a Torquenado motor turns in a second (in degrees)
@@ -75,7 +75,7 @@ public class Constants {
     /**
      * The approximate distance from the lander to the corner of the field (in inches)
      */
-    public static final double LANDER_TO_CORNER_DISTANCE = 91;
+    public static final double LANDER_TO_CORNER_DISTANCE = 88;
 
     /**
      * The position of the middle of a servo
