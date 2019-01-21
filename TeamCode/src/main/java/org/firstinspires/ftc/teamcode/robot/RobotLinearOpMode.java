@@ -38,8 +38,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #turnLatch
      */
     public void dismountLander() {
-        turnLatch(-Constants.LATCH_DEGREES);
-        driveLeft(5);
+        turnLatch(-Constants.LATCH_ANGLE);
+        driveLeft(10);
     }
 
     /**
@@ -48,8 +48,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #turnLatch
      */
     public void mountLander() {
-        turnLatch(Constants.LATCH_DEGREES);
-        driveRight(5);
+        turnLatch(Constants.LATCH_ANGLE);
+        driveRight(10);
     }
 
     /**
@@ -140,6 +140,20 @@ public class RobotLinearOpMode extends LinearOpMode {
                 -1, 1,
                 Conversion.inchesToDrive(inches)
         );
+    }
+
+    /**
+     * Drive to the corner of the field from the lander
+     */
+    public void driveToCorner() {
+        driveForward(Constants.LANDER_TO_CORNER_DISTANCE);
+    }
+
+    /**
+     * Drive to the crater from the lander
+     */
+    public void driveToCrater() {
+        driveForward(Constants.LANDER_TO_CRATER_DISTANCE);
     }
 
     /**

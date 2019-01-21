@@ -21,11 +21,11 @@ public class DepotSide extends RobotLinearOpMode {
             dismountLander();
 
             // Move to depot
-            driveForward(Constants.LANDER_TO_CORNER_LENGTH);
+            driveToCorner();
 
             // Move to crater
             turnLeft(Constants.CIRCLE / 20);
-            driveBackward(Constants.FIELD_LENGTH);
+            driveBackward(Constants.FIELD_DISTANCE);
 
             // Extend arm
             turnArmTilt(Constants.CIRCLE / 12);

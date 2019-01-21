@@ -21,13 +21,13 @@ public class CraterSide extends RobotLinearOpMode {
             dismountLander();
 
             // Move to depot
-            driveForward(Constants.LANDER_TO_CORNER_LENGTH);
+            driveToCrater();
             driveLeft(36);
             turnRight(Constants.CIRCLE / 20);
-            driveBackward(Constants.FIELD_LENGTH);
+            driveBackward(Constants.FIELD_DISTANCE);
 
             // Move to crater
-            driveForward(Constants.FIELD_LENGTH);
+            driveForward(Constants.FIELD_DISTANCE);
         }
     }
 }

@@ -1,7 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
 /**
- * A collection of constants about the field, our robot, and Vuforia
+ * A collection of constants about the field, our robot, and Vuforia.
+ * They are mainly durations, distances, and angles
  */
 public class Constants {
     /**
@@ -62,27 +63,37 @@ public class Constants {
     /**
      * The length of the field (in inches)
      */
-    public static final double FIELD_LENGTH = 144;
+    public static final double FIELD_DISTANCE = 144;
 
     /**
      * The length of the field diagonally (in inches)
      *
-     * @see Constants#FIELD_LENGTH
+     * @see Constants#FIELD_DISTANCE
      */
-    public static final double FIELD_DIAGONAL_LENGTH = FIELD_LENGTH * Math.sqrt(2);
+    public static final double FIELD_DIAGONAL_DISTANCE = FIELD_DISTANCE * Math.sqrt(2);
 
     /**
      * The approximate distance from the lander to the corner of the field (in inches)
      */
-    public static final double LANDER_TO_CORNER_LENGTH = 91;
+    public static final double LANDER_TO_CORNER_DISTANCE = 91;
 
     /**
-     * The angle of the middle of a servo
+     * The position of the middle of a servo
      */
     public static final double MID_SERVO = 0.5;
 
     /**
      * The amount of degrees it takes for the latch to lower the robot to the ground or raise it to the lander
      */
-    public static final double LATCH_DEGREES = Utilities.revolutions(15);
+    public static final double LATCH_ANGLE = Utilities.revolutions(15);
+
+    /**
+     * The approximate distance from the lander to the edge of the lander (in inches)
+     */
+    public static final double LANDER_TO_CRATER_DISTANCE = 48;
+
+    /**
+     * The distance to move on and off of the lander so we don't get caught on the hanger (in inches)
+     */
+    public static final double MOUNT_DISTANCE = 10;
 }
