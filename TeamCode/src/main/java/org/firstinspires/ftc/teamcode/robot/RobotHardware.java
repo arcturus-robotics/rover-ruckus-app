@@ -75,10 +75,10 @@ public class RobotHardware {
 
         // Set motor directions
         // NOTE: Set to the opposite direction if we are using AndyMark motors
-        frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);//DcMotor.Direction.REVERSE);
-        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);//DcMotor.Direction.FORWARD);
-        backLeftDrive.setDirection(DcMotor.Direction.FORWARD);//DcMotor.Direction.REVERSE);
-        backRightDrive.setDirection(DcMotor.Direction.REVERSE);//DcMotor.Direction.FORWARD);
+        frontLeftDrive.setDirection(DcMotor.Direction.FORWARD);
+        frontRightDrive.setDirection(DcMotor.Direction.REVERSE);
+        backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
+        backRightDrive.setDirection(DcMotor.Direction.REVERSE);
         latch.setDirection(DcMotor.Direction.FORWARD);
         armLeft.setDirection(DcMotor.Direction.FORWARD);
         armRight.setDirection(DcMotor.Direction.FORWARD);
