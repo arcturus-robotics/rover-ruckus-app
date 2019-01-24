@@ -15,15 +15,10 @@ public class RobotTeleop extends RobotOpMode {
     @Override
     public void loop() {
         // Drive
-        float frontLeft = gamepad1.left_stick_y + gamepad1.left_stick_x;
-        float frontRight = gamepad1.right_stick_y - gamepad1.right_stick_x;
-        float backLeft = gamepad1.left_stick_y - gamepad1.right_stick_x;
-        float backRight = gamepad1.right_stick_y + gamepad1.left_stick_x;
-
-        frontLeft = Range.clip(frontLeft, -1, 1);
-        frontRight = Range.clip(frontRight, -1, 1);
-        backLeft = Range.clip(backLeft, -1, 1);
-        backRight = Range.clip(backRight, -1, 1);
+        float frontLeft = -Range.clip(gamepad1.left_stick_y + gamepad1.left_stick_x, -1, 1);
+        float frontRight = -Range.clip(gamepad1.right_stick_y - gamepad1.right_stick_x, -1, 1);
+        float backLeft = -Range.clip(gamepad1.left_stick_y - gamepad1.right_stick_x, -1, 1);
+        float backRight = -Range.clip(gamepad1.right_stick_y + gamepad1.left_stick_x, -1, 1);
 
         robot.frontLeftDrive.setPower(frontLeft);
         robot.frontRightDrive.setPower(frontRight);
@@ -55,18 +50,18 @@ public class RobotTeleop extends RobotOpMode {
         // Intake
         if (gamepad2.left_bumper || gamepad2.right_bumper) {
             if (gamepad2.left_bumper) {
-                //robot.leftIntake.setDirection(Servo.Direction.FORWARD);
-                //robot.rightIntake.setDirection(Servo.Direction.REVERSE);
+                robot.leftIntake.setDirection(Servo.Direction.FORWARD);
+                robot.rightIntake.setDirection(Servo.Direction.REVERSE);
             } else {
-                //robot.leftIntake.setDirection(Servo.Direction.REVERSE);
-                //robot.rightIntake.setDirection(Servo.Direction.FORWARD);
+                robot.leftIntake.setDirection(Servo.Direction.REVERSE);
+                robot.rightIntake.setDirection(Servo.Direction.FORWARD);
             }
 
-            //robot.leftIntake.setPosition(1);
-            //robot.rightIntake.setPosition(1);
+            robot.leftIntake.setPosition(1);
+            robot.rightIntake.setPosition(1);
         } else {
-            //robot.leftIntake.setPosition(0);
-            //robot.rightIntake.setPosition(0);
+            robot.leftIntake.setPosition(0);
+            robot.rightIntake.setPosition(0);
         }
     }
 }

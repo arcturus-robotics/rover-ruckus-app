@@ -33,23 +33,20 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Dismount off the lander
+     * Dismount the lander
      *
      * @see #turnLatch
      */
     public void dismountLander() {
-        turnLatch(Constants.LATCH_DEGREES);
-        driveLeft(5);
-    }
-
-    /**
-     * Mount onto the lander
-     *
-     * @see #turnLatch
-     */
-    public void mountLander() {
-        turnLatch(-Constants.LATCH_DEGREES);
-        driveRight(5);
+        turnLatch(-Constants.LATCH_ANGLE);
+        sleep(500);
+        driveRight(Constants.DISMOUNT_DISTANCE);
+        sleep(500);
+        driveForward(Constants.DISMOUNT_FORWARD_DISTANCE);
+        sleep(500);
+        driveLeft(Constants.DISMOUNT_DISTANCE + 1);
+        sleep(500);
+        turnLatch(Constants.LATCH_ANGLE);
     }
 
     /**
@@ -106,8 +103,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveLeft(double inches) {
         drive(
-                -1, 1,
                 1, -1,
+                -1, 1,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -136,10 +133,24 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveRight(double inches) {
         drive(
-                1, -1,
                 -1, 1,
+                1, -1,
                 Conversion.inchesToDrive(inches)
         );
+    }
+
+    /**
+     * Drive to the corner of the field from the lander
+     */
+    public void driveToCorner() {
+        driveForward(Constants.LANDER_TO_CORNER_DISTANCE);
+    }
+
+    /**
+     * Drive to the crater from the lander
+     */
+    public void driveToCrater() {
+        driveForward(Constants.LANDER_TO_CRATER_DISTANCE);
     }
 
     /**
