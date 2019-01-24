@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.robot.autonomous;
+/*package org.firstinspires.ftc.teamcode.robot.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import org.firstinspires.ftc.teamcode.Constants;
-import org.firstinspires.ftc.teamcode.R;
+import org.firstinspires.ftc.teamcode.robot.R;
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 
 @Autonomous(name = "Vuforia Autonomous", group = "Robot Autonomous")
@@ -123,3 +123,4 @@ public class VuforiaAutonomous extends RobotLinearOpMode {
         return matrix.formatAsTransform();
     }
 }
+*/
