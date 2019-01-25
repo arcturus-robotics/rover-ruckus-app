@@ -17,17 +17,21 @@ public class CraterSide extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            // Dismount the lander
+            // Dismount the lander check Linear Opmode
             dismountLander();
 
-            // Move to depot
-            driveToCrater();
-            driveLeft(36);
+            // Move to the line of materials
+            driveForward(16);
+            //drive left fast the lander arm and into the clearing
+            driveLeft(42);
+            //so the front of our robot is facing depot
             turnRight(Constants.CIRCLE / 20);
-            driveBackward(Constants.FIELD_DISTANCE);
-
+            //make sure robot is in line with wall
+            driveRight(5);
+            //go to depot
+            driveForward(20);
             // Move to crater
-            driveForward(Constants.FIELD_DISTANCE);
+            driveBackward(Constants.FIELD_DISTANCE-10);
         }
     }
 }

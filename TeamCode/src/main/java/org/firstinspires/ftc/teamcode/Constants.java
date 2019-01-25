@@ -15,17 +15,17 @@ public class Constants {
      */
     public static final long AUTONOMOUS_DURATION = 30000;
 
+    /**way of our ally's autonomous program (in milliseconds)
+     */
+    public static final long INITIAL_DELAY_DURATION = 0;
+
     /**
      * Padding between each movement of the robot (in milliseconds)
      */
     public static final long PADDING_DURATION = 30;
 
     /**
-     * An initial delay so we don't get in the way of our ally's autonomous program (in milliseconds)
-     */
-    public static final long INITIAL_DELAY_DURATION = 0;
-
-    /**
+     * An initial delay so we don't get in the
      * The angle the arm will be turned by to deploy the marker (in degrees)
      */
     public static final double DEPLOY_ANGLE = 60;

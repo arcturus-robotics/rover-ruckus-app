@@ -27,7 +27,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 public class RobotLinearOpMode extends LinearOpMode {
     protected RobotHardware robot = new RobotHardware();
     protected ElapsedTime period = new ElapsedTime();
-
+    double motorspeed  = 0.5;
     //vuforia instances
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
@@ -107,8 +107,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveForward(double inches) {
         drive(
-                1, 1,
-                1, 1,
+                motorspeed, motorspeed,
+                motorspeed, motorspeed,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -122,8 +122,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveLeft(double inches) {
         drive(
-                1, -1,
-                -1, 1,
+                motorspeed, -motorspeed,
+                -motorspeed, motorspeed,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -137,8 +137,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveBackward(double inches) {
         drive(
-                -1, -1,
-                -1, -1,
+                -motorspeed, -motorspeed,
+                -motorspeed, -motorspeed,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -152,8 +152,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveRight(double inches) {
         drive(
-                -1, 1,
-                1, -1,
+                -motorspeed, motorspeed,
+                motorspeed, -motorspeed,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -181,8 +181,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void turnLeft(double degrees) {
         drive(
-                -1, 1,
-                -1, 1,
+                -motorspeed, motorspeed,
+                -motorspeed, motorspeed,
                 Conversion.degreesToDrive(degrees)
         );
     }
@@ -196,8 +196,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void turnRight(double degrees) {
         drive(
-                -1, 1,
-                -1, 1,
+                -motorspeed, motorspeed,
+                -motorspeed, motorspeed,
                 Conversion.degreesToDrive(degrees)
         );
     }
@@ -250,7 +250,7 @@ public class RobotLinearOpMode extends LinearOpMode {
                     List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
                     if (updatedRecognitions != null) {
                         telemetry.addData("# Object Detected", updatedRecognitions.size());
-                        if (updatedRecognitions.size() == 3) {
+                        if (updatedRecognitions.size() == 1) {
                             int goldMineralX = -1;
                             int silverMineral1X = -1;
                             int silverMineral2X = -1;
@@ -294,7 +294,7 @@ public class RobotLinearOpMode extends LinearOpMode {
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam");
+        parameters.cameraName = hardwareMap.get(WebcamName.class, "webcam");
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);

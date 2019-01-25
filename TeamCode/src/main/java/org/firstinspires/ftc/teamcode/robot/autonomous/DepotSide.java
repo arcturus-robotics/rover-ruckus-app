@@ -20,15 +20,18 @@ public class DepotSide extends RobotLinearOpMode {
             // Dismount off the lander
             dismountLander();
 
-            // Move to depot
-            driveToCorner();
-
-            // Move to crater
+            // Move till line of matierals
+            driveForward(1);
+            //move until we are clear of line of matierals an a little of farther
+            driveRight(1);
+            // Move so we are facing the depot
             turnLeft(Constants.CIRCLE / 20);
-            driveBackward(Constants.FIELD_DISTANCE);
-
-            // Extend arm
+            //go to depot
+            driveForward(1);
+            // Extend arm or servo to deploy the marker
             turnArmTilt(Constants.CIRCLE / 12);
+            //move backward to crater
+            driveBackward(1);
         }
     }
 }
