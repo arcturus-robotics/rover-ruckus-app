@@ -16,6 +16,10 @@ public class BasicAutonomous extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
+            // Dismount the lander
+            dismountLander();
+
+            // Drive to the corner of the field
             driveToCorner();
         }
     }

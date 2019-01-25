@@ -13,13 +13,13 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
 @Autonomous(name = "Crater Side to Depot", group = "Robot Autonomous")
 //@Disabled
-public class Goldcubedetection extends RobotLinearOpMode {
+public class GoldCubeDetection extends RobotLinearOpMode {
     @Override
     public void runOpMode() {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            goldcubedetect();
+            detectGoldCubes();
         }
     }
 }

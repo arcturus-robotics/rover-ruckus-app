@@ -28,14 +28,12 @@ public class RobotLinearOpMode extends LinearOpMode {
     protected RobotHardware robot = new RobotHardware();
     protected ElapsedTime period = new ElapsedTime();
 
-    //vuforia instances
+    // Vuforia
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
-    private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
-    private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
-    private static final String VUFORIA_KEY = "AagmIFb/////AAABmQeoELJRUUhBnw22N1rfAeURKsi4lO2PBquW4po2++umNgidlnmVALYdHmMXwjhAD9owXoF2zkCbWmBDEStv642zdEddYZGqPjK2pn4bDvhEeSVj4mQs3zR7mB2T94RenHo+qz8zhq4yidyNRZNYF/Y3OUTayx7H6EtYnU6kaOZi30xW6ZzrzzyP/dEG5mHV2pzBHTEu/Qe1g7RcsCG5sFDg0KAagyjxgC6X3z4/EA0tC2554q+o8S+glD7nFidnAF5e2Pti3+gAnwDN6Nl/nRGrsD0JyAVUFFk2Ii0uEorRz31VCD3C4+ib2UHN0QOZwTYgqXQ4JcH5bXJsqn1aDmSeky2smnk7xamtfXkdBm0I\n";
+    private static final String GOLD_MINERAL_LABEL = "Gold Mineral";
+    private static final String SILVER_MINERAL_LABEL = "Silver Mineral";
     private VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
-    //
 
     @Override
     public void runOpMode() {
@@ -222,7 +220,7 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(Constants.PADDING_DURATION);
     }
 
-    public void goldcubedetect() {
+    public void detectGoldCubes() {
         // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
         initVuforia();
 
@@ -232,13 +230,13 @@ public class RobotLinearOpMode extends LinearOpMode {
             telemetry.addData("Sorry!", "This device is not compatible with TFOD");
         }
 
-        /** Wait for the game to begin */
+        // Wait for the game to begin
         telemetry.addData(">", "Press Play to start tracking");
         telemetry.update();
         waitForStart();
 
         if (opModeIsActive()) {
-            /** Activate Tensor Flow Object Detection. */
+            // Activate Tensorflow object detection
             if (tfod != null) {
                 tfod.activate();
             }
@@ -255,7 +253,7 @@ public class RobotLinearOpMode extends LinearOpMode {
                             int silverMineral1X = -1;
                             int silverMineral2X = -1;
                             for (Recognition recognition : updatedRecognitions) {
-                                if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
+                                if (recognition.getLabel().equals(GOLD_MINERAL_LABEL)) {
                                     goldMineralX = (int) recognition.getLeft();
                                 } else if (silverMineral1X == -1) {
                                     silverMineral1X = (int) recognition.getLeft();
@@ -293,7 +291,7 @@ public class RobotLinearOpMode extends LinearOpMode {
          */
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
-        parameters.vuforiaLicenseKey = VUFORIA_KEY;
+        parameters.vuforiaLicenseKey = Constants.VUFORIA_LICENSE_KEY;
         parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam");
 
         //  Instantiate the Vuforia engine
@@ -310,7 +308,7 @@ public class RobotLinearOpMode extends LinearOpMode {
                 "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
-        tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_GOLD_MINERAL, LABEL_SILVER_MINERAL);
+        tfod.loadModelFromAsset(TFOD_MODEL_ASSET, GOLD_MINERAL_LABEL, SILVER_MINERAL_LABEL);
     }
 
 
