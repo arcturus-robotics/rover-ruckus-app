@@ -236,7 +236,7 @@ public class RobotLinearOpMode extends LinearOpMode {
         waitForStart();
 
         if (opModeIsActive()) {
-            // Activate Tensorflow object detection
+            // Activate TensorFlow object detection
             if (tfod != null) {
                 tfod.activate();
             }
@@ -292,7 +292,7 @@ public class RobotLinearOpMode extends LinearOpMode {
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = Constants.VUFORIA_LICENSE_KEY;
-        parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam");
+        parameters.cameraName = hardwareMap.get(WebcamName.class, "webcam");
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);

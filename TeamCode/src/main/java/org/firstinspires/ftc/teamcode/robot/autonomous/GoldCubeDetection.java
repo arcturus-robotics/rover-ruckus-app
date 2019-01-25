@@ -11,7 +11,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 
-@Autonomous(name = "Crater Side to Depot", group = "Robot Autonomous")
+@Autonomous(name = "Gold Cube Detection", group = "Robot Autonomous")
 //@Disabled
 public class GoldCubeDetection extends RobotLinearOpMode {
     @Override
