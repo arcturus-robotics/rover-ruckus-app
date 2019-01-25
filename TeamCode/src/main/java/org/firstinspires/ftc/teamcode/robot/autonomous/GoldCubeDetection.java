@@ -19,6 +19,10 @@ public class GoldCubeDetection extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
+            // Dismount the lander
+            dismountLander();
+
+            // Start detecting gold cubes
             detectGoldCubes();
         }
     }
