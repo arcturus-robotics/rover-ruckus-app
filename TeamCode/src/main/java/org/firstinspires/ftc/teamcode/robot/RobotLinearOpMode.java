@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.Conversion;
 import java.util.List;
 
 /**
- * An opmode with many utility methods for autonomous programs
+ * An opmode with many utility methods for autonomous programs.
  */
 public class RobotLinearOpMode extends LinearOpMode {
     // Vuforia
@@ -31,20 +31,20 @@ public class RobotLinearOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        // Initialize the robot using the hardware map
+        // Initialize the robot using the hardware map.
         robot.init(hardwareMap);
 
-        // Wait until the driver presses PLAY
+        // Wait until the driver presses PLAY.
         waitForStart();
 
-        // Reset the elapsed time so we can accurately measure it
+        // Reset the elapsed time so we can accurately measure it.
         period.reset();
 
         sleep(Constants.INITIAL_DELAY_DURATION);
     }
 
     /**
-     * Dismount the lander
+     * Dismount the lander.
      *
      * @see #turnLatch
      */
@@ -58,13 +58,13 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Utility function for driving with the specified drive powers and a duration <code>duration</code>
+     * Utility function for driving with the specified drive powers and a duration <code>duration</code>.
      *
-     * @param frontLeftPower  The power to drive the front left drive motor with
-     * @param frontRightPower The power to drive the front right  drive motor with
-     * @param backLeftPower   The power to drive the back left drive motor with
-     * @param backRightPower  The power to drive the back right drive motor with
-     * @param duration        The duration to drive for (in milliseconds)
+     * @param frontLeftPower  The power to drive the front left drive motor with.
+     * @param frontRightPower The power to drive the front right  drive motor with.
+     * @param backLeftPower   The power to drive the back left drive motor with.
+     * @param backRightPower  The power to drive the back right drive motor with.
+     * @param duration        The duration to drive for (in milliseconds).
      * @see RobotHardware#frontLeftDrive
      * @see RobotHardware#frontRightDrive
      * @see RobotHardware#backLeftDrive
@@ -88,10 +88,10 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Drive forward for a distance <code>inches</code>
+     * Drive forward for a distance <code>inches</code>.
      *
-     * @param inches The distance to drive forward for
-     * @see RobotLinearOpMode#drive
+     * @param inches The distance to drive forward for.
+     * @see #drive
      * @see Conversion#inchesToDrive(double)
      */
     public void driveForward(double inches) {
@@ -103,11 +103,11 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Drive left for a distance <code>inches</code>
+     * Drive left for a distance <code>inches</code>.
      *
-     * @param inches The distance to drive left for
-     * @see RobotLinearOpMode#drive
-     * 4@see Conversion#inchesToDuration(double)
+     * @param inches The distance to drive left for.
+     * @see #drive
+     * @see Conversion#inchesToDrive(double)
      */
     public void driveLeft(double inches) {
         drive(
@@ -118,10 +118,10 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Drive backward for a distance <code>inches</code>
+     * Drive backward for a distance <code>inches</code>.
      *
-     * @param inches The distance to drive backward for
-     * @see RobotLinearOpMode#drive
+     * @param inches The distance to drive backward for.
+     * @see #drive
      * @see Conversion#inchesToDrive(double)
      */
     public void driveBackward(double inches) {
@@ -133,10 +133,10 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Drive right for a distance <code>inches</code>
+     * Drive right for a distance <code>inches</code>.
      *
-     * @param inches The distance to drive right for
-     * @see RobotLinearOpMode#drive
+     * @param inches The distance to drive right for.
+     * @see #drive
      * @see Conversion#inchesToDrive(double)
      */
     public void driveRight(double inches) {
@@ -148,7 +148,7 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Drive to the corner of the field from the lander
+     * Drive to the corner of the field from the lander.
      */
     public void driveToCorner() {
         driveForward(Constants.LANDER_TO_CORNER_DISTANCE);

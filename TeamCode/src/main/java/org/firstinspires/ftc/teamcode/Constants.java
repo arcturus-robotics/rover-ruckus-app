@@ -70,7 +70,7 @@ public class Constants {
     /**
      * The approximate distance from the lander to the corner of the field (in inches).
      */
-    public static final double LANDER_TO_CORNER_DISTANCE = 88;
+    public static final double LANDER_TO_CORNER_DISTANCE = 85;
 
     /**
      * The position of the middle of a servo.
