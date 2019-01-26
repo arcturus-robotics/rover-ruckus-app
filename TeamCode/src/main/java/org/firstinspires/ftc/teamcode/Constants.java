@@ -95,5 +95,5 @@ public class Constants {
     /**
      * The distance to move forward to escape the lander (in inches).
      */
-    public static final double DISMOUNT_FORWARD_DISTANCE = 0.85;
+    public static final double DISMOUNT_FORWARD_DISTANCE = 0.6;
 }
