@@ -26,13 +26,15 @@ public class RobotTeleop extends RobotOpMode {
         robot.backRightDrive.setPower(backRight);
 
         // Latch
-        if (gamepad2.x) {
+        if (gamepad1.x) {
             robot.latch.setPower(-1);
-        } else if (gamepad2.a) {
+        } else if (gamepad1.a) {
             robot.latch.setPower(1);
         } else {
             robot.latch.setPower(0);
         }
+
+        // Arm
 
         // Intake tilt
         if (gamepad2.y || gamepad2.b) {

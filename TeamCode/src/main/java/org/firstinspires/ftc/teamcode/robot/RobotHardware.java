@@ -18,8 +18,7 @@ import org.firstinspires.ftc.teamcode.Constants;
  * backLeftDrive:   {@value #BACK_LEFT_DRIVE}
  * backRightDrive:  {@value #BACK_RIGHT_DRIVE}
  * latch:           {@value #LATCH}
- * armLeft:         {@value #ARM_LEFT}
- * armRight:        {@value #ARM_RIGHT}
+ * arm:         {@value #ARM}
  *
  * <p>
  * Servos:
@@ -33,8 +32,7 @@ public class RobotHardware {
     public static final String BACK_LEFT_DRIVE = "back_left_drive";
     public static final String BACK_RIGHT_DRIVE = "back_right_drive";
     public static final String LATCH = "latch";
-    public static final String ARM_LEFT = "arm_left";
-    public static final String ARM_RIGHT = "arm_right";
+    public static final String ARM = "arm";
     public static final String LEFT_INTAKE = "left_intake";
     public static final String RIGHT_INTAKE = "right_intake";
     public static final String INTAKE_TILT = "intake_tilt";
@@ -44,13 +42,12 @@ public class RobotHardware {
     public DcMotor backLeftDrive;
     public DcMotor backRightDrive;
     public DcMotor latch;
-    public DcMotor armLeft;
-    public DcMotor armRight;
+    public DcMotor arm;
     public Servo leftIntake;
     public Servo rightIntake;
     public Servo intakeTilt;
 
-    protected HardwareMap hardwareMap;
+    private HardwareMap hardwareMap;
     private ElapsedTime period = new ElapsedTime();
 
     public RobotHardware() {
@@ -63,7 +60,7 @@ public class RobotHardware {
      * @see RobotHardware#hardwareMap
      */
     public void init(HardwareMap hwMap) {
-        // Save a reference to hardware map
+        // Save a reference to the hardware map
         hardwareMap = hwMap;
 
         // Define and initialize motors
@@ -72,8 +69,7 @@ public class RobotHardware {
         backLeftDrive = hwMap.get(DcMotor.class, BACK_LEFT_DRIVE);
         backRightDrive = hwMap.get(DcMotor.class, BACK_RIGHT_DRIVE);
         latch = hwMap.get(DcMotor.class, LATCH);
-        armLeft = hwMap.get(DcMotor.class, ARM_LEFT);
-        armRight = hwMap.get(DcMotor.class, ARM_RIGHT);
+        arm = hwMap.get(DcMotor.class, ARM);
 
         // Set motor directions
         // NOTE: Set to the opposite direction if we are using AndyMark motors
@@ -82,8 +78,7 @@ public class RobotHardware {
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
         latch.setDirection(DcMotor.Direction.FORWARD);
-        armLeft.setDirection(DcMotor.Direction.FORWARD);
-        armRight.setDirection(DcMotor.Direction.FORWARD);
+        arm.setDirection(DcMotor.Direction.FORWARD);
 
         // Reset motor power
         frontLeftDrive.setPower(0);
@@ -91,7 +86,7 @@ public class RobotHardware {
         frontRightDrive.setPower(0);
         backLeftDrive.setPower(0);
         latch.setPower(0);
-        armLeft.setPower(0);
+        arm.setPower(0);
 
         // Set all motors to run without encoders
         // NOTE: We may want to use RUN_USING_ENCODERS if we ever install encoders
@@ -100,8 +95,7 @@ public class RobotHardware {
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         latch.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        armLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        armRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize servos
         leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
