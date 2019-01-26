@@ -35,6 +35,13 @@ public class RobotTeleop extends RobotOpMode {
         }
 
         // Arm
+        if (gamepad2.x) {
+            robot.arm.setPower(-1);
+        } else if (gamepad2.a) {
+            robot.arm.setPower(1);
+        } else {
+            robot.arm.setPower(0);
+        }
 
         // Intake tilt
         if (gamepad2.y || gamepad2.b) {
@@ -48,19 +55,6 @@ public class RobotTeleop extends RobotOpMode {
         } else {
             robot.intakeTilt.setPosition(0);
         }
-
-        // Arm
-        if (gamepad2.left_trigger >= BUTTON_THRESHOLD && gamepad2.right_trigger < BUTTON_THRESHOLD) {
-            robot.armLeft.setPower((-gamepad1.left_trigger));
-            robot.armRight.setPower((gamepad1.left_trigger));
-        } else if (gamepad2.right_trigger >= BUTTON_THRESHOLD && gamepad2.left_trigger < BUTTON_THRESHOLD) {
-            robot.armLeft.setPower((gamepad2.right_trigger) / 3);
-            robot.armRight.setPower((-gamepad2.right_trigger) / 3);
-        } else {
-            robot.armLeft.setPower(0);
-            robot.armRight.setPower(0);
-        }
-
 
         // Intake
         if (gamepad2.left_bumper || gamepad2.right_bumper) {

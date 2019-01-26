@@ -18,7 +18,7 @@ import org.firstinspires.ftc.teamcode.Constants;
  * backLeftDrive:   {@value #BACK_LEFT_DRIVE}
  * backRightDrive:  {@value #BACK_RIGHT_DRIVE}
  * latch:           {@value #LATCH}
- * arm:         {@value #ARM}
+ * arm:             {@value #ARM}
  *
  * <p>
  * Servos:

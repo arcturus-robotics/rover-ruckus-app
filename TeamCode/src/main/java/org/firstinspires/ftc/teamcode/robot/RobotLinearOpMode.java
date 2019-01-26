@@ -192,12 +192,32 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Turn the launcher mechanism
+     * Turn the arm
      *
-     * @param degrees The angle to turn the launcher mechanism for
+     * @param degrees The angle to turn the arm for
      * @see Conversion#degreesToTorquenado(double)
      */
-    public void turnArmTilt(double degrees) {
+    public void turnArm(double degrees) {
+        if (degrees > 0) {
+            robot.arm.setPower(1);
+        } else {
+            robot.arm.setPower(-1);
+        }
+
+        sleep(Conversion.degreesToTorquenado(Math.abs(degrees)));
+
+        robot.arm.setPower(0);
+
+        sleep(Constants.PADDING_DURATION);
+    }
+
+    /**
+     * Turn the latch
+     *
+     * @param degrees The angle to turn the latch for
+     * @see Conversion#degreesToTorquenado(double)
+     */
+    public void turnLatch(double degrees) {
         if (degrees > 0) {
             robot.latch.setPower(1);
         } else {
@@ -211,6 +231,51 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(Constants.PADDING_DURATION);
     }
 
+    public void rotateLeftIntake(double degrees) {
+        if (degrees > 0) {
+            robot.leftIntake.setDirection(Servo.Direction.FORWARD);
+        } else {
+            robot.leftIntake.setDirection(Servo.Direction.REVERSE);
+        }
+
+        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
+
+        sleep(Constants.PADDING_DURATION);
+    }
+
+    public void rotateRightIntake(double degrees) {
+        if (degrees > 0) {
+            robot.rightIntake.setDirection(Servo.Direction.FORWARD);
+        } else {
+            robot.rightIntake.setDirection(Servo.Direction.REVERSE);
+        }
+
+        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
+
+        sleep(Constants.PADDING_DURATION);
+    }
+
+    public void rotateIntakeTilt(double degrees) {
+        if (degrees > 0) {
+            robot.intakeTilt.setDirection(Servo.Direction.FORWARD);
+        } else {
+            robot.intakeTilt.setDirection(Servo.Direction.REVERSE);
+        }
+
+        robot.intakeTilt.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
+
+        sleep(Constants.PADDING_DURATION);
+    }
+
+    /**
+     * Initialize the gold cube detection
+     *
+     * @see #GOLD_MINERAL_LABEL
+     * @see #SILVER_MINERAL_LABEL
+     * @see #TFOD_MODEL_ASSET
+     * @see #initTfod()
+     * @see #initVuforia()
+     */
     public void initGoldCubeDetection() {
         // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
         initVuforia();
@@ -299,62 +364,5 @@ public class RobotLinearOpMode extends LinearOpMode {
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, GOLD_MINERAL_LABEL, SILVER_MINERAL_LABEL);
-    }
-
-
-    /**
-     * Turn the latch
-     *
-     * @param degrees The angle to turn the latch for
-     * @see Conversion#degreesToTorquenado(double)
-     */
-    public void turnLatch(double degrees) {
-        if (degrees > 0) {
-            robot.latch.setPower(1);
-        } else {
-            robot.latch.setPower(-1);
-        }
-
-        sleep(Conversion.degreesToTorquenado(Math.abs(degrees)));
-
-        robot.latch.setPower(0);
-
-        sleep(Constants.PADDING_DURATION);
-    }
-
-    public void rotateLeftIntake(double degrees) {
-        if (degrees > 0) {
-            robot.leftIntake.setDirection(Servo.Direction.FORWARD);
-        } else {
-            robot.leftIntake.setDirection(Servo.Direction.REVERSE);
-        }
-
-        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
-
-        sleep(Constants.PADDING_DURATION);
-    }
-
-    public void rotateRightIntake(double degrees) {
-        if (degrees > 0) {
-            robot.rightIntake.setDirection(Servo.Direction.FORWARD);
-        } else {
-            robot.rightIntake.setDirection(Servo.Direction.REVERSE);
-        }
-
-        robot.rightIntake.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
-
-        sleep(Constants.PADDING_DURATION);
-    }
-
-    public void rotateIntakeTilt(double degrees) {
-        if (degrees > 0) {
-            robot.intakeTilt.setDirection(Servo.Direction.FORWARD);
-        } else {
-            robot.intakeTilt.setDirection(Servo.Direction.REVERSE);
-        }
-
-        robot.intakeTilt.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
-
-        sleep(Constants.PADDING_DURATION);
     }
 }
