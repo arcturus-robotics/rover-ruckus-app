@@ -78,9 +78,9 @@ public class Constants {
     public static final double MID_SERVO = 0.5;
 
     /**
-     * The amount of degrees it takes for the latch to lower the robot to the ground or raise it to the lander
+     * The amount of degrees it takes for the latch to lower the robot to the ground
      */
-    public static final double LATCH_ANGLE = Conversion.revolutionsToDegrees(16);
+    public static final double LATCH_ANGLE = Conversion.revolutionsToDegrees(20);
 
     /**
      * The approximate distance from the lander to the edge of the lander (in inches)
