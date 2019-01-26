@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 
 /**
  * A basic autonomous program that dismounts off of the lander and moves forward to the corner of
- * the field
+ * the field.
  */
 @Autonomous(name = "Basic Autonomous", group = "Robot Autonomous")
 //@Disabled
@@ -17,7 +17,10 @@ public class BasicAutonomous extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            // Drive to the corner of the field
+            // Dismount off the lander.
+            dismountLander();
+
+            // Drive to the corner of the field.
             driveToCorner();
         }
     }

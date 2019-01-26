@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * <code>RobotTeleop</code> but it only uses a single controller
+ * <code>RobotTeleop</code> but it only uses a single controller.
  *
  * @see #gamepad1
  */

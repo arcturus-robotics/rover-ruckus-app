@@ -155,17 +155,17 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Drive to the crater from the lander
+     * Drive to the crater from the lander.
      */
     public void driveToCrater() {
         driveForward(Constants.LANDER_TO_CRATER_DISTANCE);
     }
 
     /**
-     * Turn left <code>degrees</code>
+     * Turn left <code>degrees</code>.
      *
-     * @param degrees The angle to turn left for
-     * @see RobotLinearOpMode#drive
+     * @param degrees The angle to turn left for.
+     * @see #drive
      * @see Conversion#degreesToDrive(double)
      */
     public void turnLeft(double degrees) {
@@ -177,10 +177,10 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Turn right <code>degrees</code>
+     * Turn right <code>degrees</code>.
      *
-     * @param degrees The angle to turn right for
-     * @see RobotLinearOpMode#drive
+     * @param degrees The angle to turn right for.
+     * @see #drive
      * @see Conversion#degreesToDrive(double)
      */
     public void turnRight(double degrees) {
@@ -192,9 +192,9 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Turn the arm
+     * Turn the arm.
      *
-     * @param degrees The angle to turn the arm for
+     * @param degrees The angle to turn the arm for.
      * @see Conversion#degreesToTorquenado(double)
      */
     public void turnArm(double degrees) {
@@ -212,9 +212,9 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Turn the latch
+     * Turn the latch.
      *
-     * @param degrees The angle to turn the latch for
+     * @param degrees The angle to turn the latch for.
      * @see Conversion#degreesToTorquenado(double)
      */
     public void turnLatch(double degrees) {
@@ -232,9 +232,9 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Rotate the left intake
+     * Rotate the left intake.
      *
-     * @param degrees The angle to turn the left intake for
+     * @param degrees The angle to turn the left intake for.
      */
     public void rotateLeftIntake(double degrees) {
         if (degrees > 0) {
@@ -249,9 +249,9 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Rotate the right intake
+     * Rotate the right intake.
      *
-     * @param degrees The angle to turn the right intake for
+     * @param degrees The angle to turn the right intake for.
      */
     public void rotateRightIntake(double degrees) {
         if (degrees > 0) {
@@ -266,9 +266,9 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Rotate the intake tilt
+     * Rotate the intake tilt.
      *
-     * @param degrees The angle to turn the intake tilt for
+     * @param degrees The angle to turn the intake tilt for.
      */
     public void rotateIntakeTilt(double degrees) {
         if (degrees > 0) {
@@ -283,7 +283,7 @@ public class RobotLinearOpMode extends LinearOpMode {
     }
 
     /**
-     * Initialize the gold cube detection
+     * Initialize the gold cube detection.
      *
      * @see #GOLD_MINERAL_LABEL
      * @see #SILVER_MINERAL_LABEL
@@ -294,7 +294,7 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #initVuforia()
      */
     public void initGoldCubeDetection() {
-        // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
+        // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that.
         initVuforia();
 
         if (ClassFactory.getInstance().canCreateTFObjectDetector()) {
@@ -303,7 +303,7 @@ public class RobotLinearOpMode extends LinearOpMode {
             telemetry.addData("Sorry!", "This device is not compatible with TFOD");
         }
 
-        // Wait for the game to begin
+        // Wait for the game to begin.
         telemetry.addData(">", "Press Play to start tracking");
         telemetry.update();
         waitForStart();
@@ -361,14 +361,13 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #vuforia
      */
     private void initVuforia() {
-
         // Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = Constants.VUFORIA_LICENSE_KEY;
         parameters.cameraName = hardwareMap.get(WebcamName.class, "webcam");
 
-        // Instantiate the Vuforia engine
+        // Instantiate the Vuforia engine.
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
         // Loading trackables is not necessary for the Tensor Flow Object Detection engine.

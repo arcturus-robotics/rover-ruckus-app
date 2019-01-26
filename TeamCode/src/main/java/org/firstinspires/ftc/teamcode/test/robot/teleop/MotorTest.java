@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
 /**
- * Motor test teleop
+ * Motor test teleop.
  *
  * @see #gamepad1
  */

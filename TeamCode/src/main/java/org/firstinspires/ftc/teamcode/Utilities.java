@@ -3,13 +3,13 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
- * A collection of various utility methods for our robot
+ * A collection of various utility methods for our robot.
  */
 public class Utilities {
     /**
-     * Calculate the remaining time of autonomous
+     * Calculate the remaining time of autonomous.
      *
-     * @param period The elapsed time
+     * @param period The elapsed time.
      * @return The remaining time of autonomous.
      * If the result of the calculation is less than 0,
      * then this will return 0.

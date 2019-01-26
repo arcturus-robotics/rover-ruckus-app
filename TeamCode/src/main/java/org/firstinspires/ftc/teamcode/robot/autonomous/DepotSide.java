@@ -16,20 +16,20 @@ public class DepotSide extends RobotLinearOpMode {
         super.runOpMode();
 
         if (opModeIsActive()) {
-            // Dismount off the lander
+            // Dismount off the lander.
             dismountLander();
 
-            // Move till line of materials
+            // Move till line of materials.
             driveForward(1);
-            // Move until we are clear of line of materials an a little of farther
+            // Move until we are clear of line of materials an a little of farther.
             driveRight(1);
-            // Move so we are facing the depot
+            // Move so we are facing the depot.
             turnLeft(18);
-            // Go to depot
+            // Go to depot.
             driveForward(1);
-            // Extend arm to deploy the marker
+            // Extend arm to deploy the marker.
             turnArm(30);
-            // Move backward to crater
+            // Move backward to crater.
             driveBackward(1);
         }
     }

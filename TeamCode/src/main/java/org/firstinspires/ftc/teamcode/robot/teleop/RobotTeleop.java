@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
 /**
- * The main teleop for our robot
+ * The main teleop for our robot.
  *
  * @see #gamepad1
  * @see #gamepad2

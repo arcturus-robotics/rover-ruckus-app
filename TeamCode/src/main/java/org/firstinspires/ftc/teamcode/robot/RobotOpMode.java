@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * An opmode that implements methods, members, and constants for teleop programs
+ * An opmode that implements methods, members, and constants for teleop programs.
  */
 public class RobotOpMode extends OpMode {
     public static final double BUTTON_THRESHOLD = 0.5;
@@ -14,18 +14,18 @@ public class RobotOpMode extends OpMode {
     protected ElapsedTime period = new ElapsedTime();
 
     /*
-     * Code to run ONCE when the driver hits INIT
+     * Code to run ONCE when the driver hits INIT.
      */
     @Override
     public void init() {
-        // Initialize the robot using the hardware map
+        // Initialize the robot using the hardware map.
         robot.init(hardwareMap);
 
         telemetry.addData("Status", "Waiting...");
     }
 
     /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
+     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY.
      */
     @Override
     public void init_loop() {
@@ -33,7 +33,7 @@ public class RobotOpMode extends OpMode {
     }
 
     /*
-     * Code to run ONCE when the driver hits PLAY
+     * Code to run ONCE when the driver hits PLAY.
      */
     @Override
     public void start() {
@@ -41,7 +41,7 @@ public class RobotOpMode extends OpMode {
     }
 
     /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
+     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP.
      */
     @Override
     public void loop() {
@@ -49,7 +49,7 @@ public class RobotOpMode extends OpMode {
     }
 
     /*
-     * Code to run ONCE after the driver hits STOP
+     * Code to run ONCE after the driver hits STOP.
      */
     @Override
     public void stop() {

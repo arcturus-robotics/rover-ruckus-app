@@ -6,7 +6,7 @@ import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 import org.firstinspires.ftc.teamcode.Constants;
 
 /**
- * A test for measuring Constants.DRIVE_RATE
+ * A test for measuring Constants.DRIVE_RATE.
  *
  * @see Constants#DRIVE_RATE
  */
