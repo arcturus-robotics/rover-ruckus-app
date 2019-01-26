@@ -25,7 +25,7 @@ public class RobotTeleop_SingleController extends RobotTeleop {
         robot.backLeftDrive.setPower(backLeft);
         robot.backRightDrive.setPower(backRight);
 
-        // Latch mechanism
+        // Latch
         if (gamepad1.x) {
             robot.latch.setPower(-1);
         } else if (gamepad1.a) {
