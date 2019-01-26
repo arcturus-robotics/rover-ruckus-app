@@ -80,7 +80,7 @@ public class Constants {
     /**
      * The amount of degrees it takes for the latch to lower the robot to the ground.
      */
-    public static final double LATCH_ANGLE = Conversion.revolutionsToDegrees(20);
+    public static final double LATCH_ANGLE = Conversion.revolutionsToDegrees(20.5);
 
     /**
      * The approximate distance from the lander to the edge of the lander (in inches).
