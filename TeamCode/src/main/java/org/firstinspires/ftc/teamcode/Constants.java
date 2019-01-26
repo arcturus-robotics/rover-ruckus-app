@@ -51,11 +51,6 @@ public class Constants {
     public static final double TORQUENADO_TURN_RATE = 1395;
 
     /**
-     * 360 degrees
-     */
-    public static final double CIRCLE = 360;
-
-    /**
      * The approximate radius of the robot (in inches)
      */
     public static final double RADIUS = 11.66726188957803;

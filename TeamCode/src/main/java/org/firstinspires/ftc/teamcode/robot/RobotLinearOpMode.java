@@ -233,6 +233,7 @@ public class RobotLinearOpMode extends LinearOpMode {
 
     /**
      * Rotate the left intake
+     *
      * @param degrees The angle to turn the left intake for
      */
     public void rotateLeftIntake(double degrees) {

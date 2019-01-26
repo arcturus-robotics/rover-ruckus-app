@@ -64,9 +64,9 @@ public class Conversion {
      * Calculate how many degrees are in <code>t</code> revolutions
      *
      * @param revolutions The amount of revolutions
-     * @return The degrees in <code>t</code> revolutions
+     * @return The degrees in <code>revolutions</code>
      */
     public static double revolutionsToDegrees(double revolutions) {
-        return Constants.CIRCLE * revolutions;
+        return 360 * revolutions;
     }
 }
