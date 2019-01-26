@@ -231,6 +231,10 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(Constants.PADDING_DURATION);
     }
 
+    /**
+     * Rotate the left intake
+     * @param degrees The angle to turn the left intake for
+     */
     public void rotateLeftIntake(double degrees) {
         if (degrees > 0) {
             robot.leftIntake.setDirection(Servo.Direction.FORWARD);
@@ -243,6 +247,11 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(Constants.PADDING_DURATION);
     }
 
+    /**
+     * Rotate the right intake
+     *
+     * @param degrees The angle to turn the right intake for
+     */
     public void rotateRightIntake(double degrees) {
         if (degrees > 0) {
             robot.rightIntake.setDirection(Servo.Direction.FORWARD);
@@ -255,6 +264,11 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(Constants.PADDING_DURATION);
     }
 
+    /**
+     * Rotate the intake tilt
+     *
+     * @param degrees The angle to turn the intake tilt for
+     */
     public void rotateIntakeTilt(double degrees) {
         if (degrees > 0) {
             robot.intakeTilt.setDirection(Servo.Direction.FORWARD);
@@ -273,6 +287,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      * @see #GOLD_MINERAL_LABEL
      * @see #SILVER_MINERAL_LABEL
      * @see #TFOD_MODEL_ASSET
+     * @see #vuforia
+     * @see #tfod
      * @see #initTfod()
      * @see #initVuforia()
      */
@@ -340,6 +356,8 @@ public class RobotLinearOpMode extends LinearOpMode {
 
     /**
      * Initialize the Vuforia localization engine.
+     *
+     * @see #vuforia
      */
     private void initVuforia() {
 
@@ -357,6 +375,11 @@ public class RobotLinearOpMode extends LinearOpMode {
 
     /**
      * Initialize the Tensor Flow Object Detection engine.
+     *
+     * @see #tfod
+     * @see #TFOD_MODEL_ASSET
+     * @see #GOLD_MINERAL_LABEL
+     * @see #SILVER_MINERAL_LABEL
      */
     private void initTfod() {
         int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(

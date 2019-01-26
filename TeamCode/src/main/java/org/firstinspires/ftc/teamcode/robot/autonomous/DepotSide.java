@@ -27,8 +27,8 @@ public class DepotSide extends RobotLinearOpMode {
             turnLeft(Constants.CIRCLE / 20);
             // Go to depot
             driveForward(1);
-            // Extend arm or servo to deploy the marker
-            turnArmTilt(Constants.CIRCLE / 12);
+            // Extend arm to deploy the marker
+            turnArm(Constants.CIRCLE / 12);
             // Move backward to crater
             driveBackward(1);
         }
