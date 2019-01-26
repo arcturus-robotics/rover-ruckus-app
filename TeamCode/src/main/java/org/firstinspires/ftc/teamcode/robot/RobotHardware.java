@@ -23,8 +23,9 @@ import org.firstinspires.ftc.teamcode.Constants;
  *
  * <p>
  * Servos:
- * leftIntake:   {//@value #LEFT_INTAKE} (Not implemented)
- * rightIntake:  {//@value #RIGHT_INTAKE} (Not implemented
+ * leftIntake:  {@value #LEFT_INTAKE}
+ * rightIntake: {@value #RIGHT_INTAKE}
+ * intakeTilt:  {@value #INTAKE_TILT}
  */
 public class RobotHardware {
     public static final String FRONT_LEFT_DRIVE = "front_left_drive";
@@ -36,6 +37,7 @@ public class RobotHardware {
     public static final String ARM_RIGHT = "arm_right";
     public static final String LEFT_INTAKE = "left_intake";
     public static final String RIGHT_INTAKE = "right_intake";
+    public static final String INTAKE_TILT = "intake_tilt";
 
     public DcMotor frontLeftDrive;
     public DcMotor frontRightDrive;
@@ -46,6 +48,7 @@ public class RobotHardware {
     public DcMotor armRight;
     public Servo leftIntake;
     public Servo rightIntake;
+    public Servo intakeTilt;
 
     protected HardwareMap hardwareMap;
     private ElapsedTime period = new ElapsedTime();
@@ -71,7 +74,6 @@ public class RobotHardware {
         latch = hwMap.get(DcMotor.class, LATCH);
         armLeft = hwMap.get(DcMotor.class, ARM_LEFT);
         armRight = hwMap.get(DcMotor.class, ARM_RIGHT);
-
 
         // Set motor directions
         // NOTE: Set to the opposite direction if we are using AndyMark motors
@@ -104,9 +106,11 @@ public class RobotHardware {
         // Define and initialize servos
         leftIntake = hwMap.get(Servo.class, LEFT_INTAKE);
         rightIntake = hwMap.get(Servo.class, RIGHT_INTAKE);
+        intakeTilt = hwMap.get(Servo.class, INTAKE_TILT);
 
         // Reset servo positions
         leftIntake.setPosition(Constants.MID_SERVO);
         rightIntake.setPosition(Constants.MID_SERVO);
+        intakeTilt.setPosition(Constants.MID_SERVO);
     }
 }
