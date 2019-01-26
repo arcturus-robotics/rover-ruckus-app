@@ -59,4 +59,14 @@ public class Conversion {
     public static double degreesToServoPosition(double degrees) {
         return Math.abs(degrees) / 180;
     }
+
+    /**
+     * Calculate how many degrees are in <code>t</code> revolutions
+     *
+     * @param revolutions The amount of revolutions
+     * @return The degrees in <code>t</code> revolutions
+     */
+    public static double revolutionsToDegrees(double revolutions) {
+        return Constants.CIRCLE * revolutions;
+    }
 }

@@ -22,14 +22,4 @@ public class Utilities {
         }
         return remaining;
     }
-
-    /**
-     * Calculate how many degrees are in <code>t</code> revolutions
-     *
-     * @param revolutions The amount of revolutions
-     * @return The degrees in <code>t</code> revolutios
-     */
-    public static double revolutionsToDegrees(double revolutions) {
-        return Constants.CIRCLE * revolutions;
-    }
 }

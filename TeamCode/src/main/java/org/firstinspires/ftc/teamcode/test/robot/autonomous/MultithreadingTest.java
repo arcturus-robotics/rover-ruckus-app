@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.test.robot.autonomous;
 
+import org.firstinspires.ftc.teamcode.Conversion;
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 
 public class MultithreadingTest extends RobotLinearOpMode {
@@ -16,9 +17,9 @@ public class MultithreadingTest extends RobotLinearOpMode {
         @Override
         public void run() {
             try {
-
+                turnLatch(Conversion.revolutionsToDegrees(-5));
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
     }
@@ -27,9 +28,9 @@ public class MultithreadingTest extends RobotLinearOpMode {
         @Override
         public void run() {
             try {
-
+                driveForward(5);
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
     }
