@@ -6,8 +6,7 @@ import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 
 /**
- * An autonomous program that moves from the lander, facing the crater side, to the depot to deploy
- * the marker, and finally moves to the crater
+ * An autonomous that starts facing the crater
  */
 @Autonomous(name = "Crater Side to Depot", group = "Robot Autonomous")
 //@Disabled
@@ -20,17 +19,16 @@ public class CraterSide extends RobotLinearOpMode {
             // Dismount the lander check Linear Opmode
             dismountLander();
 
-
-            //drive left fast the lander arm and into the clearing
+            // Drive left fast the lander arm and into the clearing
             driveLeft(140);
-            //so the front of our robot is facing depot
+            // So the front of our robot is facing depot
             turnRight(290);
-            //make sure robot is in line with wall
+            // Make sure robot is in line with wall
             driveRight(60);
-            //go to depot
+            // Go to depot
             driveForward(130);
             // Move to crater
-            driveBackward(Constants.FIELD_DISTANCE-10);
+            driveBackward(Constants.FIELD_DISTANCE - 10);
         }
     }
 }

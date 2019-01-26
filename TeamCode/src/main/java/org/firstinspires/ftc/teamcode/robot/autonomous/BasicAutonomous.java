@@ -6,7 +6,8 @@ import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.robot.RobotLinearOpMode;
 
 /**
- * A basic autonomous program that only moves forward to the corner of the field
+ * A basic autonomous program that dismounts off of the lander and moves forward to the corner of
+ * the field
  */
 @Autonomous(name = "Basic Autonomous", group = "Robot Autonomous")
 //@Disabled

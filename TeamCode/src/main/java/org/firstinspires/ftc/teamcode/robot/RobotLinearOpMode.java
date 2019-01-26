@@ -12,30 +12,22 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.Conversion;
-import java.util.List;
 
-//vuforia imports
-import org.firstinspires.ftc.robotcore.external.ClassFactory;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
-import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
-import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
+import java.util.List;
 
 /**
  * An opmode with many utility methods for autonomous programs
  */
 public class RobotLinearOpMode extends LinearOpMode {
+    // Vuforia
+    protected static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
+    protected static final String GOLD_MINERAL_LABEL = "Gold Mineral";
+    protected static final String SILVER_MINERAL_LABEL = "Silver Mineral";
     protected RobotHardware robot = new RobotHardware();
     protected ElapsedTime period = new ElapsedTime();
-    double motorspeed  = 0.5;
-    //vuforia instances
-    private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
-    private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
-    private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
-    private static final String VUFORIA_KEY = "AagmIFb/////AAABmQeoELJRUUhBnw22N1rfAeURKsi4lO2PBquW4po2++umNgidlnmVALYdHmMXwjhAD9owXoF2zkCbWmBDEStv642zdEddYZGqPjK2pn4bDvhEeSVj4mQs3zR7mB2T94RenHo+qz8zhq4yidyNRZNYF/Y3OUTayx7H6EtYnU6kaOZi30xW6ZzrzzyP/dEG5mHV2pzBHTEu/Qe1g7RcsCG5sFDg0KAagyjxgC6X3z4/EA0tC2554q+o8S+glD7nFidnAF5e2Pti3+gAnwDN6Nl/nRGrsD0JyAVUFFk2Ii0uEorRz31VCD3C4+ib2UHN0QOZwTYgqXQ4JcH5bXJsqn1aDmSeky2smnk7xamtfXkdBm0I\n";
-    private VuforiaLocalizer vuforia;
-    private TFObjectDetector tfod;
-    //
+    protected double drivePower = 0.5;
+    protected VuforiaLocalizer vuforia;
+    protected TFObjectDetector tfod;
 
     @Override
     public void runOpMode() {
@@ -104,8 +96,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveForward(double inches) {
         drive(
-                motorspeed, motorspeed,
-                motorspeed, motorspeed,
+                drivePower, drivePower,
+                drivePower, drivePower,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -119,8 +111,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveLeft(double inches) {
         drive(
-                motorspeed, -motorspeed,
-                -motorspeed, motorspeed,
+                drivePower, -drivePower,
+                -drivePower, drivePower,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -134,8 +126,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveBackward(double inches) {
         drive(
-                -motorspeed, -motorspeed,
-                -motorspeed, -motorspeed,
+                -drivePower, -drivePower,
+                -drivePower, -drivePower,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -149,8 +141,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void driveRight(double inches) {
         drive(
-                -motorspeed, motorspeed,
-                motorspeed, -motorspeed,
+                -drivePower, drivePower,
+                drivePower, -drivePower,
                 Conversion.inchesToDrive(inches)
         );
     }
@@ -178,8 +170,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void turnLeft(double degrees) {
         drive(
-                -motorspeed, motorspeed,
-                -motorspeed, motorspeed,
+                -drivePower, drivePower,
+                -drivePower, drivePower,
                 Conversion.degreesToDrive(degrees)
         );
     }
@@ -193,8 +185,8 @@ public class RobotLinearOpMode extends LinearOpMode {
      */
     public void turnRight(double degrees) {
         drive(
-                -motorspeed, motorspeed,
-                -motorspeed, motorspeed,
+                -drivePower, drivePower,
+                -drivePower, drivePower,
                 Conversion.degreesToDrive(degrees)
         );
     }
@@ -229,13 +221,13 @@ public class RobotLinearOpMode extends LinearOpMode {
             telemetry.addData("Sorry!", "This device is not compatible with TFOD");
         }
 
-        /** Wait for the game to begin */
+        // Wait for the game to begin
         telemetry.addData(">", "Press Play to start tracking");
         telemetry.update();
         waitForStart();
 
         if (opModeIsActive()) {
-            /** Activate Tensor Flow Object Detection. */
+            // Activate TensorFlow Object Detection.
             if (tfod != null) {
                 tfod.activate();
             }
@@ -252,7 +244,7 @@ public class RobotLinearOpMode extends LinearOpMode {
                             int silverMineral1X = -1;
                             int silverMineral2X = -1;
                             for (Recognition recognition : updatedRecognitions) {
-                                if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
+                                if (recognition.getLabel().equals(GOLD_MINERAL_LABEL)) {
                                     goldMineralX = (int) recognition.getLeft();
                                 } else if (silverMineral1X == -1) {
                                     silverMineral1X = (int) recognition.getLeft();
@@ -285,12 +277,11 @@ public class RobotLinearOpMode extends LinearOpMode {
      * Initialize the Vuforia localization engine.
      */
     private void initVuforia() {
-        /*
-         * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
-         */
+
+        // Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
-        parameters.vuforiaLicenseKey = VUFORIA_KEY;
+        parameters.vuforiaLicenseKey = Constants.VUFORIA_LICENSE_KEY;
         parameters.cameraName = hardwareMap.get(WebcamName.class, "webcam");
 
         //  Instantiate the Vuforia engine
@@ -307,9 +298,8 @@ public class RobotLinearOpMode extends LinearOpMode {
                 "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
-        tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_GOLD_MINERAL, LABEL_SILVER_MINERAL);
+        tfod.loadModelFromAsset(TFOD_MODEL_ASSET, GOLD_MINERAL_LABEL, SILVER_MINERAL_LABEL);
     }
-
 
 
     /**
