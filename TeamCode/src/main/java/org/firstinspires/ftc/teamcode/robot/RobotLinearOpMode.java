@@ -59,13 +59,10 @@ public class RobotLinearOpMode extends LinearOpMode {
     public void dismountLander() {
         turnLatch(-Constants.LATCH_ANGLE);
         sleep(500);
-        driveRight(Constants.DISMOUNT_DISTANCE);
+        driveRight(40);
         sleep(500);
-        driveForward(Constants.DISMOUNT_FORWARD_DISTANCE);
+        driveForward(20);
         sleep(500);
-        driveLeft(Constants.DISMOUNT_DISTANCE + 1);
-        sleep(500);
-        turnLatch(Constants.LATCH_ANGLE);
     }
 
     /**
