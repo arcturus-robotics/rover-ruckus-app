@@ -36,7 +36,7 @@ public class Conversion {
      * @see Constants#MOTOR_TURN_RATE
      */
     public static long degreesToMotor(double degrees) {
-        return (long) (1000 * (degrees / Constants.TORQUENADO_TURN_RATE));
+        return (long) (1000 * (degrees / Constants.MOTOR_TURN_RATE));
     }
 
     /**

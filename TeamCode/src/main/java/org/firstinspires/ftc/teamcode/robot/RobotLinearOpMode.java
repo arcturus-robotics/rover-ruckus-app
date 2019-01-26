@@ -284,7 +284,7 @@ public class RobotLinearOpMode extends LinearOpMode {
         parameters.vuforiaLicenseKey = Constants.VUFORIA_LICENSE_KEY;
         parameters.cameraName = hardwareMap.get(WebcamName.class, "webcam");
 
-        //  Instantiate the Vuforia engine
+        // Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
         // Loading trackables is not necessary for the Tensor Flow Object Detection engine.
