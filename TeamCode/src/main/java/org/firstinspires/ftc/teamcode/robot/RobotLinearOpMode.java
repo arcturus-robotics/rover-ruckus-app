@@ -345,4 +345,16 @@ public class RobotLinearOpMode extends LinearOpMode {
 
         sleep(Constants.PADDING_DURATION);
     }
+
+    public void rotateIntakeTilt(double degrees) {
+        if (degrees > 0) {
+            robot.intakeTilt.setDirection(Servo.Direction.FORWARD);
+        } else {
+            robot.intakeTilt.setDirection(Servo.Direction.REVERSE);
+        }
+
+        robot.intakeTilt.setPosition(Conversion.degreesToServoPosition(Math.abs(degrees)));
+
+        sleep(Constants.PADDING_DURATION);
+    }
 }
