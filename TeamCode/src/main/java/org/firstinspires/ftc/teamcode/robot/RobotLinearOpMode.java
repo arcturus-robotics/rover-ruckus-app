@@ -211,7 +211,7 @@ public class RobotLinearOpMode extends LinearOpMode {
         sleep(Constants.PADDING_DURATION);
     }
 
-    public void goldcubedetect() {
+    public void initGoldCubeDetection() {
         // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
         initVuforia();
 
