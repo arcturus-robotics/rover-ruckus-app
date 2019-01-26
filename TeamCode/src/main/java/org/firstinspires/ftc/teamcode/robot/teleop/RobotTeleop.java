@@ -8,6 +8,9 @@ import org.firstinspires.ftc.teamcode.robot.RobotOpMode;
 
 /**
  * The main teleop for our robot
+ *
+ * @see #gamepad1
+ * @see #gamepad2
  */
 @TeleOp(name = "Robot Teleop", group = "Robot Teleop")
 //@Disabled

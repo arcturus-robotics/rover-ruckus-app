@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.util.Range;
 
 /**
  * <code>RobotTeleop</code> but it only uses a single controller
+ *
+ * @see #gamepad1
  */
 @TeleOp(name = "Robot Teleop w/ Single Controller", group = "Robot Teleop")
 //@Disabled
@@ -31,19 +33,6 @@ public class RobotTeleop_SingleController extends RobotTeleop {
         } else {
             robot.latch.setPower(0);
         }
-
-        // Arm
-        if (gamepad1.left_trigger >= BUTTON_THRESHOLD && gamepad1.right_trigger < BUTTON_THRESHOLD) {
-            robot.armLeft.setPower((-gamepad1.left_trigger));
-            robot.armRight.setPower((gamepad1.left_trigger));
-        } else if (gamepad1.right_trigger >= BUTTON_THRESHOLD && gamepad1.left_trigger < BUTTON_THRESHOLD) {
-            robot.armLeft.setPower((gamepad1.right_trigger) / 3);
-            robot.armRight.setPower((-gamepad1.right_trigger) / 3);
-        } else {
-            robot.armLeft.setPower(0);
-            robot.armRight.setPower(0);
-        }
-
 
         // Intake
         if (gamepad1.left_bumper || gamepad1.right_bumper) {
