@@ -1,3 +1,3 @@
-# ftc_app
+# Rover Ruckus App
 
-This repository holds all of the code for Arcturus' robot controller for FTC.
+Arcturus' robot controller for FTC during the Rover Ruckus season.
