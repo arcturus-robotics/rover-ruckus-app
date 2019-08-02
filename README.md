@@ -1,3 +1,4 @@
 # Rover Ruckus App
 
-Arcturus' robot controller for FTC during the Rover Ruckus season.
+Arcturus Robotics' robot controller for the Rover Ruckus season (2018—2019).\
+Uses outdated code from [the old repository](https://github.com/ftctechnh/ftc_app).
